@@ -9,9 +9,16 @@ class Home extends Controller{
 
     public function indexAction(){
         $db = DB::getInstance();
-        $contacts = $db->query("SELECT * FROM contacts ORDER BY lname,fname")->results();
-        dnd($contacts[1]->fname);
-        //dnd($db->get_columns('contacts'));
+        /*
+        $contacts = $db->findFirst('contacts',[
+            'conditions' => ["fname =  ?","lname = ?"],
+            'bind' => ['John','Doe']
+        ]);
+        dnd($contacts);
+        */
+        $fields = $db->get_columns('contacts');
+        dnd($fields);
+
         $this->view->render('home'. DS .'index'); //Go to relevant view page
     }
 }

@@ -40,17 +40,71 @@ class DB {
         }
         return $this;
     }
-    protected function _read($table ,$params = []){
+    protected function _read($table,$params=[]){
         $conditionString = '';
         $bind = [];
         $order = '';
         $limit = '';
 
-        
+        //conditions
+        if (isset($params['conditions'])){ //Check the value as well
+            if (is_array($params['conditions'])){
+                foreach ($params['conditions'] as $condition){
+                    $conditionString.=' '.$condition.' AND';
+                }
+                $conditionString=trim($conditionString);
+                $conditionString=rtrim($conditionString,' AND');
+            }
+            else{
+                $conditionString=$params['conditions'];
+            }
+            if ($conditionString!=''){
+                $conditionString=' WHERE '.$conditionString;
+            }
+        }
+
+        //bind
+        if (array_key_exists('bind',$params)){ //Just check whether the key exists
+            $bind=$params['bind'];
+        }
+
+        //order
+        if (array_key_exists('order',$params)){
+            $order=' ORDER BY '.$params['order'];
+        }
+
+        //limit
+        if (array_key_exists('limit',$params)){
+            $limit = ' LIMIT '.$params['limit'];
+        }
+        $sql = "SELECT * FROM {$table}{$conditionString}{$order}{$limit}";
+        //dnd($sql);
+        if ($this->query($sql,$bind)){
+            if (count($this->_result)){
+                return true;
+            }else{
+                return false;
+            }
+                        
+        }else{
+            return false;
+        }
     }
 
     public function find($table,$params=[]){
+        if ($this -> _read($table,$params)){
+            return $this->results();
+        }else{
+            return false;
+        }
+    }
 
+    public function findFirst($table,$params=[]){
+        if ($this -> _read($table,$params)){
+            return $this->first();
+        }else{
+            return false;
+        }
     }
 
     //Insert data into a table
@@ -77,7 +131,7 @@ class DB {
     }
 
     //Update row data by giving idField and id
-    public function update($table,$idField,$id,$fields=[]){
+    public function update($table,$idField = 'id',$id,$fields=[]){
         $fieldString = '';
         $values = [];
 
