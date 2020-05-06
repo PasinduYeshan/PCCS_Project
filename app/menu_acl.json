@@ -1,0 +1,27 @@
+{
+  "Home" : "home",
+  "Contacts" : {
+    "My Contacts" : "contacts",
+    "Add Contact" : "contacts/add"
+
+  },
+  "Tools" : {
+    "My Tools" : "tools",
+    "Tool 1" : "tools/first",
+    "Tool 2" : "tools/second",
+    "separator" : "",
+    "Tool 3" : "tools/third"
+
+  },
+  "Finesheet" : {
+    "Add" : "finesheet/add",
+    "Details" : "finesheet/details"
+  },
+
+  "Login" : "register/login",
+  "Logout" : "register/logout"
+
+
+
+
+}
