@@ -19,3 +19,5 @@ Eg:-
 Model.php in core -
     data() function
     assign() function
+    
+    ***finesheet done***
