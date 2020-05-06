@@ -1,18 +1,37 @@
 <?php
 
-//This function can be used for debugging "dump and die = dnd"
-function dnd($data){
+function dnd($data) {
     echo '<pre>';
     var_dump($data);
-    echo '<pre>';
+    echo '</pre>';
     die();
-}
-function diplay($data){
-    echo '<pre>';
-    var_dump($data);
-    echo '<pre>'; 
 }
 
 function sanitize($dirty){
-    return htmlentities($dirty, ENT_QUOTES,'UTF-8');
+    return htmlentities($dirty,ENT_QUOTES,'UTF-8');
+
+}
+
+function currentUser(){
+    return Users::currentLoggedInUser();
+}
+
+function posted_values($post){
+    $clean_ary = [];
+    foreach ($post as $key => $value){
+        $clean_ary[$key] = sanitize($value);
+    }
+    return $clean_ary;
+}
+
+function currentPage(){
+    $currentPage = $_SERVER['REQUEST_URI'];
+    if ($currentPage == PROOT || $currentPage == PROOT.'home/index'){
+        $currentPage = PROOT. 'HomeController';
+    }
+    return $currentPage;
+}
+
+function getObjectProperties($obj){
+    return get_object_vars($obj);
 }
