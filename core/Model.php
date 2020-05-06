@@ -1,58 +1,68 @@
 <?php
-class Model {
-    protected $_db, $_table, $_modelName , $_softDelete = false, $_columnNames = [];
+
+
+class Model{
+    protected $_db,
+              $_table,
+              $_modelName,
+              $_softDelete = false;
     public $id;
+
 
     public function __construct($table)
     {
         $this->_db = DB::getInstance();
         $this->_table=$table;
-        $this->_setTableColumns();
         $this->_modelName = str_replace(' ','',ucwords(str_replace('_',' ',$this->_table)));
     }
 
-    protected function _setTableColumns(){  
-        $columns = $this->get_columns();
-        foreach ($columns as $column){
-            $columnName = $column->Field;
-            $this->_columnNames[]=$column->Field;
-            $this->{$columnName}=null;
-        }
-    }
+
 
     public function get_columns(){
         return $this->_db->get_columns($this->_table);
     }
 
-    public function find($params = []){ //Return object of Models 
-        $results = [];
-        $resultsQuery = $this-> _db->find($this->_table , $params);
-        foreach($resultsQuery as $result){
-            $obj = new $this->_modelName($this-> _table); //Create new Obkect by the table name
-            $obj -> populateObjectData($result);
-            $results[] = $obj;
+    protected function _softDeleteParams($params){
+        if ($this->_softDelete){
+            if (array_key_exists('conditions',$params)){
+                if (is_array($params['conditions'])){
+                    $params['conditions'][] = "deleted != 1";
+                }
+                else{
+                    $params['conditions'] .= " AND deleted != 1";
+                }
+            }
+            else{
+                $params['conditions'] = "deleted != 1";
+            }
         }
-        return $results;
+        return $params;
     }
 
-    public function findFirst($params = []){ //Return first search item as an object
-        $resultsQuery = $this->_db->findFirst($this->_table,$params);
-        $result = new $this->_modelName($this->_table);
-        $result -> populateObjectData($resultsQuery);
-        return $result;
+    public function find($params = []){
+        $params = $this->_softDeleteParams($params);
+        $resultsQuery = $this->_db->find($this->_table,$params,get_class($this));
+        if (!$resultsQuery) return [];
+        return $resultsQuery;
+    }
+
+    public function findFirst($params = []){
+        $params = $this->_softDeleteParams($params);
+        $resultQuery = $this->_db->findFirst($this->_table,$params,get_class($this));
+
+        return $resultQuery;
+
     }
 
     public function findByID($id){
-        return $this->findFirst(['conditions' => "id = ?",'bind' => [$id]]);
+        return $this->findFirst(['conditions'=>"id = ?", 'bind'=>[$id]]);
     }
 
-    public function save(){ //Save the current object to database
-        $fields = [];
-        foreach ($this-> _columnNames as $column){
-            $fields[$column] = $this->$column; //Get object properties
-        }
-        //Check whether the data should be inserted or updated
-        if (property_exists($this,'id') && $this->id!=''){ //If id exists
+    public function save(){
+        $fields = getObjectProperties($this);
+
+        //determine whether to update or insert
+        if (property_exists($this,'id') && $this->id!=''){
             return $this->update($this->id,$fields);
         }
         else{
@@ -60,49 +70,42 @@ class Model {
         }
     }
 
-
     public function insert($fields){
-        if (empty($fields)){
-            return false;
-        }else{
-            return $this->_db->insert($this->_table,$fields);
-        }
+        if (empty($fields))return false;
+        return $this->_db->insert($this->_table,$fields);
     }
 
-    public function update($idField = 'id',$id,$fields=[]){ //Field of Id should be sent too
-        if (empty($fields) || $id = ''){
-            return false;
-        }else{
-            return $this->_db->update($this->_table, $idField, $id,$fields);
-        }
+    public function update($id, $fields){
+        if (empty($fields) || $id=='')return false;
+        return $this->_db->update($this->_table,$id,$fields);
     }
 
-    public function delete($id='',$idField = 'id'){ //Not like the usual 
+    public function delete($id=''){
         if ($id=='' && $this->id=='')return false;
         $id = ($id=='')? $this->id : $id;
         if($this->_softDelete){
-            return $this->update('id',$id,['deleted' => 1]);
+            return $this->update($id,['deleted' => 1]);
         }
-        return $this->_db->delete($this->_table,$idField,$id);
+        return $this->_db->delete($this->_table,$id);
     }
 
-    public function query($sql,$bind){
+    public function query($sql,$bind=[]){
         return $this->_db->query($sql,$bind);
     }
 
-    public function data(){ //Get data object ???
+    public function data() {
         $data = new stdClass();
-        foreach($this->_columnNames as $column){ //?????
-            $data ->column = $this->column;
+        foreach(getObjectProperties($this) as $column=>$value) {
+            $data->column = $value;
         }
         return $data;
     }
 
-    public function assign($params){ //Assigning values ??
-        if(!empty($params)){
-            foreach($params as $key => $val){
-                if(in_array($key, $this->_columnNames)){
-                    $this->$key = sanitize($val);
+    public function assign($params){
+        if (!empty($params)){
+            foreach ($params as $key=>$val){
+                if (property_exists($this,$key)){
+                    $this->$key=sanitize($val);
                 }
             }
             return true;
@@ -110,11 +113,11 @@ class Model {
         return false;
     }
 
-    protected function populateObjectData($result){ //Assign each values to the object
-        foreach($result as $key => $val){
-            $this -> $key = $val;
+
+    protected function populateObjData($result){
+        foreach ($result as $key=>$val){
+            $this->$key=$val;
         }
     }
-
 
 }
