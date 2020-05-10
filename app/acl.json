@@ -11,8 +11,16 @@
     },
     "Register" : ["logout"],
     "Contacts" : ["*"],
-    "Tools" : ["*"],
-    "Finesheet" : ["*"]
+    "Tools" : ["*"]
+
+
+  },
+  "TrafficOfficer" : {
+    "denied" : {
+
+    },
+    "Trafficofficer" : ["*"]
+
   }
 
 

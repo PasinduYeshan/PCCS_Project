@@ -14,8 +14,8 @@
 
   },
   "Finesheet" : {
-    "Add" : "finesheet/add",
-    "Details" : "finesheet/details"
+    "Add" : "trafficofficer/add",
+    "Details" : "trafficofficer/details"
   },
 
   "Login" : "register/login",
