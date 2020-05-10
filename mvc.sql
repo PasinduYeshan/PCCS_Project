@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2020 at 01:43 PM
+-- Generation Time: May 10, 2020 at 02:33 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -84,6 +84,7 @@ CREATE TABLE `finesheet` (
 --
 
 INSERT INTO `finesheet` (`sheet_no`, `vehicle_no`, `full_name`, `address`, `fine_date`, `fine_time`, `place`, `offence`, `licence_no`, `id_no`, `fine`, `officer_id`, `status`, `id`) VALUES
+('8909', '123frfrf', 'asa aaa', 'sdsad', '2020-05-21', '13:00:00', 'frfrft', 'scv', 'asxz', '90', '300.00', '1', 0, NULL),
 ('8985', 'sdf333', 'john doe', '123 Main St.', '2020-05-14', '06:06:00', 'jhghg', '2', 'dd222', '1111', '250.00', '1', 0, NULL),
 ('8987', 'sdf333', 'john doe', '221/2, Hendala Road, Wattala', '2020-05-28', '00:01:00', 'borella', 'sss', 'dd222', '1111', '250.00', '1', 0, NULL),
 ('9098', '7yggg', 'hjh hgf', 'ft jhjhj', '2020-05-13', '00:07:00', 'uyu', 'jyyj', 'ggddd', '11212', '100.00', '1', 0, NULL);
@@ -110,9 +111,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `fname`, `lname`, `acl`, `deleted`) VALUES
-(1, 'parhamcurtis', 'parhamcurtis@sharklasers.com', '$2y$10$/UuSP9l2Dy9WNBZHPVXu/OcUlRm28z5CmCesTvnS3UZWoi9Cu3TLW', 'Curtis', 'Parham', '', 0),
+(1, 'parhamcurtis', 'parhamcurtis@sharklasers.com', '$2y$10$/UuSP9l2Dy9WNBZHPVXu/OcUlRm28z5CmCesTvnS3UZWoi9Cu3TLW', 'Curtis', 'Parham', '[\"TrafficOfficer\"]', 0),
 (4, 'parhamtoni', 'parhamtoni@sharklasers.com', '$2y$10$bU.E5M5OXkGyu56EHz63wuyShHbSkR7duSdJqICWBUQMa5fTimRSa', 'Toni', 'Parham', '', 0),
-(5, 'parhamjules', 'parhamjules@sharklasers.com', '$2y$10$97FwI9PQRNH1Rd4ORlPdcunpq7efsivBuQ3YJ1Y6zbVd4F6cli9mG', 'Jules', 'Parham', '', 0);
+(5, 'parhamjules', 'parhamjules@sharklasers.com', '$2y$10$97FwI9PQRNH1Rd4ORlPdcunpq7efsivBuQ3YJ1Y6zbVd4F6cli9mG', 'Jules', 'Parham', '', 0),
+(1111, 'johndoe', 'johndoe@gmail.com', '$2y$10$TIJOsZk4vcD4cYDYnsVt0e60HIhOeXqdWe9YmyApaEgyHjw2ke3Vm', 'John', 'Doe', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -171,7 +173,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1112;
 
 --
 -- AUTO_INCREMENT for table `user_sessions`
