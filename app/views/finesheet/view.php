@@ -1,7 +1,7 @@
 <?php $this->setSiteTitle($this->finesheet[0]->displaySheetNo()); ?>
-<?php $this->start('body'); ?>
+<?php $this->start('body');?>
     <div class="col-md-8 col-md-offset-2 well">
-        <a href="<?=PROOT?>finesheet/details" class="btn btn-xs btn-default">Back</a>
+        <a href="<?=PROOT?><?=$this->controller?>/details" class="btn btn-xs btn-default">Back</a>
         <h2 class="text-center"><?=$this->finesheet[0]->displaySheetNo()?></h2>
         <h3 class="text-center"><?=$this->finesheet[0]->displayStatus()?></h3>
         <div class="col-md-6">
