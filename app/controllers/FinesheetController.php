@@ -6,6 +6,7 @@ class FinesheetController extends Controller {
         parent::__construct($controller,$action);
         $this->view->setLayout('default');
         $this->load_model('Finesheet');
+
     }
 
 
@@ -36,10 +37,10 @@ class FinesheetController extends Controller {
      //   $this->view->finesheets = $finesheets;
         //dnd($finesheets);
         if ($_POST){
-            //dnd($_POST);
             $finesheets = $this->FinesheetModel->findById($_POST['id_no'],['order'=>'sheet_no']);
             //dnd($finesheets);
             $this->view->finesheets = $finesheets;
+            $this->view->controller = lcfirst($this->_controller);
         }
 
         $this->view->render('finesheet/details');
@@ -51,6 +52,8 @@ class FinesheetController extends Controller {
             Router::redirect('finesheet');
         }
         $this->view->finesheet = $finesheet;
+        $this->view->controller = lcfirst($this->_controller);
+
        // dnd($finesheet[0]->sheet_no);
         $this->view->render('finesheet/view');
 
