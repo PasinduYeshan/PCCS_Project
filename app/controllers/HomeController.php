@@ -8,6 +8,7 @@ class HomeController extends Controller {
     }
 
     public function indexAction(){
+        //dnd(json_encode(['TrafficOfficer']));
         $this->view->render('home/index');
     }
 }

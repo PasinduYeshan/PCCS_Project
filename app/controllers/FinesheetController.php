@@ -59,5 +59,12 @@ class FinesheetController extends Controller {
 
     }
 
+    public function myfinesAction(){
+        $finesheets = $this->FinesheetModel->findById(currentUser()->id,['order'=>'sheet_no']);
+        $this->view->finesheets = $finesheets;
+        $this->view->controller = lcfirst($this->_controller);
+        $this->view->render('finesheet/myfines');
+    }
+
 
 }
