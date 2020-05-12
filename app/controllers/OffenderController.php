@@ -1,7 +1,7 @@
 <?php
 
 
-class OffenderController extends Controller{
+class OffenderController extends UserController{
     private $finesheetC;
     private $licenceC;
 

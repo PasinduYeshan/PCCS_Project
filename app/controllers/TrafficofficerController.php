@@ -1,7 +1,7 @@
 <?php
 
 
-class TrafficofficerController extends Controller{
+class TrafficofficerController extends UserController{
     private $finesheetC;
 
     public function __construct($controller, $action) {
