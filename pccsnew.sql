@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 06:21 PM
+-- Generation Time: May 12, 2020 at 06:40 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -148,6 +148,7 @@ INSERT INTO `finesheet` (`sheet_no`, `vehicle_no`, `full_name`, `address`, `fine
 
 CREATE TABLE `licence` (
   `licence_no` varchar(15) NOT NULL,
+  `id_no` varchar(15) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `address` varchar(200) NOT NULL,
   `dob` date NOT NULL,
@@ -161,12 +162,8 @@ CREATE TABLE `licence` (
 -- Dumping data for table `licence`
 --
 
-INSERT INTO `licence` (`licence_no`, `full_name`, `address`, `dob`, `blood_group`, `competent_to_drive`, `issue_date`, `expiry_date`) VALUES
-('B1796639', 'Congenige Randhi Dilhara Fernando', '221/2, Hendala Road, Wattala', '1979-07-19', 'O-', 'B,G1', '2017-05-27', '2022-02-20'),
-('B3863578', 'Warnakulasuriya Patabendige Ushantha Joseph Chaminda Vaas', 'No. 57, Colombo Road, Kandana', '1974-01-27', 'A+', '', '2018-07-11', '2026-10-29'),
-('B4815640', 'Mohamed Farveez Maharoof', '15C Old Quarry Road, Mount Lavinia', '1984-10-07', 'AB-', 'A,B,G1', '2015-11-17', '2023-11-16'),
-('B5836164', 'Separamadu Lasith Malinga', '422 Galle Road, Rawathawatta, Moratuwa', '1981-10-04', 'O+', 'A,B,G1', '2016-09-17', '2024-09-17'),
-('B7055132', 'Kulasekara Mudiyanselage Dinesh Nuwan Kulasekara', '459/1, Kandy Road, Ranmuthugala, Kadawatha', '1982-07-22', 'AB+', 'B,G1', '2014-05-24', '2022-05-24');
+INSERT INTO `licence` (`licence_no`, `id_no`, `full_name`, `address`, `dob`, `blood_group`, `competent_to_drive`, `issue_date`, `expiry_date`) VALUES
+('B3863578', '1111', 'john doe', '123 Main St.', '2019-04-02', 'A+', 'A,B1', '2019-11-18', '2021-05-21');
 
 -- --------------------------------------------------------
 
@@ -385,6 +382,13 @@ CREATE TABLE `user_sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `user_sessions`
+--
+
+INSERT INTO `user_sessions` (`id`, `user_id`, `session`, `user_agent`) VALUES
+(1, 1111, 'f7177163c833dff4b38fc8d2872f1ec6', 'Mozilla (Windows NT 10.0; Win64; x64) AppleWebKit (KHTML, like Gecko) Chrome Safari');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -506,7 +510,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_sessions`
 --
 ALTER TABLE `user_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
