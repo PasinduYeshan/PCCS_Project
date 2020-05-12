@@ -26,7 +26,7 @@ class FinesheetController extends Controller {
         }
         $this->view->finesheet = $finesheet;
         $this->view->displayErrors = $validation->displayErrors();
-        $this->view->postAction = PROOT . 'finesheet' . DS . 'add';
+        $this->view->postAction = PROOT .lcfirst($this->_controller). DS . 'add';
         $this->view->render('finesheet/add');
     }
 
