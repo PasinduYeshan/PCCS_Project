@@ -21,6 +21,13 @@
     },
     "Trafficofficer" : ["*"]
 
+  },
+  "Offender" : {
+    "denied" : {
+
+    },
+    "Offender" : ["myfines","view","mylicence"]
+
   }
 
 

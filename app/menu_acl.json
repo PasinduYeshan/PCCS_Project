@@ -5,6 +5,8 @@
     "Add Contact" : "contacts/add"
 
   },
+  "My Fines" : "offender/myfines",
+  "My Licence" : "offender/mylicence",
   "Tools" : {
     "My Tools" : "tools",
     "Tool 1" : "tools/first",
