@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2020 at 06:40 PM
+-- Generation Time: May 13, 2020 at 03:16 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -125,20 +125,20 @@ CREATE TABLE `finesheet` (
   `licence_no` varchar(15) NOT NULL,
   `id_no` varchar(15) NOT NULL,
   `fine` decimal(10,2) NOT NULL,
-  `officer_id` varchar(15) NOT NULL,
+  `officer_id` varchar(15) DEFAULT NULL,
   `due_date` date GENERATED ALWAYS AS (`fine_date` + interval 7 day) STORED,
-  `status` tinyint(1) DEFAULT 0
+  `status` tinyint(1) DEFAULT 0,
+  `id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `finesheet`
 --
 
-INSERT INTO `finesheet` (`sheet_no`, `vehicle_no`, `full_name`, `address`, `fine_date`, `fine_time`, `place`, `offence`, `licence_no`, `id_no`, `fine`, `officer_id`, `status`) VALUES
-('8909', '123frfrf', 'asa aaa', 'sdsad', '2020-05-21', '13:00:00', 'frfrft', 'scv', 'asxz', '90', '300.00', '1', 0),
-('8985', 'sdf333', 'john doe', '123 Main St.', '2020-05-14', '06:06:00', 'jhghg', '2', 'B3863578', '1111', '250.00', '1', 0),
-('8987', 'sdf333', 'john doe', '221/2, Hendala Road, Wattala', '2020-05-28', '00:01:00', 'borella', 'sss', 'B3863578', '1111', '250.00', '1', 0),
-('9098', '7yggg', 'hjh hgf', 'ft jhjhj', '2020-05-13', '00:07:00', 'uyu', 'jyyj', 'ggddd', '11212', '100.00', '1', 0);
+INSERT INTO `finesheet` (`sheet_no`, `vehicle_no`, `full_name`, `address`, `fine_date`, `fine_time`, `place`, `offence`, `licence_no`, `id_no`, `fine`, `officer_id`, `status`, `id`) VALUES
+('1234', '5464N', 'Deeptha Kumara', '22/B, Hogwarts', '2020-12-04', '15:45:00', 'Horana', 'Road sdf', 'B3863578', '11212', '3500.00', '1', 0, NULL),
+('8985', 'sdf333', 'john doe', '123 Main St.', '2020-05-14', '06:06:00', 'jhghg', '2', 'B3863578', '1111', '250.00', '19396', 0, 0),
+('8987', 'sdf333', 'john doe', '221/2, Hendala Road, Wattala', '2020-05-28', '00:01:00', 'borella', 'sss', 'B3863578', '1111', '250.00', '32882', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -164,45 +164,6 @@ CREATE TABLE `licence` (
 
 INSERT INTO `licence` (`licence_no`, `id_no`, `full_name`, `address`, `dob`, `blood_group`, `competent_to_drive`, `issue_date`, `expiry_date`) VALUES
 ('B3863578', '1111', 'john doe', '123 Main St.', '2019-04-02', 'A+', 'A,B1', '2019-11-18', '2021-05-21');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `id` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL,
-  `usertype` enum('Offender','Traffic Officer','OIC','DIG','Payment Officer') NOT NULL DEFAULT 'Offender'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`id`, `password`, `usertype`) VALUES
-('600806176V', 'password', ''),
-('611006050V', 'password', 'DIG'),
-('660708409V', 'password', 'Traffic Officer'),
-('671664307V', 'password', 'Traffic Officer'),
-('683038823V', 'password', 'OIC'),
-('719210659V', 'password', 'Traffic Officer'),
-('728791972V', 'password', ''),
-('755571797V', 'password', 'OIC'),
-('763083088V', 'password', 'Payment Officer'),
-('777204956V', 'password', 'OIC'),
-('808790221V', 'password', 'OIC'),
-('810747419V', 'password', 'Traffic Officer'),
-('814992406V', 'password', 'Payment Officer'),
-('827724085V', 'password', 'Payment Officer'),
-('866741174V', 'password', 'OIC'),
-('868089364V', 'password', ''),
-('880666303V', 'password', 'Payment Officer'),
-('894822932V', 'password', 'Traffic Officer'),
-('912539947V', 'password', 'Payment Officer'),
-('953811750V', 'password', ''),
-('967070406V', 'password', '');
 
 -- --------------------------------------------------------
 
@@ -269,6 +230,14 @@ CREATE TABLE `offender` (
   `address` varchar(200) NOT NULL,
   `nearest_police_branch` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `offender`
+--
+
+INSERT INTO `offender` (`offender_id`, `licence_no`, `offender_name`, `tp_no`, `address`, `nearest_police_branch`) VALUES
+('1111', 'B3863578', 'John Doe', '077452187', 'No.45/A,Godagama', 'Godagama'),
+('11212', 'B3863578', 'Deeptha Karunasena', '077452457', 'No.45/A,Maharagama', 'Maharagama');
 
 -- --------------------------------------------------------
 
@@ -382,13 +351,6 @@ CREATE TABLE `user_sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_sessions`
---
-
-INSERT INTO `user_sessions` (`id`, `user_id`, `session`, `user_agent`) VALUES
-(1, 1111, 'f7177163c833dff4b38fc8d2872f1ec6', 'Mozilla (Windows NT 10.0; Win64; x64) AppleWebKit (KHTML, like Gecko) Chrome Safari');
-
---
 -- Indexes for dumped tables
 --
 
@@ -417,19 +379,16 @@ ALTER TABLE `dig`
 -- Indexes for table `finesheet`
 --
 ALTER TABLE `finesheet`
-  ADD PRIMARY KEY (`sheet_no`);
+  ADD PRIMARY KEY (`sheet_no`),
+  ADD KEY `id_no` (`id_no`),
+  ADD KEY `officer_id` (`officer_id`);
 
 --
 -- Indexes for table `licence`
 --
 ALTER TABLE `licence`
-  ADD PRIMARY KEY (`licence_no`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`licence_no`),
+  ADD KEY `id_no` (`id_no`);
 
 --
 -- Indexes for table `offence`
@@ -441,6 +400,7 @@ ALTER TABLE `offence`
 -- Indexes for table `offender`
 --
 ALTER TABLE `offender`
+  ADD PRIMARY KEY (`offender_id`),
   ADD KEY `offencer_id` (`offender_id`),
   ADD KEY `licence_no` (`licence_no`);
 
@@ -463,6 +423,7 @@ ALTER TABLE `payment_officer`
 --
 ALTER TABLE `traffic_officer`
   ADD PRIMARY KEY (`police_id`),
+  ADD UNIQUE KEY `id_no_2` (`id_no`),
   ADD KEY `id_no` (`id_no`),
   ADD KEY `branch` (`branch`);
 
@@ -523,10 +484,21 @@ ALTER TABLE `dig`
   ADD CONSTRAINT `dig_ibfk_1` FOREIGN KEY (`id_no`) REFERENCES `login` (`id`);
 
 --
+-- Constraints for table `finesheet`
+--
+ALTER TABLE `finesheet`
+  ADD CONSTRAINT `finesheet_ibfk_1` FOREIGN KEY (`id_no`) REFERENCES `offender` (`offender_id`);
+
+--
+-- Constraints for table `licence`
+--
+ALTER TABLE `licence`
+  ADD CONSTRAINT `licence_ibfk_1` FOREIGN KEY (`id_no`) REFERENCES `offender` (`offender_id`);
+
+--
 -- Constraints for table `offender`
 --
 ALTER TABLE `offender`
-  ADD CONSTRAINT `offender_ibfk_1` FOREIGN KEY (`offender_id`) REFERENCES `login` (`id`),
   ADD CONSTRAINT `offender_ibfk_2` FOREIGN KEY (`licence_no`) REFERENCES `licence` (`licence_no`);
 
 --
@@ -546,7 +518,6 @@ ALTER TABLE `payment_officer`
 -- Constraints for table `traffic_officer`
 --
 ALTER TABLE `traffic_officer`
-  ADD CONSTRAINT `traffic_officer_ibfk_1` FOREIGN KEY (`id_no`) REFERENCES `login` (`id`),
   ADD CONSTRAINT `traffic_officer_ibfk_2` FOREIGN KEY (`branch`) REFERENCES `branch` (`branch_id`);
 COMMIT;
 
