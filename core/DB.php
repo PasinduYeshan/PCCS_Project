@@ -57,7 +57,6 @@ class DB{
         $bind = [];
         $order = '';
         $limit = '';
-
         //conditions
         if (isset($params['conditions'])){
             if (is_array($params['conditions'])){
@@ -149,6 +148,24 @@ class DB{
         }
         return false;
     }
+
+    public function updateByField($fieldname,$table,$id,$fields = []){     //*************added because id needed for normal update
+        $fieldString = '';
+        $values = [];
+        foreach ($fields as $field=>$value){
+            $fieldString.=' '.$field.' =?,';
+            $values[]=$value;
+        }
+        $fieldString=trim($fieldString);
+        $fieldString=rtrim($fieldString,',');
+        $sql = "UPDATE {$table} SET {$fieldString} WHERE {$fieldname}={$id}";
+        if (!$this->query($sql,$values)->error()){
+            return true;
+        }
+        return false;
+    }
+
+
 
     public function delete($table,$id){
         $sql = "DELETE FROM {$table} WHERE id={$id}";

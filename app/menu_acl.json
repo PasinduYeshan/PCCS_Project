@@ -3,10 +3,13 @@
 
   "My Fines" : "offender/myfines",
   "My Licence" : "offender/mylicence",
-  
+
   "Finesheet" : {
     "Add" : "trafficofficer/add",
     "Details" : "trafficofficer/details"
+  },
+  "Payment" : {
+    "Pay over the counter" : "paymentofficer/details"
   },
 
   "Login" : "register/login",

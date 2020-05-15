@@ -42,6 +42,7 @@ class Model{
     public function find($params = []){
         $params = $this->_softDeleteParams($params);
         $resultsQuery = $this->_db->find($this->_table,$params,get_class($this));
+        //dnd($resultsQuery);
         if (!$resultsQuery) return [];
         return $resultsQuery;
     }
@@ -78,6 +79,11 @@ class Model{
     public function update($id, $fields){
         if (empty($fields) || $id=='')return false;
         return $this->_db->update($this->_table,$id,$fields);
+    }
+
+    public function updateByField($fieldname, $id, $fields){                     //*************added because id needed for normal update
+        if (empty($fields))return false;
+        return $this->_db->updateByField($fieldname,$this->_table,$id,$fields);
     }
 
     public function delete($id=''){
