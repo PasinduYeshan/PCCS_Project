@@ -28,6 +28,12 @@
     },
     "Offender" : ["myfines","view","mylicence"]
 
+  },
+  "PaymentOfficer" : {
+    "denied" : {
+
+    },
+    "Paymentofficer" : ["details","counterpayment"]
   }
 
 
