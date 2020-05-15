@@ -45,6 +45,16 @@ class Finesheet extends Model{
         return $this->find($conditions);
     }
 
+    public function findUnpaidById($id_no,$params = []){
+        $conditions = [
+            'conditions' => 'id_no = ? AND status = ?',
+            'bind' => [$id_no,0]
+        ];
+        $conditions = array_merge($conditions,$params);
+        //dnd($conditions);
+        return $this->find($conditions);
+    }
+
     public function displaySheetNo(){
         return 'Fine Sheet No : '.$this->sheet_no;
     }
