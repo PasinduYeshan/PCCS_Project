@@ -6,10 +6,32 @@ class PaymentController extends Controller{
     {
         parent::__construct($controller, $action);
         $this->view->setLayout('default');
+        $this->load_model('Finesheet');
+    }
+
+    public function detailsAction(){
+        if ($_POST){
+            $finesheets = $this->FinesheetModel->findUnpaidById($_POST['id_no'],['order'=>'sheet_no']);
+            //dnd($finesheets);
+            $this->view->finesheets = $finesheets;
+            $this->view->controller = lcfirst($this->_controller);
+        }
+
+        $this->view->render('payment/details');
     }
 
 
-    public function counterpaymentAction(){
-        $this->view->render('payment/counterpayment');
+    public function counterpaymentAction($sheet_no){
+
+        $finesheet = $this->FinesheetModel->findByFinesheet($sheet_no)[0];  //because array of 1 element is obtained [0] to get object
+        if ($finesheet){
+            $finesheet->updateByField('sheet_no', $sheet_no, ['status'=>1]);
+        }
+        Router::redirect(lcfirst($this->_controller).'/details');
+
+
+
     }
+
+
 }
