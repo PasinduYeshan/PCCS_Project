@@ -21,5 +21,13 @@ class Licence extends Model{
         return $this->find($conditions);
     }
 
+    public function findByNIC($NIC){
+        return $this->findFirst(['conditions'=>"id_no = ?",'bind'=>[$NIC]]);
+    }
+
+    public function findByLicenceNumber($licence_no){
+        return $this->findFirst(['conditions'=>"id_no = ?",'bind'=>[$licence_no]]);
+    }
+
 
 }

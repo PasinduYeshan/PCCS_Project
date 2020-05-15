@@ -12,7 +12,7 @@ define('DEFAULT_CONTROLLER' , 'Home');                                    // def
 define('DEFAULT_LAYOUT','default');                                       //if no layout is set in the controller use this layout
 
 define('SITE_TITLE','MVC Framework Project');                             //this will be used if no site title is set
-define('MENU_BRAND','MyMVC');                                             //this is the brand text in the menu
+define('MENU_BRAND','PCCS');                                             //this is the brand text in the menu
 
 define('PROOT', '/MVC59/');                                          // set this to '/' for a live server.
 
