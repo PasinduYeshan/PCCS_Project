@@ -31,14 +31,8 @@ class FinesheetController extends Controller {
     }
 
     public function detailsAction() {
-        //$finesheets = $this->FinesheetModel->findById('1111',['order'=>'sheet_no']);
-       // if ($_POST)dnd($_POST);
-
-     //   $this->view->finesheets = $finesheets;
-        //dnd($finesheets);
         if ($_POST){
             $finesheets = $this->FinesheetModel->findById($_POST['id_no'],['order'=>'sheet_no']);
-            //dnd($finesheets);
             $this->view->finesheets = $finesheets;
             $this->view->controller = lcfirst($this->_controller);
         }
