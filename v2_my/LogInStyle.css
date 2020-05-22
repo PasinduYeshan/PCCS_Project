@@ -1,0 +1,228 @@
+*{ /*all the element*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Baloo 2', cursive;
+}
+
+.background{
+    position: fixed;
+    width:100%;
+    height: 100%;
+    left: 0;  /*edges*/
+    right:0;
+    top:0;
+    bottom: 0;
+    z-index: -1; /*stack order*/
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 7rem;
+    padding: 0 2rem;
+}
+
+.img{
+    display : flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.img img{
+    width:500px;
+}
+
+.login-container{
+    display:flex;
+    text-align: center;
+    align-items: center;
+}
+
+form{
+    width: 360px;
+}
+
+.avatar{
+    width: 100px;
+}
+
+form h2{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin: 15px 0;
+    color:#080808;
+}
+
+.input-div{
+    position: relative;
+    display:grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px groove  #5b5b5e;
+    background-color: cornflowerblue;
+}
+/*
+.input-div:after, .input-div:before{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 50%;
+    height: 3px;
+    background-color: rgb(11, 221, 92);
+}
+
+.input-div:after{
+    right:50%;
+}
+
+.input-div:before{
+    left:50%;
+}
+
+.input-div.focus .i i{
+    color: rgb(11, 221, 92);
+}
+
+.input-div.focus div h5{
+    top: -5px;
+    font-size: 15px;
+}
+*/
+.input-div.one{
+    margin-top: 0;
+}
+
+.input-div.two{
+    grid-template-columns: 7% 86% 7%;
+    margin-bottom: 4px;
+}
+
+.i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:  #3d3d5c;
+}
+
+.i-eye{
+    display: flex;
+    color:  #3d3d5c;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.input-div > div{
+    position: relative;
+    height: 45px;
+}
+
+/*
+.input-div > div h5{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3d3d5c;
+    font-size: 15px;
+    transition: .3s  ease-in-out;
+}
+*/
+
+.input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: none;
+    border: none;
+    outline : none;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    font-family: 'Baloo 2', cursive;
+    color: rgb(49, 47, 47);
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(112, 109, 109);
+    font-family: 'Baloo 2', cursive;
+    opacity: 1; /* Firefox */
+  }
+
+a{
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #3d3d5c;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+a:hover{
+    color: #38d39f;
+}
+
+.btn{
+    position: relative;
+    display: block;
+    justify-content: center;
+    width: 100%;
+    height: 45px;
+    align-items: center;
+    border-radius: 25px;
+    margin: 1rem 0;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family:'Baloo 2', cursive;
+    background-image: linear-gradient(to right, rgb(11, 221, 92),  #13eb6d,  rgb(11, 221, 92));
+    cursor: pointer;
+    text-transform: uppercase;
+    color: rgb(206, 201, 201);
+    background-size: 200%;
+    transition: .5s
+}
+
+.btn:hover{
+    background-position: right;
+}
+
+@media screen and (max-width:1050px){
+    .container{
+        grid-gap: 5rem;
+    }
+}
+@media screen and (max-width:1000px){
+    form{
+        width: 290px;
+    }
+    form h2{
+        font-size: 2.4rem;
+        margin: 8px 0;
+    }
+    .img img{
+        width: 400px;
+    }
+}
+@media screen and (max-width:900px){
+    .img{
+        display: none;
+    }
+    .container{
+        grid-template-columns: 1fr;
+    }
+    .login-container{
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -12,7 +12,6 @@ class TrafficofficerController extends UserController{
 
     }
 
-
     public function addAction(){
         $this->finesheetC->addAction();
 
@@ -25,9 +24,6 @@ class TrafficofficerController extends UserController{
     public function viewAction($sheet_no){
         $this->finesheetC->viewAction($sheet_no);
     }
-
-
-
 
 
 }

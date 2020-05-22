@@ -17,13 +17,14 @@ class Router{
         //echo $action.'<br>';
 
         //acl check
+        
         $grantAccess = self::hasAccess($controller_name,$action_name);
         if (!$grantAccess){
             $controller = ACCESS_RESTRICTED.'Controller';
             $controller_name = ACCESS_RESTRICTED;
             $action = 'indexAction';
         }
-
+        
 
         //params
         $queryParams = $url;
