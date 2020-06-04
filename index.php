@@ -16,8 +16,8 @@ function autoload($className) {
         require_once(ROOT . DS . 'app' . DS . 'controllers' . DS . $className . '.php');
     }elseif(file_exists(ROOT . DS . 'app' .DS . 'models' . DS . $className . '.php')) {
         require_once(ROOT . DS . 'app' . DS . 'models' . DS . $className . '.php');
-    }elseif(file_exists(ROOT . DS . 'app' .DS . 'controllers' . DS . 'finesheet' . $className . '.php')) {
-        require_once(ROOT . DS . 'app' . DS . 'controllers' . DS . 'finesheet' . $className . '.php');
+    }elseif(file_exists(ROOT . DS . 'app' .DS . 'controllers' . DS. 'DomainModel'. DS . 'finesheet' . $className . '.php')) {
+        require_once(ROOT . DS . 'app' . DS . 'controllers' . DS. 'DomainModel'. DS . 'finesheet' . $className . '.php');
     }
 }
 
