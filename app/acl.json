@@ -10,10 +10,8 @@
       "Register" : ["login","register"]
     },
     "Register" : ["logout"],
-    "Contacts" : ["*"],
-    "Tools" : ["*"]
-
-
+    "Contacts" : ["*"]
+    
   },
   "TrafficOfficer" : {
     "denied" : {
