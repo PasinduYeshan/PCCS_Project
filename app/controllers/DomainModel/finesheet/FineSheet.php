@@ -7,12 +7,16 @@ class FineSheet{
     private $allDetails; //Contain list of all details relevant
     private $currentState;
 
-    public function __construct($sheet_no)
+    public function __construct($sheet_no = "")
     {
         $fineSheetModel = new Finesheet(); // Create the Model
-        $fineSheet = $fineSheetModel->findByFinesheet($sheet_no);
-        $this->allDetails = $fineSheet;
-        $this->populateObjData($fineSheet);
+        if($sheet_no!=""){
+            $fineSheet = $fineSheetModel->findByFinesheet($sheet_no);
+        }
+        if ($fineSheet){
+            $this->allDetails = $fineSheet;
+            $this->populateObjData($fineSheet);
+        }
         $this->currentState = $this->checkStateWithDB();
 
     }
