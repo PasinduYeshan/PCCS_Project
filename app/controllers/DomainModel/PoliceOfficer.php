@@ -1,5 +1,5 @@
 <?php
 
-class PoliceOfficer extends User{
+class PoliceOfficerDomain extends User{
     
 }

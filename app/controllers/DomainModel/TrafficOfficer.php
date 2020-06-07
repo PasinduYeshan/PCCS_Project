@@ -1,6 +1,6 @@
 <?php
 
-class TrafficOfficer extends PoliceOfficer{
+class TrafficOfficerDomain extends PoliceOfficerDomain{
 
     public function __construct($sheet_no)
     {
