@@ -69,7 +69,4 @@ class Finesheet extends Model{
 
     }
 
-
-
-
 }

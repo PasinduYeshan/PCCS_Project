@@ -53,7 +53,7 @@ class RegisterController extends Controller{
 
     public function registerAction(){
         $validation = new Validate();
-        $posted_values = ['fname'=>'','lname'=>'','username'=>'','email'=>'','password'=>'','confirm'=>''];
+        $posted_values = ['fname'=>'','lname'=>'','username'=>'','email'=>'','password'=>'','confirm'=>'' , 'id' => ''];
         if ($_POST){
             $posted_values = posted_values($_POST);
             $validation->check($_POST,[
@@ -64,6 +64,11 @@ class RegisterController extends Controller{
                 'lname' => [
                     'display' => 'Last Name',
                     'required' => true
+                ],
+                'id' => [
+                    'display' => 'id',
+                    'required' => true,
+                    'unique' => 'users'
                 ],
                 'username' => [
                     'display' => 'Username',
@@ -95,7 +100,7 @@ class RegisterController extends Controller{
                 $newUser = new Users();
                 $newUser->registerNewUser($_POST);
                 $newUser->login();
-                Router::redirect('register/login');
+                Router::redirect('home');
             }
         }
         $this->view->post = $posted_values;

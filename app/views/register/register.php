@@ -14,6 +14,10 @@
             <input type="text" id="lname" name="lname" class="form-control" value="<?=$this->post['lname']?>">
         </div>
         <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id" class="form-control" value="<?=$this->post['id']?>">
+        </div>
+        <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" class="form-control" value="<?=$this->post['email']?>">
         </div>

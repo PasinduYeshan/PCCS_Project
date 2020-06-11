@@ -18,7 +18,6 @@ class FineSheetDomain{
             $this->populateObjData($fineSheet);
         }
         $this->currentState = $this->checkStateWithDB();
-
     }
 
     //Give the current state in database 

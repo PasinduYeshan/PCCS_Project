@@ -64,12 +64,19 @@ class Model{
 
         //determine whether to update or insert
         if (property_exists($this,'id') && $this->id!=''){
+            dnd($this->id);
             return $this->update($this->id,$fields);
         }
         else{
             return $this->insert($fields);
         }
     }
+
+    public function justSave(){ //To save without checking
+        $fields = getObjectProperties($this);
+        return $this->insert($fields);
+    }
+    
 
     public function insert($fields){
         if (empty($fields))return false;

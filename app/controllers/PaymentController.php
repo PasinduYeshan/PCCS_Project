@@ -22,12 +22,11 @@ class PaymentController extends Controller{
 
 
     public function counterpaymentAction($sheet_no){
-
-        $finesheet = $this->FinesheetModel->findByFinesheet($sheet_no)[0];  //because array of 1 element is obtained [0] to get object
+       $finesheet = $this->FinesheetModel->findByFinesheet($sheet_no)[0];  //because array of 1 element is obtained [0] to get object
         if ($finesheet){
             $finesheet->updateByField('sheet_no', $sheet_no, ['status'=>1]);
         }
-        Router::redirect(lcfirst($this->_controller).'/details');
+        Router::redirect(lcfirst($this->_controller).'/details'); 
 
 
 
