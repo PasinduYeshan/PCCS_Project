@@ -2,6 +2,7 @@
 
 class TrafficOfficerDomain extends PoliceOfficerDomain{
     private $allDetails;
+    private $id_no,$police_id,$officer_name,$branch;
     public function __construct($id_no)
     {
         //Model should be created for traffic officer 
@@ -9,9 +10,7 @@ class TrafficOfficerDomain extends PoliceOfficerDomain{
         $trafficOfficer = $traffic_officer_model->findById($id_no);
         $this->allDetails = $trafficOfficer;
         $this->populateObjData($trafficOfficer);
-
     }
-
 
     protected function populateObjData($result){
         foreach ($result as $key=>$val){
