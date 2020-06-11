@@ -6,7 +6,7 @@ class Model{
               $_table,
               $_modelName,
               $_softDelete = false;
-    public $id;
+    private $id;
 
 
     public function __construct($table)

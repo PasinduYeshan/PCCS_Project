@@ -1,15 +1,21 @@
 <?php
 
 class TrafficOfficerDomain extends PoliceOfficerDomain{
-    private $allDetails;
-    private $id_no,$police_id,$officer_name,$branch;
-    public function __construct($id_no)
+    public $id_no,$police_id,$officer_name,$branch;
+    private $traffic_officer_model;
+
+    public function __construct($id_no,$param=[])
     {
-        //Model should be created for traffic officer 
-        $traffic_officer_model = new TrafficOfficer(); // Create the Model
-        $trafficOfficer = $traffic_officer_model->findById($id_no);
-        $this->allDetails = $trafficOfficer;
-        $this->populateObjData($trafficOfficer);
+        if(!count($param)){
+            $this->traffic_officer_model = new TrafficOfficer(); // Create the Model
+            $trafficOfficer = $this->traffic_officer_model->findById($id_no);
+            $this->populateObjData($trafficOfficer[0]);
+        }else{ //If want to create new Traffic Officer not in database
+            $this->id_no = $id_no;
+            $this->police_id = $param['police_id'];
+            $this->officer_name = $param['officer_name'];
+            $this->branch = $param['branch'];
+        }
     }
 
     protected function populateObjData($result){

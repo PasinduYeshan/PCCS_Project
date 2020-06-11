@@ -23,11 +23,11 @@ class FineSheetDomain{
     //Give the current state in database 
     public function checkStateWithDB(){
         if ($this->status == 0 ){
-            return new NewFineSheet();
+            return NewFineSheet::getInstance();
         }else if ($this->status == 1 ){
-            return new PaidFineSheet();
+            return PaidFineSheet::getInstance();
         }else if ($this->status == 2 ){
-            return new OverDueFineSheet();
+            return OverDueFineSheet::getInstance();
         }else{
             return null;
         }
