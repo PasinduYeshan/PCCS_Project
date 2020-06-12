@@ -7,6 +7,11 @@
 <div class="conatiner" id="topic">
     <h1 class="text-center">PCCS Online Traffic Police System</h1>
 </div>
-
+<div class="container">
+    <h1><br>
+    <br><br><br><br><br>
+    </h1>
+</div>
+<?php include 'footer.php'?>
 <?php $this->end(); ?>
 

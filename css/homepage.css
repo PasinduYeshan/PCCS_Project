@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
 }
-#topic{
+/* #topic{
     color: aliceblue;
     text-align: center;
     align-items: center;
@@ -20,11 +20,11 @@
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 8px;
     width: 700px;
-    position: absolute;
+    position: fixed;
     box-sizing: border-box;
     padding: 25px;
     box-shadow: rgba(0, 0, 0, 0.5);
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-}
+} */

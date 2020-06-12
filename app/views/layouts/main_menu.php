@@ -3,11 +3,11 @@ $menu = Router::getMenu('menu_acl');
 
 $currentPage = currentPage();
 ?>
-<nav class="navbar navbar-dark bg-dark>
+<nav class="navbar navbar-dark">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_menu" aria-expanded="false">
+        <div class="navbar-header" >
+            <button type="button" id = "tog" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_menu" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

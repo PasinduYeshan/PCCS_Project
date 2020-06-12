@@ -1,7 +1,32 @@
 .red{
     color: red;
 }
+/*------------------NavBar related--------------------*/
+.navbar{
+    background-color: #302c2c !important;
+    border-radius: 0;
+}
+.navbar a{
+    color: white !important;
+}
+.navbar a:hover{
+    background-color: #494646 !important;
+    color: rgb(255, 255, 255) !important;  
+}
+.navbar ul{
+    background-color: #302c2c !important;
+    color: rgb(255, 255, 255) !important;
+}
+.navbar ul:hover{
+    background-color: #302c2c !important;
+    color: rgb(255, 255, 255) !important;  
+}
 
+#tog{
+    color: white;
+}
+
+/*------------------------------------------------*/
 .form-errors{
     border-radius: 8px;
     margin: 10px 25px 45px 25px;
@@ -17,4 +42,31 @@
 .form-errors li {
     list-style: none;
     font-size: 16px;
+}
+
+footer{
+    background-color: #3f3f3f;
+    color: #d5d5d5;
+    padding-top: 2rem;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+
+hr.light{
+    border-top: 1px solid #d5d5d5;
+    width: 75%;
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+hr.light-100{
+border-top: 1px solid #d5d5d5;
+width: 100%;
+margin-top: 0.8rem;
+margin-bottom: 1rem;
+}
+
+::selection{
+background-color: transparent;
 }

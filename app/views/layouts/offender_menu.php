@@ -3,7 +3,7 @@ $menu = Router::getMenu('offendermenu_acl');
 
 $currentPage = currentPage();
 ?>
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
