@@ -6,8 +6,6 @@ abstract class UserController extends Controller{
     {
         parent::__construct($controller,$action);
         $this->view->setLayout('default');
-        $this->id = currentUser()->id;
-        $this->id = currentUser()->id;
-        $this->id = currentUser()->id;
+        //$this->id = currentUser()->id;
     }
 }

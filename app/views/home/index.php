@@ -8,7 +8,5 @@
     <h1 class="text-center">PCCS Online Traffic Police System</h1>
 </div>
 
-
-
 <?php $this->end(); ?>
 

@@ -3,7 +3,7 @@ $menu = Router::getMenu('trafficofficermenu_acl');
 
 $currentPage = currentPage();
 ?>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-dark ba-dark">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
