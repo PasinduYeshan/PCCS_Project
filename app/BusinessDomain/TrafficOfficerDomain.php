@@ -1,7 +1,7 @@
 <?php
 
 class TrafficOfficerDomain extends PoliceOfficerDomain{
-    public $id_no,$police_id,$officer_name,$branch;
+    private $id_no,$police_id,$officer_name,$branch;
     private $traffic_officer_model;
 
     public function __construct($id_no,$param=[])
@@ -17,6 +17,15 @@ class TrafficOfficerDomain extends PoliceOfficerDomain{
             $this->branch = $param['branch'];
         }
     }
+    public function getIdNo(){return $this->id_no;}
+
+    public function getPoliceId(){return $this->police_id;}
+
+    public function getOfficerName(){return $this->officer_name;}
+
+    public function getBranch(){return $this->branch;}
+
+    public function getTrafficOfficerModel(){return $this->traffic_officer_model;}
 
     protected function populateObjData($result){
         foreach ($result as $key=>$val){
@@ -24,3 +33,4 @@ class TrafficOfficerDomain extends PoliceOfficerDomain{
         }
     }
 }
+
