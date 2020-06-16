@@ -1,6 +1,6 @@
 <?php
 
-class BranchDomain{
+class BranchDomain implements IVisitable{
     private $branch_id,$branch_name;
     private $branch_model;
     private $branchTrafficOfficers;
@@ -20,6 +20,13 @@ class BranchDomain{
 
     private function setBranchTrafficOfficers(){
         $this->branchTrafficOfficers = TrafficOfficerDomain::getBranchOfficers($this->branch_id);
+    }
+
+    public function accept(IVisitor $visitor){
+        $visitor->visitBranch($this);
+        foreach($this->branchTrafficOfficers as $key => $val){
+            $val->accept($visitor);
+        }
     }
   
 

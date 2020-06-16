@@ -1,6 +1,6 @@
 <?php
 
-class FineSheetDomain{
+class FineSheetDomain implements IVisitable{
     private $sheet_no, $vehicle_no, $full_name, $address, $fine_date;
     private $fine_time, $place, $offence, $licence_no, $id_no;
     private $fine, $officer_id, $due_date, $status;
@@ -39,6 +39,23 @@ class FineSheetDomain{
 
     public function getCurrentState(){
         return $this->currentState;
+    }
+
+    public function accept(IVisitor $visitor){
+        $visitor->visitFineSheet($this);
+        
+    }
+
+    ///Return finesheets by the officer ID
+    public static function getOfficerFineSheets($officerId){
+        $finesheet_model = new Finesheet();
+        $finesheets = $finesheet_model->findByOfficerId($officerId);
+        $finesheetList = [];
+        foreach($finesheets as $finesheet=>$details){
+            $sheet_no = $details->sheet_no;
+            $finesheetList[] = new Finesheet($sheet_no);
+        }
+        return $finesheetList;
     }
 
     /*---------------Function to change the state-----------*/

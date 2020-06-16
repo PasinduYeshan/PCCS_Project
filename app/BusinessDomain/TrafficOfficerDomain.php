@@ -1,7 +1,8 @@
 <?php
 
-class TrafficOfficerDomain extends PoliceOfficerDomain{
+class TrafficOfficerDomain extends PoliceOfficerDomain implements IVisitable{
     private $id_no,$police_id,$officer_name,$branch;
+    private $fineSheetList;
 
     public function __construct($id_no,$param=[])
     {
@@ -39,6 +40,13 @@ class TrafficOfficerDomain extends PoliceOfficerDomain{
 
     public function getTrafficOfficerModel(){return $this->traffic_officer_model;}
     /*------------------------------------------------------*/
+
+    public function accept(IVisitor $visitor){
+        $visitor->visitTrafficOfficer($this);
+        foreach($this->fineSheetList as $key => $val){
+            $val->accept($visitor);
+        }
+    }
 
     protected function populateObjData($result){
         foreach ($result as $key=>$val){

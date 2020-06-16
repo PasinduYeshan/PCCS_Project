@@ -36,6 +36,15 @@ class Finesheet extends Model{
     }
 
 
+    public function findByOfficerId($officer_id,$params=[]){
+        $conditions = [
+            'conditions' => 'officer_id = ?',
+            'bind' => [$officer_id]
+        ];
+        $conditions = array_merge($conditions,$params);
+        return $this->find($conditions);
+    }
+
     public function findByFinesheet($sheet_no,$params=[]){
         $conditions = [
             'conditions' => 'sheet_no = ?',
