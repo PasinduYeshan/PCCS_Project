@@ -28,4 +28,13 @@ class Branch extends Model{
         return $this->find($conditions);
     }
 
+    public function getAllBranchIDs(){
+        $branches = $this->find();
+        $branchIDs = [];
+        foreach($branches as $key => $val){
+            $branchIDs[] = $val->branch_id;
+        }
+        return $branchIDs;
+    }
+
 }

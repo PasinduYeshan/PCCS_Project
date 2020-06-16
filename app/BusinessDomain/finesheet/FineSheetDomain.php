@@ -14,8 +14,8 @@ class FineSheetDomain implements IVisitable{
             $fineSheet = $fineSheetModel->findByFinesheet($sheet_no);
         }
         if ($fineSheet){
-            $this->allDetails = $fineSheet;
-            $this->populateObjData($fineSheet);
+            $this->allDetails = $fineSheet[0];
+            $this->populateObjData($fineSheet[0]);
         }
         $this->currentState = $this->checkStateWithDB();
     }
@@ -53,7 +53,7 @@ class FineSheetDomain implements IVisitable{
         $finesheetList = [];
         foreach($finesheets as $finesheet=>$details){
             $sheet_no = $details->sheet_no;
-            $finesheetList[] = new Finesheet($sheet_no);
+            $finesheetList[] = new FinesheetDomain($sheet_no);
         }
         return $finesheetList;
     }

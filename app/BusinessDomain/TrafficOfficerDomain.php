@@ -16,15 +16,22 @@ class TrafficOfficerDomain extends PoliceOfficerDomain implements IVisitable{
             $this->officer_name = $param['officer_name'];
             $this->branch = $param['branch'];
         }
+        $this->setOfficerFineSheet();
+    }
+    
+    private function setOfficerFineSheet(){
+        $this->fineSheetList = FineSheetDomain::getOfficerFineSheets($this->police_id);
     }
 
     public static function getBranchOfficers($branchId){
         $traffic_officer_model = new TrafficOfficer();
         $branchOfficers = $traffic_officer_model->getBranchOfficer($branchId);
         $trafficOfficerList = [];
-        foreach($branchOfficers as $officer=>$details){
-            $id = $details->id_no;
-            $trafficOfficerList[] = new TrafficOfficerDomain($id);
+        if(!empty($branchOfficers)){
+            foreach($branchOfficers as $officer=>$details){
+                $id = $details->id_no;
+                $trafficOfficerList[] = new TrafficOfficerDomain($id);
+            }
         }
         return $trafficOfficerList;
     } 
@@ -43,9 +50,12 @@ class TrafficOfficerDomain extends PoliceOfficerDomain implements IVisitable{
 
     public function accept(IVisitor $visitor){
         $visitor->visitTrafficOfficer($this);
-        foreach($this->fineSheetList as $key => $val){
-            $val->accept($visitor);
+        if(!empty($this->fineSheetList)){
+            foreach($this->fineSheetList as $key => $val){
+                $val->accept($visitor);
+            }
         }
+        
     }
 
     protected function populateObjData($result){

@@ -24,9 +24,13 @@ class BranchDomain implements IVisitable{
 
     public function accept(IVisitor $visitor){
         $visitor->visitBranch($this);
-        foreach($this->branchTrafficOfficers as $key => $val){
-            $val->accept($visitor);
+        if(!empty($this->branchTrafficOfficers)){
+            foreach($this->branchTrafficOfficers as $key => $val){
+                //dnd($val);
+                $val->accept($visitor);
+            }
         }
+        
     }
   
 

@@ -64,7 +64,7 @@ class Model{
 
         //determine whether to update or insert
         if (property_exists($this,'id') && $this->id!=''){
-            dnd($this->id);
+            //dnd($this->id);
             return $this->update($this->id,$fields);
         }
         else{

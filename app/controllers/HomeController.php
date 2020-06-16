@@ -8,6 +8,11 @@ class HomeController extends Controller {
     }
 
     public function indexAction(){
+        // $report = new OverallReport();
+        // $branchG = new BranchGroup();
+        // $branchG->accept($report);
+        // //dnd($report->getTrafficOfficers());
+        // //dnd(($report->getFinesheets()));
         $this->view->render('home/index');
     }
 }
