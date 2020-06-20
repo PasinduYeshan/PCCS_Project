@@ -15,19 +15,6 @@ class PaymentOfficerDomain extends UserDomain{
         }
     }
 
-    public function getDueFines($fineSheetId){
-        $traffic_officer_model = new TrafficOfficer();
-        $branchOfficers = $traffic_officer_model->getBranchOfficer($branchId);
-        $trafficOfficerList = [];
-        if(!empty($branchOfficers)){
-            foreach($branchOfficers as $officer=>$details){
-                $id = $details->id_no;
-                $trafficOfficerList[] = new TrafficOfficerDomain($id);
-            }
-        }
-        return $trafficOfficerList;
-    } 
-
     public function getIdNo(){
         return $this->id_no;
     }
