@@ -1,6 +1,6 @@
 <?php
 
-class NewFineSheet extends State{
+class ActiveFineSheet extends State{
     private static $instance;
     
     private function __construct(){
@@ -10,9 +10,9 @@ class NewFineSheet extends State{
     //Check a way to make this synchronized
     public static function getInstance(){ //Singleton
         if (self::$instance == null){
-            return new NewFineSheet();
+            return new ActiveFineSheet();
         }
-        return new NewFineSheet();
+        return new ActiveFineSheet();
     }
 
     public function pay($fineSheet){

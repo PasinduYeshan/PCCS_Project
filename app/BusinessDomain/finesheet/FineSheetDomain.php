@@ -23,7 +23,7 @@ class FineSheetDomain implements IVisitable{
     //Give the current state in database 
     public function checkStateWithDB(){
         if ($this->status == 0 ){
-            return NewFineSheet::getInstance();
+            return ActiveFineSheet::getInstance();
         }else if ($this->status == 1 ){
             return PaidFineSheet::getInstance();
         }else if ($this->status == 2 ){
