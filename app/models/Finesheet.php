@@ -78,4 +78,14 @@ class Finesheet extends Model{
 
     }
 
+    public function findBetweenDates($startDate,$endDate,$params = []){
+        $conditions = [
+            'conditions' => 'fine_date >= ? AND fine_date <= ?',
+            'bind' => [$startDate,$endDate]
+        ];
+        $conditions = array_merge($conditions,$params);
+        return $this->find($conditions);
+
+    }
+
 }

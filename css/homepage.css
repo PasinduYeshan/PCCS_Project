@@ -12,6 +12,12 @@
     align-items: center;
     justify-content: center;
 }
+p{
+    font-family: Arial;
+    font-size: large;
+    color: blueviolet;
+
+}
 /* #topic{
     color: aliceblue;
     text-align: center;

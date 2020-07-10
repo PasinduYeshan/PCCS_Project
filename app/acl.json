@@ -17,7 +17,8 @@
     "denied" : {
 
     },
-    "Trafficofficer" : ["*"]
+    "Trafficofficer" : ["*"],
+    "Report" : ["*"]
 
   },
   "Offender" : {
