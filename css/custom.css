@@ -1,6 +1,16 @@
 .red{
     color: red;
 }
+/*------------Homepage and Common---------------*/
+body{
+    background-image: url("../css/images/1301.jpg");
+    background-position: right;
+}
+p{
+    font-family: Arial;
+    font-size: large;
+    color: blueviolet;
+}
 /*------------------NavBar related--------------------*/
 .navbar{
     background-color: #302c2c !important;
@@ -47,10 +57,14 @@
 footer{
     background-color: #3f3f3f;
     color: #d5d5d5;
-    padding-top: 2rem;
-    padding-left: 0;
-    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right: 0;
+    
 }
 
 hr.light{
@@ -70,3 +84,9 @@ margin-bottom: 1rem;
 ::selection{
 background-color: transparent;
 }
+
+/**************Common****************/
+
+
+
+/**************FineSheet*************/

@@ -1,5 +1,5 @@
-<footer>
-    <div class = "container-fluid padding" id = "service-part">
+<footer class="foot">
+    <div class = "container-fluid foo" id = "service-part">
         <div class = "row text-center">
             <div class = "col-12">
                 <h4>Contact Us</h4>
