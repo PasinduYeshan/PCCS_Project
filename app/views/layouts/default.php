@@ -15,9 +15,10 @@
 </head>
     <body>
         <?php include 'main_menu.php' ?>
-        <div class="container-fluid" style="min-height:calc(100% - 125px);">
-            <?= $this->content('body'); ?>
-        </div>
+        <?= $this->content('body'); ?>
+        <!-- <div class="container-fluid" style="min-height:calc(100% - 125px);">
+            
+        </div> -->
 
         
 

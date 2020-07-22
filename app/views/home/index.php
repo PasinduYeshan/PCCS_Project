@@ -9,10 +9,14 @@
         <h1 class="text-center">PCCS Online Traffic Police System</h1>
     </div>
 <?php elseif  (currentUser()->acl=='["TrafficOfficer"]'): ?>
-    <img src = "<?=PROOT?>css/images/aa.png" class="img-fluid" id= "policeImg">
-    <div class="conatiner" id="topic">
-        <h1 class="text-center">PCCS Online Traffic Police System</h1>
-    </div>
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Welcome To Our Page!</div>
+            <div class="masthead-heading text-uppercase">PCCS Online Traffic Police System</div>
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        </div>
+    </header>
+    <?php include('TrafficOfficerHome.php') ?>
 <?php else : ?>
     <img src = "<?=PROOT?>css/images/homePolice.jpg" class="img-fluid" id= "policeImg">
     <div class="conatiner" id="topic">

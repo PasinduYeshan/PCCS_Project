@@ -1,6 +1,6 @@
 <?php $this->setSiteTitle('Add Fine Sheet'); ?>
 <?php $this->start('body'); ?>
-    <div class="col-md-8 col-md-offset-2 well">
+    <div class="col-md-8 col-md-offset-2 well formUnderNav">
         <h2 class="text-center">Add Fine Sheet</h2>
         <hr>
         <form class="form" action="<?=$this->postAction?>" method="post">
