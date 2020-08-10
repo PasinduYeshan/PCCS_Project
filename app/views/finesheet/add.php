@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 <?php $this->end(); ?>
 <?php $this->start('body'); ?>
-    <div class="col-md-8 col-md-offset-2 well">
+    <div class="col-md-8 col-md-offset-2 well formUnderNav">
         <h2 class="text-center">Add Fine Sheet</h2>
         <hr>
         <form class="form" action="<?=$this->postAction?>" method="post">

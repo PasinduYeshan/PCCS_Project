@@ -1,6 +1,6 @@
 <?php $this->setSiteTitle('My Licence'); ?>
 <?php $this->start('body');?>
-    <div class="col-md-8 col-md-offset-2 well">
+    <div class="col-md-8 col-md-offset-2 well formUnderNav">
     <a href="<?=PROOT?>" class="btn btn-xs btn-default">Back</a>
     <h1 class="text-center"><?="DRIVING LICENCE"?></h1>
     <h4 class="text-center"><?="DEMOCRATIC SOCIALIST REPUBLIC OF SRI LANKA"?></h4>

@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row justify-content-md-center">
-        <div class="card-signin col col-md-6 col-md-offset-3 well" id="form_1">
+        <div class="card-signin col col-md-6 col-md-offset-3 well formUnderNav" id="form_1">
             <div class="img-class"> 
             <img class="card-img-top" id='login_avatar' src="<?=PROOT?>css/images/login_avatar.svg" alt="Card image cap">
             </div>
