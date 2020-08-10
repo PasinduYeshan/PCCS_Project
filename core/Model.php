@@ -133,4 +133,17 @@ class Model{
         }
     }
 
+    public function timeStamps(){
+        $dt = new DateTime("now", new DateTimeZone("UTC"));
+        $now = $dt->format('Y-m-d H:i:s');
+        $this->updated_at = $now;
+        if($this->isNew()){
+            $this->created_at = $now;
+        }
+    }
+
+    protected function isNew(){
+        return (property_exists($this,'id') && !empty($this->id))? false : true;
+    }
+
 }

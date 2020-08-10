@@ -1,6 +1,6 @@
 <?php $this->setSiteTitle('Fine Sheet Details'); ?>
 <?php $this->start('body'); ?>
-    <div class="col-md-8 col-md-offset-2 well form_boxes">
+    <div class="col-md-8 col-md-offset-2 well form_boxes formUnderNav">
         <h2 class="text-center">Fine Sheet Details</h2>
         <hr>
         <form class="form" action="" method="post">

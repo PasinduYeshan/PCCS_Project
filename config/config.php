@@ -21,3 +21,8 @@ define('REMEMBER_ME_COOKIE_NAME','ASLKFSFJO32424AFS8F9AFAF98FHI');       //cooki
 define('REMEMBER_ME_COOKIE_EXPIRY',2592000);                               //time in seconds for remember me cookie to live (30 days)
 
 define('ACCESS_RESTRICTED', 'Restricted');                                   //controller name for the restricted redirect
+
+################# Gateway Settings #######################################
+define('GATEWAY','stripe'); // could use stripe, paypal
+define('STRIPE_PUBLIC','pk_test_51H8sGwIvCNmmqVHeblVZagLmx6S1k8pZJD0lRa6SydPmeZaUZxrsDrY3FlPJks6tH2Yg405ln8sMmPtT2xkK4QBf001s1KwEWH');
+define('STRIPE_PRIVATE','sk_test_51H8sGwIvCNmmqVHeAbKcq7SiyJAoZiN3PzrnBJNmnXRnF4MFC9LcT96S8heRwvEXCDlSWpAQCKrdpap0zVaQ8DBk00nq4TQxGK');

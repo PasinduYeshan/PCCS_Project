@@ -4,8 +4,8 @@
 /*------------Homepage and Common---------------*/
 body{  
     background-position: right;
-    background: rgb(4,1,29);
-    background: linear-gradient(90deg, rgba(4,1,29,1) 0%, rgba(30,26,57,1) 44%, rgba(39,34,66,1) 60%, rgba(71,64,101,1) 100%);
+    background: rgb(239,238,247);
+background: linear-gradient(90deg, rgba(239,238,247,1) 0%, rgba(250,250,250,1) 100%);
 }
 p{
     font-family: Arial;
@@ -91,6 +91,11 @@ background-color: transparent;
 /**************Common****************/
 .formUnderNav{
     margin-top: 30px;
+}
+
+.well{
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 }
 /********************Header***************************/
 header.masthead {
