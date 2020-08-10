@@ -147,10 +147,10 @@ font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto
 
 /********************Service***************************/
 section{
-    color : #d0c4c4;
+    color : #000000;
 }
 #service-heading{
-    color: white;
+    color: #000000;
 }
 
 
