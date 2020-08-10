@@ -47,5 +47,14 @@ class Offender extends Model{
         return $this->find($conditions);
     }
 
+    public function findBranchById($offender_id,$params = []){
+        $conditions = [
+            'conditions' => 'offender_id = ?',
+            'bind' => [$offender_id]
+        ];
+        $conditions = array_merge($conditions,$params);
+        return $this->find($conditions)[0]->nearest_police_branch;
+    }
+
 
 }

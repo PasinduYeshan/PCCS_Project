@@ -5,6 +5,7 @@ class OffenderController extends UserController{
     private $name, $id, $licenceNumber, $tp_no, $address, $nearest_policeStation;
     private $myFinesheet;
     private $myLicence;
+    private $paymentC;
 
     public function __construct($controller, $action)
     {
@@ -12,6 +13,7 @@ class OffenderController extends UserController{
         $this->view->setLayout('default');
         $this->myFinesheet = new FinesheetController($controller,$action);
         $this->myLicence = new LicenceController($controller,$action);
+        $this->paymentC = new PaymentController($controller,$action);
     }
 
 
@@ -25,6 +27,14 @@ class OffenderController extends UserController{
 
     public function mylicenceAction(){
         $this->myLicence->mylicenceAction();
+    }
+
+    public function checkoutAction($sheet_no){
+        $this->paymentC->checkoutAction($sheet_no);
+    }
+
+    public function thankYouAction($sheet_no){
+        $this->paymentC->thankYouAction($sheet_no);
     }
 
 }

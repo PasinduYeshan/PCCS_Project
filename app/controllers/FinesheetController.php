@@ -1,10 +1,10 @@
 <?php
-
+require ROOT.DS."app".DS."lib".DS."PHPMailer".DS."PHPMailerAutoload.php";
 class FinesheetController extends Controller {
     
     public function __construct($controller, $action) {
         parent::__construct($controller,$action);
-        $this->view->setLayout('default');
+        //$this->view->setLayout('default');
         $this->load_model('Finesheet');
 
     }
@@ -13,17 +13,28 @@ class FinesheetController extends Controller {
     public function addAction(){
         $finesheet = new Finesheet();
         $validation = new Validate();
+        // $fineValidation = new Validate(); //
+        $offence = new Offence();         //
         if ($_POST){
+            $fine=0;
+            foreach ($_POST['offence'] as $offence_no){
+                $fine += (int)$offence->findById($offence_no)[0]->fine;
+            }
             $finesheet->assign($_POST);
+            //Finesheet::$addValidation['fine']['max_value'] = (int)$offence->findById($_POST['offence'])[0]->fine;
             $validation->check($_POST, Finesheet::$addValidation);
-            if ($validation->passed()){
+            // $validation->check($_POST['offence'],$offence->getValidation());        //
+            if ($validation->passed()){                 //
                 $finesheet->officer_id = currentUser()->id;
+                $finesheet->fine = $fine;
                 $finesheet->due_date = date('Y-m-d',strtotime($finesheet->fine_date. ' + 7 days'));
+                $finesheet->offence = implode(",",$_POST['offence']);
                 $finesheet->save();
                 Router::redirect('home');
             }
 
         }
+        $this->view->offencelist = $offence->findAll();
         $this->view->finesheet = $finesheet;
         $this->view->displayErrors = $validation->displayErrors();
         $this->view->postAction = PROOT .lcfirst($this->_controller). DS . 'add';
@@ -59,6 +70,57 @@ class FinesheetController extends Controller {
         $this->view->controller = lcfirst($this->_controller);
         $this->view->render('finesheet/myfines');
     }
+
+    public function fineamountAction(){
+        $offence = new Offence();
+        $fineamount = 0;
+        if (isset($_POST['offence'])===true && empty($_POST['offence'])===false){
+            foreach ($_POST['offence'] as $offence_no){
+                $fineamount += (int)$offence->findById($offence_no)[0]->fine;
+            }
+            echo "Rs ".$fineamount.".00";
+        }
+        else echo "Rs ".$fineamount.".00";
+    }
+
+    public function notifyOIC(){
+        $offender = new Offender();
+        $oic = new OIC();
+        $finesheets =  $this->FinesheetModel->findUnpaidByDueDate(date("Y-m-d"));
+        foreach ($finesheets as $finesheet){
+            $branch = $offender->findBranchById($finesheet->id_no);
+            $oic_email = $oic->findEmailByBranch($branch);
+            //$a = $this->sendEmail('emailclienttest69@gmail.com',$oic_email);
+            $this->sendEmail('emailclienttest69@gmail.com',$oic_email);
+        }
+    }
+
+    public function sendEmail($email,$emailTitle){
+        $mail = new PHPMailer;
+        $mail->isSMTP();
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'tls';
+        //$mail->SMTPAutoTLS = false;
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        //$mail->isHTML(true);
+        $mail->Username = 'emailclienttest69@gmail.com';
+        $mail->Password = 'client@69';
+        $mail->setFrom("emailclienttest69@gmail.com",'policeLK');
+        $mail->addReplyTo('emailclienttest69@gmail.com');
+        $mail->Subject = $emailTitle;
+        $mail->Body = "arrest this guy";
+        $mail->isHTML(true);
+        $mail->addAddress($email);
+
+        if (!$mail->send()){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
 
 
 }

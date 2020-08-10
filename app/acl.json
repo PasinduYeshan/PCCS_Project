@@ -25,7 +25,8 @@
     "denied" : {
 
     },
-    "Offender" : ["myfines","view","mylicence"]
+    "Offender" : ["myfines","view","mylicence","checkout"],
+    "Payment" : ["thankYou"]
 
   },
   "PaymentOfficer" : {

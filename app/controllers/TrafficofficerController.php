@@ -25,5 +25,9 @@ class TrafficofficerController extends UserController{
         $this->finesheetC->viewAction($sheet_no);
     }
 
+    public function fineamountAction(){
+        $this->finesheetC->fineamountAction();
+    }
+
 
 }

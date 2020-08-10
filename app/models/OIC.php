@@ -54,4 +54,13 @@ class OIC extends Model{
         $conditions = array_merge($conditions,$params);
         return $this->find($conditions);
     }
+
+    public function findEmailByBranch($branch,$params = []){
+        $conditions = [
+            'conditions' => 'branch = ?',
+            'bind' => [$branch]
+        ];
+        $conditions = array_merge($conditions,$params);
+        return $this->find($conditions)[0]->oic_email;
+    }
 }

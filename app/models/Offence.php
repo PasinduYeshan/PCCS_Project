@@ -36,4 +36,11 @@ class Offence extends Model{
         $conditions = array_merge($conditions,$params);
         return $this->find($conditions);
     }
+
+    public function findAll($params = []){
+        $conditions = [];
+        $conditions = array_merge($conditions,$params);
+        return $this->find($conditions);
+
+    }
 }

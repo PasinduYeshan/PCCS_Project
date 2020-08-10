@@ -17,11 +17,16 @@
             <td><?= $finesheet->vehicle_no; ?></td>
             <td><?= $finesheet->fine_date; ?></td>
             <td><?= $finesheet->fine; ?></td>
-            <td><?= $finesheet->status; ?></td>
+            <td><?= ($finesheet->status==0)?"Unpaid":"Paid"; ?></td>
             <td>
                 <a href="<?=PROOT?><?=$this->controller?>/view/<?=$finesheet->sheet_no?>" class="btn btn-info btn-sm">
                     <i class="glyphicon glyphicon-eye-open"></i>View
                 </a>
+                <?php if ($finesheet->status==0){?>
+                    <a href="<?=PROOT?><?=$this->controller?>/checkout/<?=$finesheet->sheet_no?>" class="btn btn-info btn-sm">
+                        <i class="glyphicon glyphicon-usd"></i>Pay Fine
+                    </a>
+                <?php }?>
             </td>
         </tr>
     <?php endforeach;?>
