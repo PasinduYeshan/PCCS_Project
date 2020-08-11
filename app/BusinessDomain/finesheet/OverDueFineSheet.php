@@ -9,16 +9,20 @@ class OverDueFineSheet extends State{
 
     public static function getInstance(){
         if (self::$instance == null){
-            return new OverDueFineSheet();
+            $instance = new OverDueFineSheet();
         }
-        return new OverDueFineSheet();
+        return $instance;
     }
 
     public function pay($fineSheet){
-        $fineSheet->setState(PaidFineSheet::getInstance());
+        $fineSheet->setState(PaidFineSheet::getInstance(),1);
     }
 
     public function expire($fineSheet){
         return false;
+    }
+
+    public function close($fineSheet){
+        $fineSheet->setState(ClosedFineSheet::getInstance(),3);
     }
 }

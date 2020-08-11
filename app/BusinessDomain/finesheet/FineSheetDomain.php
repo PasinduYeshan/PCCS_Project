@@ -3,15 +3,18 @@
 class FineSheetDomain implements IVisitable{
     private $sheet_no, $vehicle_no, $full_name, $address, $fine_date;
     private $fine_time, $place, $offence, $licence_no, $id_no;
-    private $fine, $officer_id, $due_date, $status;
+    private $fine, $officer_id, $due_date, $status, $notify;
     private $allDetails; //Contain list of all details relevant
     private $currentState;
+    private $FinesheetModel;
+    private $observers;
 
     public function __construct($sheet_no = "")
     {
-        $fineSheetModel = new Finesheet(); // Create the Model
+        $this->observers = array();
+        $this->FinesheetModel = new Finesheet(); // Create the Model
         if($sheet_no!=""){
-            $fineSheet = $fineSheetModel->findByFinesheet($sheet_no);
+            $fineSheet = $this->FinesheetModel->findByFinesheet($sheet_no);
         }
         if ($fineSheet){
             $this->allDetails = $fineSheet[0];
@@ -28,13 +31,25 @@ class FineSheetDomain implements IVisitable{
             return PaidFineSheet::getInstance();
         }else if ($this->status == 2 ){
             return OverDueFineSheet::getInstance();
+        }else if ($this->status == 3 ){
+            return ClosedFineSheet::getInstance();
         }else{
             return null;
         }
     }
 
-    public function setState($state){
+    //Status will be changed immediately when the state changes
+    public function setState($state,$state_no){
         $this->currentState = $state;
+        $this->status = (string)$state_no;
+        if($state instanceof OverDueFineSheet){ //When changin into OverDue state notify all observers
+            $this->addObservers();
+            $this->notifyObservers();
+        }
+        // $finesheet = $this->FinesheetModel->findByFinesheet($this->sheet_no)[0];
+        // if ($finesheet){
+        //     $finesheet->updateByField('sheet_no', $this->sheet_no, ['status'=>$state_no]);
+        // }
     }
 
     public function getCurrentState(){
@@ -65,6 +80,63 @@ class FineSheetDomain implements IVisitable{
 
     public function expire(){
         $this->currentState->expire($this);
+    }
+
+    public function close(){
+        $this->currentState->close($this);
+    }
+
+    /*---------------Observer Design pattern-----------*/
+    public function addObservers($observer = []){
+        if(empty($observer)){ //Get the relavant observers
+            $this->observers[] = $this->getBranchOIC();
+            $this->observers[] = $this->getOffender();
+        }else{
+            $this->observers[] = $observer;
+        }
+        
+    }
+
+    public function removeObserver($observer){
+        $index = null;
+        for ($x = 0; $x < count($this->observers); $x++) {
+            if ($this->observers[$x] === $observer){
+                $index = $x;
+            }
+        }
+        if ($index != null){
+            unset($this->observers[$index]);
+        }
+    }
+
+    public function notifyObservers(){
+        foreach ($this->observers as $observer){
+            $observer->update($this);
+        }
+    }
+
+    public function getBranchOIC(){
+        $branch_id = $this->getOffender()->getNearestPoliceBranch();
+        $BranchOICmodel = new OIC();
+        $branchOIC = $BranchOICmodel->findByBranch($branch_id);
+        return new BranchOICDomain($branchOIC[0]->id_no);
+    }
+
+    public function getOffender(){
+        return new OffenderDomain($this->id_no);
+    }
+
+    /*-----------------Getters------------------*/
+    public function getOffenderID(){
+        return $this->id_no;
+    }
+
+    public function getOffenderName(){
+        return $this->full_name;
+    }
+
+    public function getOffenderAddress(){
+        return $this->address;
     }
         
     /*---------Make FineSheet with the Details in database-----------*/

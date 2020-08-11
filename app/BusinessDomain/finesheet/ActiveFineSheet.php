@@ -10,16 +10,20 @@ class ActiveFineSheet extends State{
     //Check a way to make this synchronized
     public static function getInstance(){ //Singleton
         if (self::$instance == null){
-            return new ActiveFineSheet();
+            $instance = new ActiveFineSheet();
         }
-        return new ActiveFineSheet();
+        return $instance;
     }
 
     public function pay($fineSheet){
-        $fineSheet->setState(PaidFineSheet::getInstance());
+        $fineSheet->setState(PaidFineSheet::getInstance(),1);
     }
 
     public function expire($fineSheet){
-        $fineSheet->setState(OverDueFineSheet::getInstance());
+        $fineSheet->setState(OverDueFineSheet::getInstance(),2);
+    }
+
+    public function close($fineSheet){
+        return false;
     }
 }

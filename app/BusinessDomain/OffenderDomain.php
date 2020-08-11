@@ -1,6 +1,6 @@
 <?php
 
-class OffenderDomain extends UserDomain{
+class OffenderDomain extends UserDomain implements Observer{
     private $offender_id,$licence_no,$offender_name,$tp_no,$address,$nearest_police_branch;
     private $offender_model;
 
@@ -37,6 +37,11 @@ class OffenderDomain extends UserDomain{
         foreach ($result as $key=>$val){
             $this->$key=$val;
         }
+    }
+
+    public function update($fineSheet)
+    {
+        echo("This is updated");
     }
 }
 

@@ -13,6 +13,9 @@ class HomeController extends Controller {
         // $branchG->accept($report);
         // //dnd($report->getTrafficOfficers());
         // //dnd(($report->getFinesheets()));
+
+        $finesheet = new FineSheetDomain(4556);
+        $finesheet->expire();
                
         $this->view->render('home/index');
     }

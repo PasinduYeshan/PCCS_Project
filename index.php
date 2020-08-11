@@ -20,6 +20,10 @@ function autoload($className) {
         require_once(ROOT . DS . 'app' .DS . 'BusinessDomain'. DS . 'finesheet'. DS . $className . '.php');
     }elseif(file_exists(ROOT . DS . 'app' .DS . 'BusinessDomain'. DS .$className . '.php')) {
         require_once(ROOT . DS . 'app' .DS . 'BusinessDomain'. DS . $className . '.php');
+    }elseif(file_exists(ROOT . DS . 'app' .DS . 'lib'. DS .$className . '.php')) {
+        require_once(ROOT . DS . 'app' .DS . 'lib'. DS . $className . '.php');
+    }elseif(file_exists(ROOT . DS . 'app' .DS . 'lib'. DS .'PHPMailer'. DS .$className . '.php')) {
+        require_once(ROOT . DS . 'app' .DS . 'lib'. DS .'PHPMailer'. DS . $className . '.php');
     }
 }
 

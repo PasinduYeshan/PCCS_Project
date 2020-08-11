@@ -1,5 +1,5 @@
 <?php
-require ROOT.DS."app".DS."lib".DS."PHPMailer".DS."PHPMailerAutoload.php";
+
 class FinesheetController extends Controller {
     
     public function __construct($controller, $action) {
@@ -91,35 +91,11 @@ class FinesheetController extends Controller {
             $branch = $offender->findBranchById($finesheet->id_no);
             $oic_email = $oic->findEmailByBranch($branch);
             //$a = $this->sendEmail('emailclienttest69@gmail.com',$oic_email);
-            $this->sendEmail('emailclienttest69@gmail.com',$oic_email);
+            sendEmail('emailclienttest69@gmail.com',$oic_email);
         }
     }
 
-    public function sendEmail($email,$emailTitle){
-        $mail = new PHPMailer;
-        $mail->isSMTP();
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'tls';
-        //$mail->SMTPAutoTLS = false;
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Port = 587;
-        //$mail->isHTML(true);
-        $mail->Username = 'emailclienttest69@gmail.com';
-        $mail->Password = 'client@69';
-        $mail->setFrom("emailclienttest69@gmail.com",'policeLK');
-        $mail->addReplyTo('emailclienttest69@gmail.com');
-        $mail->Subject = $emailTitle;
-        $mail->Body = "arrest this guy";
-        $mail->isHTML(true);
-        $mail->addAddress($email);
-
-        if (!$mail->send()){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
+    
 
 
 

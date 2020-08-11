@@ -1,15 +1,16 @@
 <?php
 
-class PaidFineSheet extends State{
+class ClosedFineSheet extends State{
     private static $instance;
     
     private function __construct(){
 
     }
 
-    public static function getInstance(){
+    //Check a way to make this synchronized
+    public static function getInstance(){ //Singleton
         if (self::$instance == null){
-            $instance =  new PaidFineSheet();
+            $instance = new ClosedFineSheet();
         }
         return $instance;
     }
@@ -21,9 +22,8 @@ class PaidFineSheet extends State{
     public function expire($fineSheet){
         return false;
     }
-    
-    public function close($fineSheet)
-    {
+
+    public function close($fineSheet){
         return false;
     }
 }
