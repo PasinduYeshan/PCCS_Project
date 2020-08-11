@@ -42,7 +42,6 @@ class Model{
     public function find($params = []){
         $params = $this->_softDeleteParams($params);
         $resultsQuery = $this->_db->find($this->_table,$params,get_class($this));
-        //dnd($resultsQuery);
         if (!$resultsQuery) return [];
         return $resultsQuery;
     }

@@ -41,7 +41,7 @@ class OffenderDomain extends UserDomain implements Observer{
 
     public function update($fineSheet)
     {
-        echo("This is updated");
+       
     }
 }
 

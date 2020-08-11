@@ -27,8 +27,12 @@ function autoload($className) {
 spl_autoload_register('autoload');
 session_start();
 
-
-
+$FinesheetModel = new Finesheet();
+$finesheets =  $FinesheetModel->findFineSheetToMail(date("Y-m-d"));
+foreach ($finesheets as $sheet_no){
+    $fineSheet = new FineSheetDomain($sheet_no);
+    $fineSheet->expire();
+}
 
 
 ?>
