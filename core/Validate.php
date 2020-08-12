@@ -64,7 +64,21 @@ class Validate{
                                 $this->addError(["{$display} must be a valid email address.",$item]);
                             }
                             break;
-
+                        case 'max_value':
+                            if ($value>$rule_value){
+                                $this->addError(["{$display} must be a maximum {$rule_value}.",$item]);
+                            }
+                            break;
+                        case 'past_date_check':
+                            if (date('Y-m-d',strtotime($value))<date('Y-m-d')){
+                                $this->addError(["{$display} can not be a past date.",$item]);
+                            }
+                            break;
+                        case 'future_date_check':
+                            if (date('Y-m-d',strtotime($value))>date('Y-m-d')){
+                                $this->addError(["{$display} can not be a future date.",$item]);
+                            }
+                            break;
                     }
                 }
             }
