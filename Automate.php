@@ -1,5 +1,15 @@
 <?php
 
+function check(){
+    $myfile = fopen("newfile.txt", "a");
+    $txt = "John Doe\n";
+    fwrite($myfile, $txt);
+    $txt = "Jane Doe\n";
+    fwrite($myfile, $txt);
+    fclose($myfile);
+}
+
+
 define('DS',DIRECTORY_SEPARATOR);
 define('ROOT',dirname(__FILE__));
 
@@ -9,7 +19,6 @@ require_once(ROOT . DS . 'config' . DS . 'config.php');
 require_once(ROOT . DS . 'app' . DS . 'lib' . DS . 'helpers' . DS . 'functions.php');
 
 //Autoload classes
-
 function autoload($className) {
     if(file_exists(ROOT . DS . 'core' . DS . $className . '.php')) {
         require_once(ROOT . DS . 'core' . DS . $className . '.php');
@@ -28,11 +37,10 @@ spl_autoload_register('autoload');
 session_start();
 
 $FinesheetModel = new Finesheet();
-$finesheets =  $FinesheetModel->findFineSheetToMail(date("Y-m-d"));
+$startDate = date("Y-m-d", strtotime("-3 days"));
+$endDate = date("Y-m-d", strtotime("-1 days"));
+$finesheets =  $FinesheetModel->findFineSheetToMail($startDate,$endDate);
 foreach ($finesheets as $sheet_no){
     $fineSheet = new FineSheetDomain($sheet_no);
     $fineSheet->expire();
 }
-
-
-?>

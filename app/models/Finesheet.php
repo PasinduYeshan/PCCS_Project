@@ -88,11 +88,11 @@ class Finesheet extends Model{
 
     }
 
-    public function findFineSheetToMail($dueDate,$params = []){
+    public function findFineSheetToMail($startDate,$endDate,$params = []){
         $fineSheetNumbers = [];
         $conditions = [
-            'conditions' => 'fine_date <= ? AND notify = 0',
-            'bind' => [$dueDate]
+            'conditions' => 'due_date >= ? AND due_date <= ? AND notify = 0',
+            'bind' => [$startDate,$endDate]
         ];
         $conditions = array_merge($conditions,$params);
         $result = $this->find($conditions);

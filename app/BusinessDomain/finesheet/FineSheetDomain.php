@@ -3,7 +3,7 @@
 class FineSheetDomain implements IVisitable{
     private $sheet_no, $vehicle_no, $full_name, $address, $fine_date;
     private $fine_time, $place, $offence, $licence_no, $id_no;
-    private $fine, $officer_id, $due_date, $status, $notify;
+    public $fine, $officer_id, $due_date, $status, $notify;
     private $allDetails; //Contain list of all details relevant
     private $currentState;
     private $FinesheetModel;
@@ -46,10 +46,10 @@ class FineSheetDomain implements IVisitable{
             $this->addObservers();
             $this->notifyObservers();
         }
-        // $finesheet = $this->FinesheetModel->findByFinesheet($this->sheet_no)[0];
-        // if ($finesheet){
-        //     $finesheet->updateByField('sheet_no', $this->sheet_no, ['status'=>$state_no]);
-        // }
+        $finesheet = $this->FinesheetModel->findByFinesheet($this->sheet_no)[0];
+        if ($finesheet){
+            $finesheet->updateByField('sheet_no', $this->sheet_no, ['status'=>$state_no]);
+        }
     }
 
     public function getCurrentState(){
@@ -86,7 +86,7 @@ class FineSheetDomain implements IVisitable{
         $this->currentState->close($this);
     }
 
-    /*---------------Observer Design pattern-----------*/
+    /*---------------Observer Design pattern Functions-----------*/
     public function addObservers($observer = []){
         if(empty($observer)){ //Get the relavant observers
             $this->observers[] = $this->getBranchOIC();
@@ -138,6 +138,16 @@ class FineSheetDomain implements IVisitable{
     public function getOffenderAddress(){
         return $this->address;
     }
+
+
+    /*-------------------Email Sent-------------------------- */
+    public function emailSent(){
+        $finesheet = $this->FinesheetModel->findByFinesheet($this->sheet_no)[0];
+        if ($finesheet){
+            $finesheet->updateByField('sheet_no', $this->sheet_no, ['notify'=>1]);
+        }
+    }
+
         
     /*---------Make FineSheet with the Details in database-----------*/
     protected function populateObjData($result){
@@ -145,5 +155,6 @@ class FineSheetDomain implements IVisitable{
             $this->$key=$val;
         }
     }
+
     
 }
