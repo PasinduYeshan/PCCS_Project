@@ -17,8 +17,10 @@ class FinesheetController extends Controller {
         $offence = new Offence();         //
         if ($_POST){
             $fine=0;
-            foreach ($_POST['offence'] as $offence_no){
-                $fine += (int)$offence->findById($offence_no)[0]->fine;
+            if (isset($_POST['offence'])) {
+                foreach ($_POST['offence'] as $offence_no){
+                    $fine += (int)$offence->findById($offence_no)[0]->fine;
+                }
             }
             $finesheet->assign($_POST);
             //Finesheet::$addValidation['fine']['max_value'] = (int)$offence->findById($_POST['offence'])[0]->fine;
