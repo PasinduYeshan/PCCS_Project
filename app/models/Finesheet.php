@@ -22,6 +22,41 @@ class Finesheet extends Model{
             'display' => 'Vehicle No',
             'required' => true,
             'max' => 15
+        ],
+        'full_name' => [
+            'display' => 'Full Name',
+            'required' => true,
+            'max' => 100
+        ],
+        'address' => [
+            'display' => 'Address',
+            'required' => true,
+            'max' => 200
+        ],
+        'fine_date' => [
+            'display' => 'Fine Date',
+            'required' => true,
+            'past_date_check'=> '*',
+            'future_date_check'=> '*'
+        ],
+        'fine_time' => [
+            'display' => 'Fine Time',
+            'required' => true
+        ],
+        'place' => [
+            'display' => 'Place',
+            'required' => true,
+            'max' => 50
+        ],
+        'licence_no' => [
+            'display' => 'Licence No',
+            'required' => true,
+            'max' => 15
+        ],
+        'id_no' => [
+            'display' => 'ID No',
+            'required' => true,
+            'max' => 15
         ]
     ];
 
