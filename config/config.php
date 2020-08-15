@@ -24,5 +24,5 @@ define('ACCESS_RESTRICTED', 'Restricted');                                   //c
 
 ################# Gateway Settings #######################################
 define('GATEWAY','stripe'); // could use stripe, paypal
-define('STRIPE_PUBLIC','pk_test_51H8sGwIvCNmmqVHeblVZagLmx6S1k8pZJD0lRa6SydPmeZaUZxrsDrY3FlPJks6tH2Yg405ln8sMmPtT2xkK4QBf001s1KwEWH');
-define('STRIPE_PRIVATE','sk_test_51H8sGwIvCNmmqVHeAbKcq7SiyJAoZiN3PzrnBJNmnXRnF4MFC9LcT96S8heRwvEXCDlSWpAQCKrdpap0zVaQ8DBk00nq4TQxGK');
+define('STRIPE_PUBLIC','pk_test_51HGTJjKNSpTiEuPG6mHJxsnU1Z74f8sAoonpib96lWVuZ7DZk9jHCHSFjH3AldflMWImlRyPr3sasvsPL6Od9F2n00k3vOMHCw');
+define('STRIPE_PRIVATE','sk_test_51HGTJjKNSpTiEuPGbMuiUlskjK4X1RF8iiKH6VST4ymSLZcc72Pp6w4K2gnFGmJEdk1Q0s0QZ8BYQMZJGt67ZC9600uULJAHTx');
