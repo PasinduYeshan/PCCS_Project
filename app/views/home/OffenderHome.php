@@ -7,7 +7,6 @@
         </div>
         <div class="row text-center">
             <div class="col-md-4">
-<<<<<<< HEAD
                 <div class="container serviceImgCover3">
                     <img src="<?=PROOT?>css/images/myLicense.svg" class="servicesSVG3"/>
                 </div>

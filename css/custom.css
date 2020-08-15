@@ -189,8 +189,8 @@ section{
 
 /*Offender------------------*/
 .serviceImgCover3{
-    max-width: 50%;
-    height: 200px; 
+    max-width: 80%;
+    height: 250px; 
     text-align : center;
     vertical-align: middle;
 }
@@ -207,7 +207,7 @@ section{
     font-size: 2rem;
     margin-top: 10px;
     margin-bottom: 50px;
-    width: 50%;
+    width: 80%;
 }
 
 
@@ -291,30 +291,30 @@ section{
     }
 
     
-/*Two Columns*/
-.serviceImgCover{
-    max-width: 50%;
-    height: 275px; 
-    text-align : center;
-    vertical-align: middle;
+    /*Offender------------------*/
+    .serviceImgCover3{
+        max-width: 60%;
+        height: 200px; 
+        text-align : center;
+        vertical-align: middle;
+    }
     
+    .servicesSVG3{
+        max-height: 100%;
+        max-width: 100%;
+        display: block;
+        text-align : center;
+    }
+    
+    .serviceButton3{
+        padding: 10px;
+        font-size: 2rem;
+        margin-top: 10px;
+        margin-bottom: 50px;
+        width: 50%;
+    }
 }
-
-.servicesSVG{
-    max-height: 90%;
-    max-width: 100%;
-    display: block;
-}
-
-.serviceButton{
-    padding: 10px;
-    font-size: 2rem;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    width: 40%;
-}
-
-/* Extra small devices (phones, 600px and down) */
+/* Extra small devices (phones, 700px and down) */
 @media only screen and (max-width: 700px) {
     /*Two Columns*/
     .serviceImgCover{
@@ -361,12 +361,12 @@ section{
         font-size: 2rem;
         margin-top: 10px;
         margin-bottom: 50px;
-        width: 40%;
+        width: 50%;
     }
 
     /*Offender------------------*/
     .serviceImgCover3{
-        max-width: 50%;
+        max-width: 60%;
         height: 200px; 
         text-align : center;
         vertical-align: middle;
@@ -384,7 +384,7 @@ section{
         font-size: 2rem;
         margin-top: 10px;
         margin-bottom: 50px;
-        width: 50%;
+        width: 60%;
     }
 
 }
@@ -433,7 +433,7 @@ section{
         font-size: 2rem;
         margin-top: 0px;
         margin-bottom: 50px;
-        width: 80%;
+        width: 60%;
     }
 
 }
@@ -459,7 +459,7 @@ section{
         font-size: 2rem;
         margin-top: 0px;
         margin-bottom: 50px;
-        width: 40%;
+        width: 50%;
     }
 
     /*Offender------------------*/
