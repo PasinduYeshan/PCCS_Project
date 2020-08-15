@@ -88,11 +88,25 @@ class Finesheet extends Model{
 
     }
 
-    public function findFineSheetToMail($startDate,$endDate,$params = []){
+    public function findFineSheetToMail($startDate,$endDate,$params = []){ //To send email
         $fineSheetNumbers = [];
         $conditions = [
             'conditions' => 'due_date >= ? AND due_date <= ? AND notify = 0',
             'bind' => [$startDate,$endDate]
+        ];
+        $conditions = array_merge($conditions,$params);
+        $result = $this->find($conditions);
+        foreach ($result as $fineSheet){
+            $fineSheetNumbers[] = $fineSheet->sheet_no;
+        }
+        return $fineSheetNumbers;
+    }
+
+    public function findWarnings($warningDate,$params = []){
+        $fineSheetNumbers = [];
+        $conditions = [
+            'conditions' => 'due_date == ? status != 1',
+            'bind' => [$warningDate]
         ];
         $conditions = array_merge($conditions,$params);
         $result = $this->find($conditions);

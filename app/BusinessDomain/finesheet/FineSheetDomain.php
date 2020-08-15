@@ -126,6 +126,11 @@ class FineSheetDomain implements IVisitable{
         return new OffenderDomain($this->id_no);
     }
 
+    //Set this function to send warning messages to offender
+    public function sendWarnings(){ 
+        //Find a message API
+    }
+
     /*-----------------Getters------------------*/
     public function getOffenderID(){
         return $this->id_no;

@@ -37,6 +37,8 @@ spl_autoload_register('autoload');
 session_start();
 
 $FinesheetModel = new Finesheet();
+
+/**------------------Send emails to OICs------------------------- */
 $startDate = date("Y-m-d", strtotime("-3 days"));
 $endDate = date("Y-m-d", strtotime("-1 days"));
 $finesheets =  $FinesheetModel->findFineSheetToMail($startDate,$endDate);
@@ -44,3 +46,13 @@ foreach ($finesheets as $sheet_no){
     $fineSheet = new FineSheetDomain($sheet_no);
     $fineSheet->expire();
 }
+
+/**------------------Send Warnings------------------------- */
+$warningDate = date("Y-m-d", strtotime("-3 days"));
+$warnings =  $FinesheetModel->findWarnings($warningDate);
+foreach ($finesheets as $sheet_no){
+    $fineSheet = new FineSheetDomain($sheet_no);
+    $fineSheet->sendWarnings();
+}
+
+

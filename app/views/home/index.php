@@ -8,7 +8,7 @@
         <div class="container">
             <div class="masthead-subheading">Welcome To Our Page!</div>
             <div class="masthead-heading text-uppercase">PCCS Online Traffic Police System</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+            <!-- <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a> -->
         </div>
     </header>
 <?php elseif  (currentUser()->acl=='["TrafficOfficer"]'): ?>
@@ -16,20 +16,30 @@
         <div class="container">
             <div class="masthead-subheading">Welcome To Our Page!</div>
             <div class="masthead-heading text-uppercase">PCCS Online Traffic Police System</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+            
         </div>
     </header>
     <?php include('TrafficOfficerHome.php') ?>
+<?php elseif  (currentUser()->acl=='["Offender"]'): ?>
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Welcome To Our Page!</div>
+            <div class="masthead-heading text-uppercase">PCCS Online Traffic Police System</div>
+            
+        </div>
+    </header>
+    <?php include('OffenderHome.php') ?>
 <?php else : ?>
     <header class="masthead">
         <div class="container">
             <div class="masthead-subheading">Welcome To Our Page!</div>
             <div class="masthead-heading text-uppercase">PCCS Online Traffic Police System</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+            
         </div>
     </header>
 
 <?php endif; ?>
+<?php include('footer.php') ?>
 
 
 <?php $this->end(); ?>

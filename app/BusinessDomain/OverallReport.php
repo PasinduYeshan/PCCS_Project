@@ -2,7 +2,7 @@
 class OverallReport extends Report{
     private $branchGroup;
     protected $trafficOfficers, $fineSheets, $branches;
-
+    
     public function visitBranchGroup(\BranchGroup $branchGroup){
         $this->branchGroup = $branchGroup;
     }
@@ -14,6 +14,7 @@ class OverallReport extends Report{
     public function getFinesheets(){
         return $this->fineSheets;
     }
+
     public function getTrafficOfficers()
     {
         return $this->trafficOfficers;
