@@ -37,7 +37,7 @@ class TrafficofficerController extends UserController{
             $this->view->controller = lcfirst($this->_controller);
         }
 
-        $this->view->render('officer/officerDetails');
+        $this->view->render('offender/offenderDetails');
     }
 
 

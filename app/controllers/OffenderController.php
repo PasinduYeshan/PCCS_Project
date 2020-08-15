@@ -6,6 +6,7 @@ class OffenderController extends UserController{
     private $myFinesheet;
     private $myLicence;
     private $paymentC;
+    private $OffenderModel;
 
     public function __construct($controller, $action)
     {
@@ -14,6 +15,7 @@ class OffenderController extends UserController{
         $this->myFinesheet = new FinesheetController($controller,$action);
         $this->myLicence = new LicenceController($controller,$action);
         $this->paymentC = new PaymentController($controller,$action);
+        $this->OffenderModel = new Offender();
     }
 
 
@@ -35,6 +37,16 @@ class OffenderController extends UserController{
 
     public function thankYouAction($sheet_no){
         $this->paymentC->thankYouAction($sheet_no);
+    }
+
+    public function findOffenderAction(){
+        if ($_POST){
+            $offender = $this->OffenderModel->findById($_POST['id_no']);
+            $this->view->offender = $offender;
+            $this->view->controller = lcfirst($this->_controller);
+        }
+
+        $this->view->render('officer/officerDetails');
     }
 
 }
