@@ -167,13 +167,14 @@ section{
 /*Two Columns*/
 .serviceImgCover{
     max-width: 50%;
-    height: 350px; 
+    height: 275px; 
     text-align : center;
     vertical-align: middle;
+    
 }
 
 .servicesSVG{
-    max-height: 80%;
+    max-height: 90%;
     max-width: 100%;
     display: block;
 }
@@ -181,31 +182,35 @@ section{
 .serviceButton{
     padding: 10px;
     font-size: 2rem;
-    margin-top: 0px;
+    margin-top: 10px;
     margin-bottom: 50px;
     width: 40%;
 }
-/*Three Columns*/
-/* .serviceImgCover3{
-    max-width: 80%;
-    height: 350px; 
+
+/*Offender------------------*/
+.serviceImgCover3{
+    max-width: 50%;
+    height: 200px; 
     text-align : center;
     vertical-align: middle;
 }
 
 .servicesSVG3{
-    max-height: 80%;
+    max-height: 100%;
     max-width: 100%;
     display: block;
+    text-align : center;
 }
 
 .serviceButton3{
     padding: 10px;
     font-size: 2rem;
-    margin-top: 0px;
+    margin-top: 10px;
     margin-bottom: 50px;
-    width: 80%;
-} */
+    width: 50%;
+}
+
+
 
 
 /**
@@ -259,58 +264,107 @@ section{
     font-weight: bold;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    .serviceImgCover3{
-        max-width: 60%;
-        height: 250px; 
-        text-align : center;
-        vertical-align: middle;
-    }
-    
-    .servicesSVG3{
-        max-height: 80%;
-        max-width: 100%;
-        display: block;
-    }
-    
-    .serviceButton3{
-        padding: 10px;
-        font-size: 2rem;
-        margin-top: 0px;
-        margin-bottom: 20px;
-        width: 60%;
-    }
 
-}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .serviceImgCover3{
-        max-width: 60%;
-        height: 200px; 
+    /*Two Columns*/
+    .serviceImgCover{
+        max-width: 50%;
+        height: 350px; 
         text-align : center;
         vertical-align: middle;
     }
-    
-    .servicesSVG3{
+
+    .servicesSVG{
         max-height: 100%;
         max-width: 100%;
         display: block;
-        text-align : center;
     }
+
+    .serviceButton{
+        padding: 10px;
+        font-size: 2rem;
+        margin-top: 0px;
+        margin-bottom: 50px;
+        width: 40%;
+    }
+
     
-    .serviceButton3{
+/*Two Columns*/
+.serviceImgCover{
+    max-width: 50%;
+    height: 275px; 
+    text-align : center;
+    vertical-align: middle;
+    
+}
+
+.servicesSVG{
+    max-height: 90%;
+    max-width: 100%;
+    display: block;
+}
+
+.serviceButton{
+    padding: 10px;
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    width: 40%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 700px) {
+    /*Two Columns*/
+    .serviceImgCover{
+        max-width: 50%;
+        height: 275px; 
+        text-align : center;
+        vertical-align: middle;
+
+    }
+
+    .servicesSVG{
+        max-height: 90%;
+        max-width: 100%;
+        display: block;
+    }
+
+    .serviceButton{
+        padding: 10px;
+        font-size: 2rem;
+        margin-top: 0px;
+        margin-bottom: 50px;
+        width: 40%;
+    }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    /*Two Columns*/
+    .serviceImgCover{
+        max-width: 50%;
+        height: 275px; 
+        text-align : center;
+        vertical-align: middle;
+        
+    }
+
+    .servicesSVG{
+        max-height: 90%;
+        max-width: 100%;
+        display: block;
+    }
+
+    .serviceButton{
         padding: 10px;
         font-size: 2rem;
         margin-top: 10px;
         margin-bottom: 50px;
-        width: 50%;
-    } 
-}
+        width: 40%;
+    }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+    /*Offender------------------*/
     .serviceImgCover3{
         max-width: 50%;
         height: 200px; 
@@ -337,9 +391,32 @@ section{
 
 /* Medium devices (landscape tablets, 850 and up) */
 @media only screen and (min-width: 850px) {
+    /*Two Columns*/
+    .serviceImgCover{
+        max-width: 50%;
+        height: 350px; 
+        text-align : center;
+        vertical-align: middle;
+    }
+
+    .servicesSVG{
+        max-height: 90%;
+        max-width: 100%;
+        display: block;
+    }
+
+    .serviceButton{
+        padding: 10px;
+        font-size: 2rem;
+        margin-top: 0px;
+        margin-bottom: 50px;
+        width: 40%;
+    }
+    
+    /*Offender------------------*/
     .serviceImgCover3{
         max-width: 60%;
-        height: 250px; 
+        height: 280px; 
         text-align : center;
         vertical-align: middle;
     }
@@ -360,30 +437,51 @@ section{
     }
 
 }
+
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    @media only screen and (min-width: 850px) {
-        .serviceImgCover3{
-            max-width: 80%;
-            height: 250px; 
-            text-align : center;
-            vertical-align: middle;
-        }
-        
-        .servicesSVG3{
-            max-height: 100%;
-            max-width: 100%;
-            display: block;
-            text-align : center;
-        }
-        
-        .serviceButton3{
-            padding: 10px;
-            font-size: 2rem;
-            margin-top: 0px;
-            margin-bottom: 50px;
-            width: 80%;
-        }
+    /*Two Columns*/
+    .serviceImgCover{
+        max-width: 50%;
+        height: 250px; 
+        text-align : center;
+        vertical-align: middle;
+    }
+
+    .servicesSVG{
+        max-height: 90%;
+        max-width: 100%;
+        display: block;
+    }
+
+    .serviceButton{
+        padding: 10px;
+        font-size: 2rem;
+        margin-top: 0px;
+        margin-bottom: 50px;
+        width: 40%;
+    }
+
+    /*Offender------------------*/
+    .serviceImgCover3{
+        max-width: 80%;
+        height: 250px; 
+        text-align : center;
+        vertical-align: middle;
+    }
     
+    .servicesSVG3{
+        max-height: 100%;
+        max-width: 100%;
+        display: block;
+        text-align : center;
+    }
+    
+    .serviceButton3{
+        padding: 10px;
+        font-size: 2rem;
+        margin-top: 0px;
+        margin-bottom: 50px;
+        width: 80%;
     }
 }
