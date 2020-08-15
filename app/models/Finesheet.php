@@ -3,7 +3,7 @@
 
 class Finesheet extends Model{
 
-    public $sheet_no,$vehicle_no,$full_name,$address,$fine_date,$fine_time,$place,$offence,$licence_no,$id_no,$fine,$officer_id,$due_date,$status=0;
+    public $sheet_no,$vehicle_no,$full_name,$address,$fine_date,$fine_time,$place,$vehicletype,$offence,$licence_no,$id_no,$fine,$officer_id,$due_date,$status=0;
 
     public function __construct()
     {
