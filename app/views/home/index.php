@@ -28,6 +28,30 @@
         </div>
     </header>
     <?php include('OffenderHome.php') ?>
+<?php elseif  (currentUser()->acl=='["PaymentOfficer"]'): ?>
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Welcome To Our Page!</div>
+            <div class="masthead-heading text-uppercase">PCCS Online Traffic Police System</div>
+        </div>
+    </header>
+    <?php include('PaymentOfficerHome.php') ?>
+<?php elseif  (currentUser()->acl=='["BranchOIC"]'): ?>
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Welcome To Our Page!</div>
+            <div class="masthead-heading text-uppercase">PCCS Online Traffic Police System</div>
+        </div>
+    </header>
+    <?php include('BranchOICHome.php') ?>
+<?php elseif  (currentUser()->acl=='["HigherOfficer"]'): ?>
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Welcome To Our Page!</div>
+            <div class="masthead-heading text-uppercase">PCCS Online Traffic Police System</div>
+        </div>
+    </header>
+    <?php include('HigherOfficerHome.php') ?>
 <?php else : ?>
     <header class="masthead">
         <div class="container">
