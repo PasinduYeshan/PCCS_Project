@@ -15,6 +15,8 @@ class FinesheetController extends Controller {
         $validation = new Validate();
         // $fineValidation = new Validate(); //
         $offence = new Offence();         //
+        $vehicleTypes = file_get_contents(ROOT.DS.'app'.DS.'vehicle.json');
+        $vehicleTypes = json_decode($vehicleTypes, true);
         if ($_POST){
             $fine=0;
             if (isset($_POST['offence'])) {
@@ -36,6 +38,7 @@ class FinesheetController extends Controller {
             }
 
         }
+        $this->view->vehicleTypes = $vehicleTypes;
         $this->view->offencelist = $offence->findAll();
         $this->view->finesheet = $finesheet;
         $this->view->displayErrors = $validation->displayErrors();
