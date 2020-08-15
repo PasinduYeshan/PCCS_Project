@@ -2,11 +2,7 @@
 <section class="page-section" id="services">
     <div class="container">
         <div class="text-center " id="service-heading">
-<<<<<<< HEAD
             <h2 class="section-heading text-uppercase" id="serviceHeading">Services</h2>
-=======
-            <h2 class="section-heading text-uppercase">Services</h2>
->>>>>>> 0bd0ab4784d3b54286b28527fe78e44a73cde4d8
             <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
         </div>
         <div class="row text-center">
