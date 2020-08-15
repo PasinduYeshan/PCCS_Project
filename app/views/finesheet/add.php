@@ -16,9 +16,19 @@
             <?= inputBlock('text','Vehicle No','vehicle_no',$this->finesheet->vehicle_no,['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
             <?= inputBlock('text','Full Name','full_name',$this->finesheet->full_name,['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
             <?= inputBlock('text','Address ','address',$this->finesheet->address,['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
-            <?= inputBlock('date','Fine Date','fine_date',$this->finesheet->fine_date,['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
-            <?= inputBlock('time','Fine Time','fine_time',$this->finesheet->fine_time,['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
+            <?= inputBlock('date','Fine Date','fine_date',$this->finesheet->fine_date,['class'=>'form-control'],['class'=>'form-group col-md-3']); ?>
+            <?= inputBlock('time','Fine Time','fine_time',$this->finesheet->fine_time,['class'=>'form-control'],['class'=>'form-group col-md-3']); ?>
             <?= inputBlock('text','Place','place',$this->finesheet->place,['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
+            
+            <div class="form-group col-md-6">
+                <label for="vehicletype">Vehicle Type</label>
+                <select id="vehicletype" name="vehicletype" class="form-control">
+                    <option value="" selected disabled hidden>Select vehicle type</option>
+                    <?php foreach ($this->vehicleTypes as $vehicle):?>
+                        <option value="<?= $vehicle["vehicle_type"];?>"><?= $vehicle["vehicle_type"]?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
             <div class="form-group col-md-6">
                 <label for="offence">Offence</label>
