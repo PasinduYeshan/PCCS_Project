@@ -25,7 +25,8 @@
         <div class="container">
             <div class="masthead-subheading">Welcome To Our Page!</div>
             <div class="masthead-heading text-uppercase">PCCS Online Traffic Police System</div>
-            
+<<<<<<< HEAD
+        
         </div>
     </header>
     <?php include('OffenderHome.php') ?>

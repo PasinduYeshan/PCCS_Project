@@ -15,10 +15,14 @@ class FinesheetController extends Controller {
         $validation = new Validate();
         // $fineValidation = new Validate(); //
         $offence = new Offence();         //
+        $vehicleTypes = file_get_contents(ROOT.DS.'app'.DS.'vehicle.json');
+        $vehicleTypes = json_decode($vehicleTypes, true);
         if ($_POST){
             $fine=0;
-            foreach ($_POST['offence'] as $offence_no){
-                $fine += (int)$offence->findById($offence_no)[0]->fine;
+            if (isset($_POST['offence'])) {
+                foreach ($_POST['offence'] as $offence_no){
+                    $fine += (int)$offence->findById($offence_no)[0]->fine;
+                }
             }
             $finesheet->assign($_POST);
             //Finesheet::$addValidation['fine']['max_value'] = (int)$offence->findById($_POST['offence'])[0]->fine;
@@ -34,6 +38,7 @@ class FinesheetController extends Controller {
             }
 
         }
+        $this->view->vehicleTypes = $vehicleTypes;
         $this->view->offencelist = $offence->findAll();
         $this->view->finesheet = $finesheet;
         $this->view->displayErrors = $validation->displayErrors();

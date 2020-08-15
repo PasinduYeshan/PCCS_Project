@@ -2,7 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\controllers"
+    "\\app\\controllers",
+    "\\app\\views",
+    "\\app\\views\\home",
+    "\\config"
   ],
+  "SelectedNode": "\\config\\config.php",
   "PreviewInSolutionExplorer": false
 }

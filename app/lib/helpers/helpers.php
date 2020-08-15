@@ -8,6 +8,9 @@ function dnd($data) {
 }
 
 function sanitize($dirty){
+    if (is_array($dirty)){                                /////////
+        $dirty = implode(",",$dirty);
+    }
     return htmlentities($dirty,ENT_QUOTES,'UTF-8');
 
 }
