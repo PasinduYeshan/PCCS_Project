@@ -20,11 +20,15 @@ class ReportController extends Controller{
 
         $this->view->render('report/overallreport');
 
-
     }
 
     public function branchreportAction(){
-
+        if ($_POST){
+            // $branchReport = new BranchReport();
+            $finesheets = $this->FinesheetModel->findBetweenDates($_POST['start_date'],$_POST['end_date'],['order'=>'sheet_no']);
+            $this->overallPdfReport($finesheets);
+        }
+        
 
 
     }

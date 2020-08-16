@@ -2,6 +2,7 @@
 
 class OffenderDomain extends UserDomain implements Observer{
     private $offender_id,$licence_no,$offender_name,$tp_no,$address,$nearest_police_branch;
+    private $myFineSheets;
     private $offender_model;
 
     public function __construct($offender_id,$param=[])
@@ -18,7 +19,18 @@ class OffenderDomain extends UserDomain implements Observer{
             $this->address = $param['address'];
             $this->nearest_police_branch = $param['nearest_police_branch'];
         }
+        $this->myFines();
     }
+
+    private function myFines(){
+        $FineSheetModel = new Finesheet();
+        $this->myFineSheets = $FineSheetModel->findById($this->offender_id,['order'=>'sheet_no']);
+    }
+
+    public function getMyFineSheets(){
+        return $this->myFineSheets;
+    }
+
     public function getOffenderId(){return $this->offender_id;}
 
     public function getLicenceNo(){return $this->licence_no;}

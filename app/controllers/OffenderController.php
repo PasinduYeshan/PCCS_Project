@@ -39,14 +39,14 @@ class OffenderController extends UserController{
         $this->paymentC->thankYouAction($sheet_no);
     }
 
-    public function findOffenderAction(){
-        if ($_POST){
-            $offender = $this->OffenderModel->findById($_POST['id_no']);
-            $this->view->offender = $offender;
-            $this->view->controller = lcfirst($this->_controller);
-        }
+    // public function findOffenderAction(){
+    //     if ($_POST){
+    //         $offender = $this->OffenderModel->findById($_POST['id_no']);
+    //         $this->view->offender = $offender;
+    //         $this->view->controller = lcfirst($this->_controller);
+    //     }
 
-        $this->view->render('officer/officerDetails');
-    }
+    //     $this->view->render('offender/offenderDetails');
+    // }
 
 }

@@ -37,6 +37,8 @@ class TrafficOfficerDomain extends PoliceOfficerDomain implements IVisitable{
     } 
 
     /*-------------------Getters------------------------ */
+    public function getFineSheets(){return $this->fineSheetList;}
+    
     public function getIdNo(){return $this->id_no;}
 
     public function getPoliceId(){return $this->police_id;}

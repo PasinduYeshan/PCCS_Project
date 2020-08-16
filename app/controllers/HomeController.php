@@ -12,8 +12,10 @@ class HomeController extends Controller {
         // $branchG = new BranchGroup();
         // $branchG->accept($report);
         // //dnd($report->getTrafficOfficers());
-        // //dnd(($report->getFinesheets()));
-        
+        // // //dnd(($report->getFinesheets()));
+        // $offender = new OffenderDomain("1111");
+        // $fine = $offender->getMyFineSheets();
+        // dnd($offender);
         $this->view->render('home/index');
     }
 }

@@ -8,23 +8,23 @@
         <div class="row text-center">
             <div class="col-md-4">
                 <div class="container serviceImgCover3">
-                    <img src="<?=PROOT?>css/images/myLicense.svg" class="servicesSVG3"/>
+                    <img src="<?=PROOT?>css/images/policeOfficers.svg" class="servicesSVG3" id="officerSVG"/>
                 </div>
-                <a href="trafficofficer/add" class="btn btn-primary btn-lg serviceButton3">My License</a> 
+                <a href="BranchOIC/findOfficer" class="btn btn-primary btn-lg serviceButton3">Find Officer Details</a> 
             </div>
 
             <div class="col-md-4">
                 <div class="container serviceImgCover3">
-                    <img src="<?=PROOT?>css/images/dueFines.svg" class = "servicesSVG3"/>
+                    <img src="<?=PROOT?>css/images/offenders.svg" class = "servicesSVG3" />
                 </div>
-                <a href="trafficofficer/details" class="btn btn-primary btn-lg serviceButton3">My Finesheets</a>
+                <a href="BranchOIC/findOffender" class="btn btn-primary btn-lg serviceButton3">Find Offender Details</a>
             </div>
 
             <div class="col-md-4">
                 <div class="container serviceImgCover3">
-                    <img src="<?=PROOT?>css/images/payFine.svg" class="servicesSVG3"/>
+                    <img src="<?=PROOT?>css/images/branchReport.svg" class="servicesSVG3"/>
                 </div>
-                <a href="trafficofficer/add" class="btn btn-primary btn-lg serviceButton3">Pay fine</a> 
+                <a href="BranchOIC/generateBranchReport" class="btn btn-primary btn-lg serviceButton3">Generate Report</a> 
             </div>
         </div>
     </div>

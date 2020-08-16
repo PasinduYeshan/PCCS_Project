@@ -1,10 +1,10 @@
 <?php $this->setSiteTitle('Fine Sheet Search'); ?>
 <?php $this->start('body'); ?>
-    <div class="col-md-8 col-md-offset-2 well">
-        <h2 class="text-center">Fine Sheet Search</h2>
+    <div class="col-md-8 col-md-offset-2 well formUnderNav">
+        <h2 class="text-center">Search for Due Fine Sheets</h2>
         <hr>
         <form class="form" action="" method="post">
-            <?= inputBlock('text','Enter ID no','id_no','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
+            <?= inputBlock('text',"Enter Offender's ID no",'id_no','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
             <div class="col-md-12 text-right">
                 <a href="<?=PROOT?>home" class="btn btn-default">Cancel</a>
                 <?= submitTag('Search',['class'=>'btn btn-primary', 'name'=>'search']) ;?>

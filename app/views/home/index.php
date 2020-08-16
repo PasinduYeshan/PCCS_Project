@@ -11,6 +11,7 @@
             <!-- <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a> -->
         </div>
     </header>
+    <?php include('GuestHome.php') ?>
 <?php elseif  (currentUser()->acl=='["TrafficOfficer"]'): ?>
     <header class="masthead">
         <div class="container">
@@ -60,7 +61,6 @@
             
         </div>
     </header>
-
 <?php endif; ?>
 <?php include('footer.php') ?>
 
