@@ -16,6 +16,10 @@ class HomeController extends Controller {
         // $offender = new OffenderDomain("1111");
         // $fine = $offender->getMyFineSheets();
         // dnd($offender);
+        $branch = new BranchDomain(1);
+        $branchReport = new BranchReport();
+        $branch->accept($branchReport);
+        $branchReport->getFinesheets();
         $this->view->render('home/index');
     }
 }

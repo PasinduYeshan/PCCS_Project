@@ -1,6 +1,5 @@
 <?php 
 class BranchReport extends Report{
-    private $finesheet = [];
 
     public function visitBranchGroup(\BranchGroup $branchGroup){
     }
@@ -8,5 +7,11 @@ class BranchReport extends Report{
     public function visitFineSheet(FineSheetDomain $finesheet)
     {
         $this->fineSheets[] = $finesheet;
+    }
+
+    public function getFinesheets()
+    {
+        dnd($this->fineSheets);
+        return $this->finesheet;
     }
 }
