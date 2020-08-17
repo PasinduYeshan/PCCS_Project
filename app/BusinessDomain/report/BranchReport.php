@@ -1,7 +1,7 @@
 <?php 
 class BranchReport extends Report{
 
-    public function visitBranchGroup(\BranchGroup $branchGroup){
+    public function visitBranchGroup(BranchGroup $branchGroup){
     }
 
     public function visitFineSheet(FineSheetDomain $finesheet)
@@ -11,7 +11,6 @@ class BranchReport extends Report{
 
     public function getFinesheets()
     {
-        dnd($this->fineSheets);
         return $this->finesheet;
     }
 }
