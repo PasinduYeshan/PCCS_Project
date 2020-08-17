@@ -22,28 +22,27 @@ class ReportController extends Controller{
 
     }
 
-    public function branchreportAction(){
-        if ($_POST){
-            // $branchReport = new BranchReport();
-            $finesheets = $this->FinesheetModel->findBetweenDates($_POST['start_date'],$_POST['end_date'],['order'=>'sheet_no']);
-            $this->overallPdfReport($finesheets);
-        }
+    // public function branchreportAction(){
+    //     if ($_POST){
+    //         // $branchReport = new BranchReport();
+    //         $finesheets = $this->FinesheetModel->findBetweenDates($_POST['start_date'],$_POST['end_date'],['order'=>'sheet_no']);
+    //         $this->overallPdfReport($finesheets);
+    //     }
         
 
 
-    }
+    // }
 
     public function overallPdfReport($finesheets){
         $pdf = new OverallPDF();
         $pdf->generatePDF($finesheets);
     }
     
-        public function branchreportAction(){
+    public function branchreportAction(){
         $sampleCounts = array(20,35,30,20,20,20,20,20,20,15,20,15,1,1,1);
         //dnd(array_slice($sampleCounts,10));
         //array_push($sampleCounts,array_sum(array_slice($sampleCounts,12)));
         //dnd($sampleCounts);
-        
         $offence=new Offence();
         $offenceNames=array();
         $offenceWithCounts=array();

@@ -5,6 +5,7 @@ class BranchOICController extends UserController{
     private $trafficOfficerC;
     private $offenderC;
     private $finesheetC;
+    private $reportC;
 
     public function __construct($controller, $action) {
         parent::__construct($controller,$action);
@@ -12,6 +13,7 @@ class BranchOICController extends UserController{
         $this->trafficOfficerC = new TrafficofficerController($controller,$action);
         $this->offenderC = new OffenderController($controller,$action);
         $this->finesheetC = new FinesheetController($controller,$action);
+        $this->reportC = new ReportController($controller,$action);
 
 
     }
@@ -28,7 +30,7 @@ class BranchOICController extends UserController{
     }
 
     public function generateBranchReportAction(){
-        //Add relevant items
+        $this->reportC->branchreportAction();
     }
 
     public function findOffenderAction(){
