@@ -11,7 +11,6 @@ class BranchReport extends Report{
 
     public function getFinesheets()
     {
-        dnd($this->fineSheets);
-        return $this->finesheet;
+        return $this->fineSheets;
     }
 }
