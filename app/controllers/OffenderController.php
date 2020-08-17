@@ -22,7 +22,11 @@ class OffenderController extends UserController{
     public function myfinesAction(){
         $this->myFinesheet->myfinesAction();
     }
-
+    
+    public function duefinesAction(){
+        $this->myFinesheet->duefinesAction();
+    }
+    
     public function viewAction($sheet_no){
         $this->myFinesheet->viewAction($sheet_no);
     }
