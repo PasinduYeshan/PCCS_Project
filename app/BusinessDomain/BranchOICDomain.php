@@ -8,7 +8,7 @@ class BranchOICDomain extends PoliceOfficerDomain implements Observer{
         if(!count($param)){
             $oic_model = new OIC(); // Create the Model
             $branchOIC = $oic_model->findById($id_no);
-            $this->populateObjData($branchOIC[0]);
+            ($branchOIC)? $this->populateObjData($branchOIC[0]) : null;
         }else{ //If want to create new Traffic Officer not in database
             $this->id_no = $id_no;
             $this->police_id = $param['police_id'];

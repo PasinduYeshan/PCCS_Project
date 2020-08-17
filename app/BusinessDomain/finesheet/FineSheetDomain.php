@@ -4,7 +4,6 @@ class FineSheetDomain implements IVisitable{
     private $sheet_no, $vehicle_no,$vehicleType, $full_name, $address, $fine_date;
     private $fine_time, $place, $offence, $licence_no, $id_no;
     public $fine, $officer_id, $due_date, $status, $notify;
-    private $allDetails; //Contain list of all details relevant
     private $currentState;
     private $FinesheetModel;
     private $observers;
@@ -17,7 +16,6 @@ class FineSheetDomain implements IVisitable{
             $fineSheet = $this->FinesheetModel->findByFinesheet($sheet_no);
         }
         if ($fineSheet){
-            $this->allDetails = $fineSheet[0];
             $this->populateObjData($fineSheet[0]);
         }
         $this->currentState = $this->checkStateWithDB();

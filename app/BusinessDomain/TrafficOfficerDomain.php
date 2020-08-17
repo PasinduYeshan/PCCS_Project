@@ -9,7 +9,8 @@ class TrafficOfficerDomain extends PoliceOfficerDomain implements IVisitable{
         if(!count($param)){
             $traffic_officer_model = new TrafficOfficer(); // Create the Model
             $trafficOfficer = $traffic_officer_model->findById($id_no);
-            $this->populateObjData($trafficOfficer[0]);
+            ($trafficOfficer)? $this->populateObjData($trafficOfficer[0]) : null;
+            
         }else{ //If want to create new Traffic Officer not in database
             $this->id_no = $id_no;
             $this->police_id = $param['police_id'];

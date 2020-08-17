@@ -10,7 +10,7 @@ class OffenderDomain extends UserDomain implements Observer{
         if(!count($param)){
             $this->offender_model = new Offender(); // Create the Model
             $offender = $this->offender_model->findById($offender_id);
-            $this->populateObjData($offender[0]);
+            ($offender)? $this->populateObjData($offender[0]) : null;
         }else{ //If want to create new Offender not in database
             $this->offender_id = $offender_id;
             $this->licence_no = $param['licence_no'];

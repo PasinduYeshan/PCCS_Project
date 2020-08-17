@@ -10,7 +10,10 @@ class BranchDomain implements IVisitable{
         if(!count($param)){
             $this->branch_model = new Branch(); // Create the Model
             $branch = $this->branch_model->findById($id_no);
-            $this->populateObjData($branch[0]);
+            if ($branch){
+                $this->populateObjData($branch[0]);
+            }
+            
         }else{ //If want to create new Traffic Officer not in database
             $this->branch_id = $id_no;
             $this->branch_name = $param['branch_name'];
