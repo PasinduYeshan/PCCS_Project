@@ -4,22 +4,27 @@
 class BranchOICController extends UserController{
     private $trafficOfficerC;
     private $offenderC;
+    private $finesheetC;
 
     public function __construct($controller, $action) {
         parent::__construct($controller,$action);
         $this->view->setLayout('default');
         $this->trafficOfficerC = new TrafficofficerController($controller,$action);
         $this->offenderC = new OffenderController($controller,$action);
+        $this->finesheetC = new FinesheetController($controller,$action);
+
 
     }
 
     public function findOfficerAction(){
         if ($_POST){
-            $officer = new TrafficOfficerDomain($_POST);
+            $officer = new TrafficOfficerDomain($_POST["id_no"]);
             $this->view->finesheets = $officer->getFineSheets();
             $this->view->officer = $officer;
             $this->view->controller = lcfirst($this->_controller);
         }
+        $this->view->render('officers/officerDetails');
+
     }
 
     public function generateBranchReportAction(){
@@ -35,6 +40,10 @@ class BranchOICController extends UserController{
         }
         $this->view->render('offender/offenderDetails');
         
+    }
+
+    public function viewAction($sheet_no){
+        $this->finesheetC->viewAction($sheet_no);
     }
 
 
