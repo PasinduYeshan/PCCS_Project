@@ -78,6 +78,12 @@ class FinesheetController extends Controller {
         $this->view->controller = lcfirst($this->_controller);
         $this->view->render('finesheet/myfines');
     }
+    public function duefinesAction(){
+        $finesheets = $this->FinesheetModel->findUnpaidById(currentUser()->id,['order'=>'sheet_no']);
+        $this->view->finesheets = $finesheets;
+        $this->view->controller = lcfirst($this->_controller);
+        $this->view->render('finesheet/duefines');
+	}
 
     public function fineamountAction(){
         $offence = new Offence();
