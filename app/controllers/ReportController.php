@@ -37,5 +37,35 @@ class ReportController extends Controller{
         $pdf = new OverallPDF();
         $pdf->generatePDF($finesheets);
     }
+    
+        public function branchreportAction(){
+        $sampleCounts = array(20,35,30,20,20,20,20,20,20,15,20,15,1,1,1);
+        //dnd(array_slice($sampleCounts,10));
+        //array_push($sampleCounts,array_sum(array_slice($sampleCounts,12)));
+        //dnd($sampleCounts);
+        
+        $offence=new Offence();
+        $offenceNames=array();
+        $offenceWithCounts=array();
+         for($i=1;$i<26;$i++){
+            $offences=$offence->findById($i);
+            foreach($offences as $of){
+                //echo "$of->offence_name" ;
+                //echo"<br>";
+                array_push($offenceNames,"$of->offence_name");
+		    }
+            array_push($offenceWithCounts,"$of->offence_name",$sampleCounts);
+        }
+        //dnd($offenceWithCounts[1][0]);//[[name],[counts]];
+        //print_r($offenceWithCounts[1][1]);
+        
+        $this->branchPdfReport($offenceWithCounts);
+    }
 
+    public function branchPdfReport($offenceWithCounts){
+        $pdf = new BranchPDFtest();
+        //$pdf = new BranchPDF();
+        //$pdf=new BranchPDFTest2();
+        $pdf->generatePDF($offenceWithCounts,"Kollupitiya");
+    }
 }
