@@ -43,4 +43,16 @@ class Offence extends Model{
         return $this->find($conditions);
 
     }
+
+    public function getOffence($offence_array,$params = []){
+        $offence_name_array = [];
+        $offence_array= explode(",",$offence_array);
+
+        foreach ($offence_array as $offence){
+            $name = $this->findById($offence)[0]->offence_name;
+            $offence_name_array[] = $name;
+        }
+        return $offence_name_array;
+
+    }
 }

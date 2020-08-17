@@ -14,8 +14,8 @@ class HomeController extends Controller {
         // //dnd($report->getTrafficOfficers());
         // // //dnd(($report->getFinesheets()));
         // $offender = new OffenderDomain("1111");
-        // $fine = $offender->getMyFineSheets();
-        // dnd($offender);
+        //$a = new TrafficOfficerDomain("810747419V");
+        //dnd($a->getPoliceId());
         $this->view->render('home/index');
     }
 }

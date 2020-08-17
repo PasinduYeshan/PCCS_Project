@@ -57,11 +57,14 @@ class FinesheetController extends Controller {
     }
 
     public function viewAction($sheet_no){
+        $offence = new Offence(); 
         $finesheet = $this->FinesheetModel->findByFinesheet($sheet_no);
         if (!$finesheet){
             Router::redirect('finesheet');
         }
         $this->view->finesheet = $finesheet;
+        $offenceList = $offence->getOffence($finesheet[0]->offence);
+        $this->view->offenceList = $offenceList;
         $this->view->controller = lcfirst($this->_controller);
 
        // dnd($finesheet[0]->sheet_no);

@@ -136,6 +136,22 @@ class FineSheetDomain implements IVisitable{
         return $this->id_no;
     }
 
+    public function getSheetNo(){
+        return $this->sheet_no;
+    }
+
+    public function getVehicleNo(){
+        return $this->vehicle_no;
+    }
+
+    public function getFineDate(){
+        return $this->fine_date;
+    }
+
+    public function getStatus(){
+        return $this->status;
+    }
+
     public function getOffenderName(){
         return $this->full_name;
     }
