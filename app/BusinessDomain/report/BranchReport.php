@@ -18,7 +18,6 @@ class BranchReport extends Report{
     public function visitFineSheet(FineSheetDomain $finesheet)
     {
         if(($finesheet->getFineDate() >= $this->fine_date) && ($finesheet->getDueDate() <= $this->due_date)){
-            
             $vehicleType = $finesheet->getVehicleType();
             $offences = $finesheet->getOffenceArray();
             foreach($this->reportArray as $vehicle => $offenceType){
@@ -41,13 +40,6 @@ class BranchReport extends Report{
         $reportArray = [];
         $vehicleTypes = file_get_contents(ROOT.DS.'app'.DS.'vehicle.json');
         $vehicleTypes = json_decode($vehicleTypes, true);
-        // foreach ($offences as $offence){
-        //     $offenceCount = [];
-        //     foreach ($vehicleTypes as $key => $vehicle){
-        //         $offenceCount[$vehicle["vehicle_type"]] = 0;
-        //     }
-        //     $reportArray[$offence->offence_id] = $offenceCount;
-        // }
         foreach ($vehicleTypes as $key => $vehicle){
             $offenceCount = [];
             foreach ($offences as $offence){
