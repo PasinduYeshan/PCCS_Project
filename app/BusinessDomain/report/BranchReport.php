@@ -40,13 +40,6 @@ class BranchReport extends Report{
         $reportArray = [];
         $vehicleTypes = file_get_contents(ROOT.DS.'app'.DS.'vehicle.json');
         $vehicleTypes = json_decode($vehicleTypes, true);
-        // foreach ($offences as $offence){
-        //     $offenceCount = [];
-        //     foreach ($vehicleTypes as $key => $vehicle){
-        //         $offenceCount[$vehicle["vehicle_type"]] = 0;
-        //     }
-        //     $reportArray[$offence->offence_id] = $offenceCount;
-        // }
         foreach ($vehicleTypes as $key => $vehicle){
             $offenceCount = [];
             foreach ($offences as $offence){
