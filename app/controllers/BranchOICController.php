@@ -20,9 +20,12 @@ class BranchOICController extends UserController{
 
     public function findOfficerAction(){
         if ($_POST){
+            $branch = new Branch();
             $officer = new TrafficOfficerDomain($_POST["id_no"]);
+            $branchName = $branch->findById($officer->getBranch())[0]->branch_name;
             $this->view->finesheets = $officer->getFineSheets();
             $this->view->officer = $officer;
+            $this->view->branchName = $branchName;
             $this->view->controller = lcfirst($this->_controller);
         }
         $this->view->render('officers/officerDetails');
