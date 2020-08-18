@@ -1,7 +1,7 @@
 <?php
 
 class FineSheetDomain implements IVisitable{
-    private $sheet_no, $vehicle_no,$vehicleType, $full_name, $address, $fine_date;
+    private $sheet_no, $vehicle_no,$vehicletype, $full_name, $address, $fine_date;
     private $fine_time, $place, $offence, $licence_no, $id_no;
     private $fine, $officer_id, $due_date, $status, $notify, $offenceArray;
     private $currentState;
@@ -159,6 +159,8 @@ class FineSheetDomain implements IVisitable{
         return $this->fine_date;
     }
 
+    public function getDueDate(){ return $this->due_date; }
+
     public function getStatus(){
         return $this->status;
     }
@@ -173,7 +175,7 @@ class FineSheetDomain implements IVisitable{
 
     public function getOffenceArray(){ return $this->offenceArray;}
 
-    public function getVehicleType(){ return $this->vehicleType;}
+    public function getVehicleType(){ return $this->vehicletype;}
 
 
     /*-------------------Email Sent-------------------------- */
