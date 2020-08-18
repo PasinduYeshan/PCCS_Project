@@ -1,9 +1,9 @@
 <?php
 
 class FineSheetDomain implements IVisitable{
-    private $sheet_no, $vehicle_no,$vehicleType, $full_name, $address, $fine_date;
+    private $sheet_no, $vehicle_no,$vehicletype, $full_name, $address, $fine_date;
     private $fine_time, $place, $offence, $licence_no, $id_no;
-    public $fine, $officer_id, $due_date, $status, $notify;
+    private $fine, $officer_id, $due_date, $status, $notify, $offenceArray;
     private $currentState;
     private $FinesheetModel;
     private $observers;
@@ -17,6 +17,8 @@ class FineSheetDomain implements IVisitable{
         }
         if ($fineSheet){
             $this->populateObjData($fineSheet[0]);
+            $offenceArray = $this->getOffence($this->offence);
+            $this->offenceArray = $offenceArray;
         }
         $this->currentState = $this->checkStateWithDB();
     }
@@ -52,6 +54,17 @@ class FineSheetDomain implements IVisitable{
 
     public function getCurrentState(){
         return $this->currentState;
+    }
+
+    public function getOffence($offence_array,$params = []){
+        $offence_array= explode(",",$offence_array);
+        // $offence_name_array = [];
+        // foreach ($offence_array as $offence){
+        //     $name = $this->findById($offence)[0]->offence_name;
+        //     $offence_name_array[] = $name;
+        // }
+        return $offence_array;
+
     }
 
     public function accept(IVisitor $visitor){
@@ -146,6 +159,8 @@ class FineSheetDomain implements IVisitable{
         return $this->fine_date;
     }
 
+    public function getDueDate(){ return $this->due_date; }
+
     public function getStatus(){
         return $this->status;
     }
@@ -157,6 +172,10 @@ class FineSheetDomain implements IVisitable{
     public function getOffenderAddress(){
         return $this->address;
     }
+
+    public function getOffenceArray(){ return $this->offenceArray;}
+
+    public function getVehicleType(){ return $this->vehicletype;}
 
 
     /*-------------------Email Sent-------------------------- */

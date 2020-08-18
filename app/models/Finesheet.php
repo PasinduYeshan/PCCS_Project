@@ -141,6 +141,20 @@ class Finesheet extends Model{
         return $fineSheetNumbers;
     }
 
+    public function getFinesheetsCount($startDate,$endDate,$vehicletype,$params = []){ //To send email
+        $fineSheetNumbers = [];
+        $conditions = [
+            'conditions' => 'due_date >= ? AND due_date <= ? AND vehicletype = ?',
+            'bind' => [$startDate,$endDate,$vehicletype]
+        ];
+        $conditions = array_merge($conditions,$params);
+        $result = $this->find($conditions);
+        foreach ($result as $fineSheet){
+            $fineSheetNumbers[] = $fineSheet->sheet_no;
+        }
+        return $fineSheetNumbers;
+    }
+
     public function findWarnings($warningDate,$params = []){
         $fineSheetNumbers = [];
         $conditions = [

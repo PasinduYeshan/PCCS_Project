@@ -66,9 +66,10 @@ class RegisterController extends Controller{
                     'required' => true
                 ],
                 'id' => [
-                    'display' => 'id',
+                    'display' => 'ID',
                     'required' => true,
-                    'unique' => 'users'
+                    'unique' => 'users',
+                    'is_numeric'=>true
                 ],
                 'username' => [
                     'display' => 'Username',
