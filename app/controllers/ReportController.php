@@ -38,7 +38,7 @@ class ReportController extends Controller{
         $pdf->generatePDF($finesheets);
     }
     
-    public function branchreportAction(){
+    public function branchreportAction($offenceCountsAll){
         $sampleCounts = array(20,35,30,20,20,20,20,20,20,15,20,15,1,1,1);
         //dnd(array_slice($sampleCounts,10));
         //array_push($sampleCounts,array_sum(array_slice($sampleCounts,12)));
@@ -46,18 +46,23 @@ class ReportController extends Controller{
         $offence=new Offence();
         $offenceNames=array();
         $offenceWithCounts=array();
-         for($i=1;$i<26;$i++){
+         for($i=1;$i<34;$i++){
             $offences=$offence->findById($i);
             foreach($offences as $of){
                 //echo "$of->offence_name" ;
                 //echo"<br>";
                 array_push($offenceNames,"$of->offence_name");
 		    }
-            array_push($offenceWithCounts,"$of->offence_name",$sampleCounts);
+            //array_push($offenceWithCounts,"$of->offence_name",$sampleCounts);
+            array_push($offenceWithCounts,"$of->offence_name",$offenceCountsAll[$i]);//edited
         }
-        //dnd($offenceWithCounts[1][0]);//[[name],[counts]];
+        //dnd($offenceWithCounts);//[[name],[counts]];
         //print_r($offenceWithCounts[1][1]);
-        
+        //$offenceWithCounts[$j+1][$vehicleNames[$j/2]
+
+
+
+
         $this->branchPdfReport($offenceWithCounts);
     }
 
