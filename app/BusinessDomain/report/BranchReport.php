@@ -1,7 +1,5 @@
 <?php 
 class BranchReport extends Report{
-    private $reportArray;
-    private $fine_date , $due_date;
 
     public function __construct($fine_date,$due_date)
     {
@@ -12,10 +10,10 @@ class BranchReport extends Report{
         $this->createReportArray($offences);
     }
 
-    public function visitBranchGroup(BranchGroup $branchGroup){
+    public function visitBranchGroup(\BranchGroup $branchGroup){
     }
 
-    public function visitFineSheet(FineSheetDomain $finesheet)
+    public function visitFineSheet(\FineSheetDomain $finesheet)
     {
         if(($finesheet->getFineDate() >= $this->fine_date) && ($finesheet->getDueDate() <= $this->due_date)){
             $vehicleType = $finesheet->getVehicleType();
@@ -31,24 +29,6 @@ class BranchReport extends Report{
           
     }
 
-    public function getFinesheets()
-    {
-        return $this->fineSheets;
-    }
 
-    public function createReportArray($offences){
-        $reportArray = [];
-        $vehicleTypes = file_get_contents(ROOT.DS.'app'.DS.'vehicle.json');
-        $vehicleTypes = json_decode($vehicleTypes, true);
-        foreach ($vehicleTypes as $key => $vehicle){
-            $offenceCount = [];
-            foreach ($offences as $offence){
-                $offenceCount[$offence->offence_id] = 0;
-            }
-            $reportArray[$vehicle["vehicle_type"]] = $offenceCount;
-        }
-        $this->reportArray = $reportArray;
-    }
-
-    public function getReportArray(){ return $this->reportArray;}
+    
 }
