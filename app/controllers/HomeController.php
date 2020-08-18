@@ -40,14 +40,8 @@ class HomeController extends Controller {
         // }
         
         //This is how we can get the aray for the report
-<<<<<<< HEAD
-        
-        $branch_id = 1;
-        $branchReport = new BranchReport();
-=======
         $branch_id = 1;
         $branchReport = new BranchReport("2020-08-01","2020-08-15");
->>>>>>> new
         $branch = new BranchDomain($branch_id);
         $branch->accept($branchReport);
         $reportArray = $branchReport->getReportArray();
