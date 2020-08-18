@@ -105,6 +105,10 @@ class Model{
         return $this->_db->query($sql,$bind);
     }
 
+    public function count(){
+        return $this->_db->count();
+    }
+
     public function data() {
         $data = new stdClass();
         foreach(getObjectProperties($this) as $column=>$value) {
