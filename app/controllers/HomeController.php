@@ -45,7 +45,7 @@ class HomeController extends Controller {
         $branch = new BranchDomain($branch_id);
         $branch->accept($branchReport);
         $reportArray = $branchReport->getReportArray();
-        //dnd($reportArray);
+        dnd($reportArray);
 
 
         //testing array rearraangement-shash

@@ -18,7 +18,6 @@ class BranchReport extends Report{
     public function visitFineSheet(FineSheetDomain $finesheet)
     {
         if(($finesheet->getFineDate() >= $this->fine_date) && ($finesheet->getDueDate() <= $this->due_date)){
-            
             $vehicleType = $finesheet->getVehicleType();
             $offences = $finesheet->getOffenceArray();
             foreach($this->reportArray as $vehicle => $offenceType){
