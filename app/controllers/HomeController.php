@@ -46,7 +46,7 @@ class HomeController extends Controller {
         $branch = new BranchDomain($branch_id);
         $branch->accept($branchReport);
         $reportArray = $branchReport->getReportArray();
-        dnd($reportArray);
+        //dnd($reportArray);
 
 
         //testing array rearraangement-shash
@@ -71,8 +71,8 @@ class HomeController extends Controller {
         //print_r(array_keys($reportArray));
         //$this->view->render('home/index');
         
-        //$ReportC=new ReportController($this->_controller,$this->_action);
-        //$ReportC->branchreportAction($offenceCountsAllTypes);
+        $ReportC=new ReportController($this->_controller,$this->_action);
+        $ReportC->branchreportAction($offenceCountsAllTypes);
 
     }
 }
