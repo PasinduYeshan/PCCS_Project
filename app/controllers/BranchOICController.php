@@ -22,7 +22,10 @@ class BranchOICController extends UserController{
         if ($_POST){
             $branch = new Branch();
             $officer = new TrafficOfficerDomain($_POST["id_no"]);
-            $branchName = $branch->findById($officer->getBranch())[0]->branch_name;
+            $branchName = '';       //this added because otherwise the branchName is null if wrong ID entered
+            if (!$officer->getBranch()==null){
+                $branchName = $branch->findById($officer->getBranch())[0]->branch_name;
+            }
             $this->view->finesheets = $officer->getFineSheets();
             $this->view->officer = $officer;
             $this->view->branchName = $branchName;
