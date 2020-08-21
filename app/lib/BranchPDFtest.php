@@ -4,7 +4,7 @@ require_once (ROOT.'/app/lib/fpdf/fpdf.php');
 
 class BranchPDFtest extends FPDF
 {
-    function generatePDF($offenceWithCounts,$branchName){
+    function generatePDF($offenceWithCounts){
         $header1 = array('','C4208- Monthly Report','SLTB','Private','Lorry','Container','Car','Dual','Motorcycle','Three-Wheeler','Light bus','Light Lorry','Land vehicles','Bicycle','Pedestrian','TOTAL');
         $header2 = array('Tractor','Hand tractor');
         $weights = array(10,120,18,18,18,18,18,18,18,18,18,18,18,18,18,18,15);
@@ -18,10 +18,10 @@ class BranchPDFtest extends FPDF
 
         $fpdf->Image(ROOT.'/css/images/logo.png',10,6,20,0,'PNG');
         $fpdf->SetFont('Arial','B',14);
-        $fpdf->Cell(276,30,'BRANCH REPORT-'.$branchName,0,0,0);//'C'
+        $fpdf->Cell(276,30,'BRANCH REPORT-Branch no.'. $_POST['branch_id'],0,0,0);//'C'
         $fpdf->Ln();
         $fpdf->SetFont('Arial','B',12);
-        $fpdf->Cell(276,10,'From '.'2020-01-01'.' To '.'2020-05-05',0,0,1);//hardcoded for testing
+        $fpdf->Cell(276,10,'From '.$_POST['start_date'].' To '.$_POST['end_date'],0,0,1);
         $fpdf->Ln();
 
         $fpdf->SetFont('Arial','B',8);
@@ -71,3 +71,4 @@ class BranchPDFtest extends FPDF
        
     }
 }
+
