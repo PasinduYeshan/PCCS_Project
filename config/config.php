@@ -14,7 +14,7 @@ define('DEFAULT_LAYOUT','default');                                       //if n
 define('SITE_TITLE','PCCSs Traffic System');                             //this will be used if no site title is set
 define('MENU_BRAND','PCCS');                                             //this is the brand text in the menu
 
-define('PROOT', '/PCCS/');                                          // set this to '/' for a live server.
+define('PROOT', '/PCCS_desktopV/');                                          // set this to '/' for a live server.
 
 define('CURRENT_USER_SESSION_NAME','kdlasfjaKjdfjASLKFDFdgRIG');          //session name for logged in user
 define('REMEMBER_ME_COOKIE_NAME','ASLKFSFJO32424AFS8F9AFAF98FHI');       //cookie name for logged in user remember me

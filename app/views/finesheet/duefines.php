@@ -18,11 +18,11 @@
             <td><?= $finesheet->fine_date; ?></td>
             <td><?= $finesheet->fine; ?></td>
             <td>
-                <a href="<?=PROOT?><?=$this->controller?>/view/<?=$finesheet->sheet_no?>" class="btn btn-info btn-sm">
+                <a href="<?=PROOT?><?=$this->controller?>/view/<?=$finesheet->sheet_no?>" class="btn btn-primary btn-sm">
                     <i class="glyphicon glyphicon-eye-open"></i>View
                 </a>
                 <?php if ($finesheet->status==0){?>
-                    <a href="<?=PROOT?><?=$this->controller?>/checkout/<?=$finesheet->sheet_no?>" class="btn btn-info btn-sm">
+                    <a href="<?=PROOT?><?=$this->controller?>/checkout/<?=$finesheet->sheet_no?>" class="btn btn-warning btn-sm">
                         <i class="glyphicon glyphicon-usd"></i>Pay Fine
                     </a>
                 <?php }?>
