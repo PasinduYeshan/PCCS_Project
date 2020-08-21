@@ -16,3 +16,7 @@ $branchReport = new OverallReport("2020-08-01","2020-08-15");
 $branchGroup = new BranchGroup(); //BranchGroup
 $branchGroup->accept($branchReport);
 $reportArray = $branchReport->getReportArray();
+
+
+//to display branch report by entering time period and branch
+http://localhost/PCCS/report/branchreport
