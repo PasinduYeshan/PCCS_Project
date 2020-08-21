@@ -3,10 +3,12 @@
     "",
     "\\app",
     "\\app\\controllers",
+    "\\app\\lib",
     "\\app\\views",
     "\\app\\views\\home",
-    "\\config"
+    "\\app\\views\\report",
+    "\\autorun"
   ],
-  "SelectedNode": "\\config\\config.php",
+  "SelectedNode": "\\app\\lib\\OverallPDF.php",
   "PreviewInSolutionExplorer": false
 }
