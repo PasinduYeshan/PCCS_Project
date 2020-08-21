@@ -1,30 +1,51 @@
 <?php
 
 abstract class Report implements IVisitor{
-    protected $trafficOfficers, $fineSheets, $branches;
-    
+    protected $reportArray;
+    protected $fine_date , $due_date;
+
     public abstract function visitBranchGroup(\BranchGroup $branchGroup);
 
     public function visitBranch(\BranchDomain $branch)
     {
-        $this->branches[] = $branch;
+        
     }
 
     public function visitFineSheet(\FineSheetDomain $finesheet)
     {
-        $this->fineSheets[] = $finesheet;
+        if(($finesheet->getFineDate() >= $this->fine_date) && ($finesheet->getDueDate() <= $this->due_date)){
+            $vehicleType = $finesheet->getVehicleType();
+            $offences = $finesheet->getOffenceArray();
+            foreach($this->reportArray as $vehicle => $offenceType){
+                if($vehicle == $vehicleType){
+                    foreach ($offences as $offence){
+                        $this->reportArray[$vehicle][$offence] += 1;
+                    }
+                }
+            }
+        }
+          
     }
 
     public function visitTrafficOfficer(\TrafficOfficerDomain $officer)
     {
-        $this->trafficOfficers[] = $officer;
+        
     }
 
-    public function getFinesheets(){
-        return $this->fineSheets;
+    public function createReportArray($offences){
+        $reportArray = [];
+        $vehicleTypes = file_get_contents(ROOT.DS.'app'.DS.'vehicle.json');
+        $vehicleTypes = json_decode($vehicleTypes, true);
+        foreach ($vehicleTypes as $key => $vehicle){
+            $offenceCount = [];
+            foreach ($offences as $offence){
+                $offenceCount[$offence->offence_id] = 0;
+            }
+            $reportArray[$vehicle["vehicle_type"]] = $offenceCount;
+        }
+        $this->reportArray = $reportArray;
     }
-    public function getTrafficOfficers(){
-        return $this->trafficOfficers;
-    }
+
+    public function getReportArray(){ return $this->reportArray;}
 
 }

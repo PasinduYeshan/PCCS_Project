@@ -14,7 +14,7 @@
                 <h2><?=$this->officer->getOfficerName()?></h2>
                 <p><strong>Police ID number: </strong> <?=$this->officer->getPoliceId()?> </p>
                 <p><strong>NIC number: </strong> <?=$this->officer->getIdNo()?> </p>
-                <p><strong>Branch: </strong><?=$this->officer->getBranch()?> </p>
+                <p><strong>Branch: </strong><?=$this->branchName?> </p>
                 
             </div>
 
