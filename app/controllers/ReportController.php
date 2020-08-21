@@ -22,54 +22,49 @@ class ReportController extends Controller{
 
     }
 
-    // public function branchreportAction(){
-    //     if ($_POST){
-    //         // $branchReport = new BranchReport();
-    //         $finesheets = $this->FinesheetModel->findBetweenDates($_POST['start_date'],$_POST['end_date'],['order'=>'sheet_no']);
-    //         $this->overallPdfReport($finesheets);
-    //     }
-        
-
-
-    // }
+     public function branchreportAction(){
+         if ($_POST){
+           //This is how we can get the aray for the branch report
+            //$branch_id = 1;
+            $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
+                if($_POST['branch_id']<=15 && $_POST['branch_id']>=1){
+                    $branch = new BranchDomain($_POST['branch_id']); //BranchGroup
+                    $branch->accept($branchReport);
+                    $reportArray = $branchReport->getReportArray();
+                    $offenceCountsAll=array();
+                    $vehicleNames=array('SLTB','Private','Lorry','Container','Car','Dual','Motorcycle','Three-Wheeler','Light bus','Light Lorry','Tractor','Hand tractor','Bicycle','Pedestrian');
+                    for ($x = 1; $x <= 33; $x++) {
+                        $offenceCountEach=array();
+                        foreach ($vehicleNames as $vehicleType) {
+                            $offenceCountEach[$vehicleType]=$reportArray[$vehicleType][$x];
+                        }
+                        $offenceCountsAll[$x]=$offenceCountEach;
+                    }
+                    $offence=new Offence();
+                    $offenceNames=array();
+                    $offenceWithCounts=array();
+                    for($i=1;$i<34;$i++){
+                        $offences=$offence->findById($i);
+                        foreach($offences as $of){
+                            array_push($offenceNames,"$of->offence_name");
+	    	            }
+                        array_push($offenceWithCounts,"$of->offence_name",$offenceCountsAll[$i]);//edited
+                    	}
+                    	$this->branchPdfReport($offenceWithCounts);
+		    } 
+         	}
+            $this->view->render('report/branchreport');
+     }
 
     public function overallPdfReport($finesheets){
         $pdf = new OverallPDF();
         $pdf->generatePDF($finesheets);
-    }
-    
-    public function branchreportAction($offenceCountsAll){
-        $sampleCounts = array(20,35,30,20,20,20,20,20,20,15,20,15,1,1,1);
-        //dnd(array_slice($sampleCounts,10));
-        //array_push($sampleCounts,array_sum(array_slice($sampleCounts,12)));
-        //dnd($sampleCounts);
-        $offence=new Offence();
-        $offenceNames=array();
-        $offenceWithCounts=array();
-         for($i=1;$i<34;$i++){
-            $offences=$offence->findById($i);
-            foreach($offences as $of){
-                //echo "$of->offence_name" ;
-                //echo"<br>";
-                array_push($offenceNames,"$of->offence_name");
-		    }
-            //array_push($offenceWithCounts,"$of->offence_name",$sampleCounts);
-            array_push($offenceWithCounts,"$of->offence_name",$offenceCountsAll[$i]);//edited
-        }
-        //dnd($offenceWithCounts);//[[name],[counts]];
-        //print_r($offenceWithCounts[1][1]);
-        //$offenceWithCounts[$j+1][$vehicleNames[$j/2]
-
-
-
-
-        $this->branchPdfReport($offenceWithCounts);
     }
 
     public function branchPdfReport($offenceWithCounts){
         $pdf = new BranchPDFtest();
         //$pdf = new BranchPDF();
         //$pdf=new BranchPDFTest2();
-        $pdf->generatePDF($offenceWithCounts,"Kollupitiya");
+        $pdf->generatePDF($offenceWithCounts);
     }
 }
