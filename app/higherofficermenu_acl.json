@@ -1,0 +1,11 @@
+{
+  "Home": "home",
+
+  "Reports": {
+    "Generate Branch report": "HigherOfficer/generateBranchReport",
+    "Generate Overall report": "HigherOfficer/generateOverallReport"
+  },
+  "Login": "register/login",
+  "Logout": "register/logout"
+
+}

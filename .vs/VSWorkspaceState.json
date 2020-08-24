@@ -3,12 +3,13 @@
     "",
     "\\app",
     "\\app\\controllers",
-    "\\app\\lib",
+    "\\app\\models",
     "\\app\\views",
     "\\app\\views\\home",
-    "\\app\\views\\report",
+    "\\app\\views\\layouts",
+    "\\app\\views\\offender",
     "\\autorun"
   ],
-  "SelectedNode": "\\app\\lib\\OverallPDF.php",
+  "SelectedNode": "\\app\\menu_acl.json",
   "PreviewInSolutionExplorer": false
 }

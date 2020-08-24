@@ -26,7 +26,8 @@ class HomeController extends Controller {
         //$branchGroup->accept($branchReport);
         //$reportArray = $branchReport->getReportArray();
         */
-
+        //$HigherOfficer=new HigherOfficerController($this->_controller,$this->_action);
+        //$HigherOfficer->generateOverallReportAction();
         $this->view->render('home/index');
 
     }
