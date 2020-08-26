@@ -13,7 +13,7 @@
         </form>
     </div>
 
-    <div>
+    <div class="container">
         <table class="table table-striped table-condensed table-bordered table-hover">
             <thead>
             <th>Finesheet No </th>

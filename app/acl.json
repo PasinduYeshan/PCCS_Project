@@ -1,46 +1,54 @@
 {
-  "Guest" : {
-    "denied" : {},
-    "Home" : ["*"],
-    "Register" : ["login","register"],
-    "Restricted" : ["*"]
+  "Guest": {
+    "denied": {},
+    "Home": [ "*" ],
+    "Register": [ "login", "register" ],
+    "Restricted": [ "*" ]
   },
-  "LoggedIn" : {
-    "denied" : {
-      "Register" : ["login","register"]
+  "LoggedIn": {
+    "denied": {
+      "Register": [ "login", "register" ]
     },
-    "Register" : ["logout"],
-    "Contacts" : ["*"]
-    
-  },
-  "TrafficOfficer" : {
-    "denied" : {
-
-    },
-    "Trafficofficer" : ["*"],
-    "Report" : ["*"]
+    "Register": [ "logout" ],
+    "Contacts": [ "*" ]
 
   },
-  "Offender" : {
-    "denied" : {
+  "TrafficOfficer": {
+    "denied": {
 
     },
-    "Offender" : ["myfines","view","mylicence","checkout","duefines"],
-    "Payment" : ["thankYou"]
+    "Trafficofficer": [ "*" ],
+    "Report": [ "*" ]
 
   },
-  "PaymentOfficer" : {
-    "denied" : {
+  "Offender": {
+    "denied": {
 
     },
-    "Paymentofficer" : ["details","counterpayment"]
+    "Offender": [ "myfines", "view", "mylicence", "checkout", "duefines" ],
+    "Payment": [ "thankYou" ]
+
   },
-  "BranchOIC" : {
-    "denied" : {
+  "PaymentOfficer": {
+    "denied": {
 
     },
-    "BranchOIC" : ["*"],
-    "Report" : ["*"]
+    "Paymentofficer": [ "details", "counterpayment" ]
+  },
+  "BranchOIC": {
+    "denied": {
+
+    },
+    "BranchOIC": [ "*" ],
+    "Report": [ "*" ]
+
+  },
+  "HigherOfficer": {
+    "denied": {
+
+    },
+    "HigherOfficer": [ "*" ],
+    "Report": [ "*" ]
 
   }
 

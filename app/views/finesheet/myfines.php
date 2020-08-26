@@ -1,6 +1,7 @@
 <?php $this->setSiteTitle('My Fines'); ?>
 <?php $this->start('body'); ?>
 <h2 class="text-center">My Fines</h2>
+<div class="container">
 <table class="table table-striped table-condensed table-bordered table-hover">
     <thead>
     <th>Finesheet No</th>
@@ -19,11 +20,11 @@
             <td><?= $finesheet->fine; ?></td>
             <td><?= ($finesheet->status==0)?"Unpaid":"Paid"; ?></td>
             <td>
-                <a href="<?=PROOT?><?=$this->controller?>/view/<?=$finesheet->sheet_no?>" class="btn btn-info btn-sm">
+                <a href="<?=PROOT?><?=$this->controller?>/view/<?=$finesheet->sheet_no?>" class="btn btn-primary btn-sm">
                     <i class="glyphicon glyphicon-eye-open"></i>View
                 </a>
                 <?php if ($finesheet->status==0){?>
-                    <a href="<?=PROOT?><?=$this->controller?>/checkout/<?=$finesheet->sheet_no?>" class="btn btn-info btn-sm">
+                    <a href="<?=PROOT?><?=$this->controller?>/checkout/<?=$finesheet->sheet_no?>" class="btn btn-warning btn-sm">
                         <i class="glyphicon glyphicon-usd"></i>Pay Fine
                     </a>
                 <?php }?>
@@ -33,4 +34,5 @@
     </tbody>
 
 </table>
+<div>
 <?php $this->end(); ?>

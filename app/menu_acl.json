@@ -1,23 +1,27 @@
 {
-  "Home" : "home",
+  "Home": "home",
 
-  "My Fines" : "offender/myfines",
-  "My Licence" : "offender/mylicence",
+  "My Fines": "offender/myfines",
+  "My Licence": "offender/mylicence",
 
-  "Finesheet" : {
-    "Add" : "trafficofficer/add",
-    "Details" : "trafficofficer/details"
+  "Finesheet": {
+    "Add": "trafficofficer/add",
+    "Details": "trafficofficer/details"
   },
-  "Payment" : {
-    "Pay over the counter" : "paymentofficer/details"
+  "Payment": {
+    "Pay over the counter": "paymentofficer/details"
   },
   "Details" : {
     "Officer details" : "BranchOIC/findOfficer",
     "Offender details" : "BranchOIC/findOffender"
   },
   "Monthly Report" : "BranchOIC/generateBranchReport",
-  "Login" : "register/login",
-  "Logout" : "register/logout"
+  "Reports": {
+    "Generate Branch report": "HigherOfficer/generateBranchReport",
+    "Generate Overall report": "HigherOfficer/generateOverallReport"
+  },
+  "Login": "register/login",
+  "Logout": "register/logout"
 
 
 

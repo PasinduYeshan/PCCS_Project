@@ -11,11 +11,12 @@
         <?php if($this->controller=="branchOIC"){?>
         <a href="<?=PROOT?><?=$this->controller?>/findOffender" class="btn btn-xs btn-default">Back</a>
         <?php } ?>
+        <h3 class="text-center text-primary"><?=$this->finesheet[0]->displaySheetNo()?></h3>
+        <h4 class="text-center text-danger"><?=$this->finesheet[0]->displayStatus()?></h4>
         
-        <h2 class="text-center"><?=$this->finesheet[0]->displaySheetNo()?></h2>
-        <h3 class="text-center"><?=$this->finesheet[0]->displayStatus()?></h3>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <p><strong>Vehicle No: </strong><?=$this->finesheet[0]->vehicle_no?></p>
+            <hr>
             <p><strong>Date, Time, Place: </strong><?=$this->finesheet[0]->displayDateTimePlace()?></p>
             <p><strong>Nature of the offence: </strong>
                 <ul>
@@ -27,8 +28,8 @@
             <p><strong>Name of driver: </strong><?=$this->finesheet[0]->full_name?></p>
             <p><strong>Address of driver: </strong><?=$this->finesheet[0]->address?></p>
         </div>
-        <div class="col-md-6">
-            <p><strong>Driver Licence No: </strong><?=$this->finesheet[0]->licence_no?></p>
+        <div class="col-md-4">
+            <p class="text-right"><strong>Driver Licence No: </strong><?=$this->finesheet[0]->licence_no?></p>
         </div>
     </div>
 <?php $this->end(); ?>
