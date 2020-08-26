@@ -1,7 +1,7 @@
 <?php $this->setSiteTitle('Branch Report'); ?>
 <?php $this->start('body'); ?>
 
-<div class="col-md-8 col-md-offset-2 well">
+<div class="col-md-8 col-md-offset-2 well formUnderNav">
     <h2 class="text-center">Details for branch report</h2>
     <hr>
     <form class="form" action="" method="post" target="_blank">
