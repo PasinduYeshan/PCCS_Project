@@ -7,8 +7,13 @@
     <form class="form" action="" method="post" target="_blank">
         <?= inputBlock('date','Enter start date','start_date','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
         <?= inputBlock('date','Enter end date','end_date','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
-        <?= inputBlock('number','Enter branch id','branch_id','',['class'=>'form-control'],['class'=>'form-group col-md-2']); ?>
-        <small id="branch_id" class="text-muted">Enter branch id in the range 1-15</small>
+        <?php
+        if (currentUser()->acl=='["HigherOfficer"]') {
+           echo inputBlock('number', 'Enter branch id', 'branch_id', '', ['class' => 'form-control'], ['class' => 'form-group col-md-2']);
+           echo '<small id="branch_id" class="text-muted">Enter branch id in the range 1-15</small>';
+        }
+        ?>
+
         <div class="col-md-12 text-right">
             <a href="<?=PROOT?>home" class="btn btn-default">Cancel</a>
             <?= submitTag('Generate Report',['class'=>'btn btn-primary', 'name'=>'search']) ;?>

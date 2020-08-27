@@ -25,6 +25,8 @@ class BranchDomain implements IVisitable{
         $this->branchTrafficOfficers = TrafficOfficerDomain::getBranchOfficers($this->branch_id);
     }
 
+    public function getBranchID(){return $this->branch_id;}   //getter
+
     public function accept(IVisitor $visitor){
         $visitor->visitBranch($this);
         if(!empty($this->branchTrafficOfficers)){
