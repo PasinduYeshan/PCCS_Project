@@ -13,12 +13,11 @@
     "Contacts": [ "*" ]
 
   },
-  "TrafficOfficer": {
+  "TrafficOfsssssficer": {
     "denied": {
 
     },
-    "Trafficofficer": [ "*" ],
-    "Report": [ "*" ]
+    "Trafficofficer": [ "*" ]
 
   },
   "Offender": {
@@ -39,8 +38,7 @@
     "denied": {
 
     },
-    "BranchOIC": [ "*" ],
-    "Report": [ "*" ]
+    "BranchOIC": [ "*" ]
 
   },
   "HigherOfficer": {

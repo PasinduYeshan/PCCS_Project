@@ -15,7 +15,8 @@
     "Officer details" : "BranchOIC/findOfficer",
     "Offender details" : "BranchOIC/findOffender"
   },
-  "Monthly Report" : "BranchOIC/generateBranchReport",
+  "Branch Report" : "BranchOIC/generateBranchReport",
+
   "Reports": {
     "Generate Branch report": "HigherOfficer/generateBranchReport",
     "Generate Overall report": "HigherOfficer/generateOverallReport"
