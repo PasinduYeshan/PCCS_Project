@@ -13,7 +13,6 @@ class FinesheetController extends Controller {
     public function addAction(){
         $finesheet = new Finesheet();
         $validation = new Validate();
-        $trafficOfficer = new TrafficOfficer();  //to get the police id from the user id
         // $fineValidation = new Validate(); //
         $offence = new Offence();         //
         $vehicleTypes = file_get_contents(ROOT.DS.'app'.DS.'vehicle.json');
@@ -30,7 +29,7 @@ class FinesheetController extends Controller {
             $validation->check($_POST, Finesheet::$addValidation);
             // $validation->check($_POST['offence'],$offence->getValidation());        //
             if ($validation->passed()){                 //
-                $finesheet->officer_id = $trafficOfficer->findById(currentUser()->id)[0]->police_id;
+                $finesheet->officer_id = currentUser()->id;
                 $finesheet->fine = $fine;
                 $finesheet->due_date = date('Y-m-d',strtotime($finesheet->fine_date. ' + 7 days'));
                 $finesheet->offence = implode(",",$_POST['offence']);
