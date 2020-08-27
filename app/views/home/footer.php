@@ -13,7 +13,7 @@
 
             <div class="col-12">
                 <hr class="light-100">
-                <h5>&copy; Have a nice day!</h5>
+                <h5>&copy; PCCS Organization</h5>
             </div>
         </div>
     </div>
