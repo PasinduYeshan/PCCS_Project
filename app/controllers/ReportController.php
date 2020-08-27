@@ -48,11 +48,11 @@ class ReportController extends Controller{
         $pdf->generatePDF($finesheets);
     }
 
-    public function branchPdfReport($offenceWithCounts,$branch_id){
+    public function branchPdfReport($offenceWithCounts,$branch){
         $pdf = new BranchPDFtest();
         //$pdf = new BranchPDF();
         //$pdf=new BranchPDFTest2();
-        $pdf->generatePDF($offenceWithCounts,$branch_id);
+        $pdf->generatePDF($offenceWithCounts,$branch);
     }
 
     public function getReportArray(BranchReport $branchReport,BranchDomain $branch){
@@ -77,6 +77,6 @@ class ReportController extends Controller{
             }
             array_push($offenceWithCounts,"$of->offence_name",$offenceCountsAll[$i]);//edited
         }
-        $this->branchPdfReport($offenceWithCounts,$branch->getBranchID());
+        $this->branchPdfReport($offenceWithCounts,$branch);
     }
 }
