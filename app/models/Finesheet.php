@@ -57,10 +57,6 @@ class Finesheet extends Model{
             'display' => 'ID No',
             'required' => true,
             'max' => 15
-        ],
-        'vehicletype' => [
-            'display' => 'vehivle',
-            'required' => true
         ]
     ];
 
