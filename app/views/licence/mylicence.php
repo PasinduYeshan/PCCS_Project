@@ -16,7 +16,7 @@
         <p><strong>Blood Group: </strong><?=$this->licence[0]->blood_group?></p>
     </div>
     <div class="col-md-6">
-    <p><strong>NIC: </strong><?=$this->licence[0]->licence_no?></p>
+    <p><strong>NIC: </strong><?=$this->licence[0]->id_no?></p>
     </div>
     </div>
 <?php $this->end(); ?>
