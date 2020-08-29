@@ -29,7 +29,6 @@ class HomeController extends Controller {
         //$HigherOfficer=new HigherOfficerController($this->_controller,$this->_action);
         //$HigherOfficer->generateOverallReportAction();
         $this->view->render('home/index');
-        //$rc=new ReportController($this->_controller,$this->_action);
-        //$rc->branchreportAction();
+        
     }
 }
