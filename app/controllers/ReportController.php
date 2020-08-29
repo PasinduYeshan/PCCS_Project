@@ -57,14 +57,20 @@ class ReportController extends Controller{
      }
 
     public function overallPdfReport($finesheets){
-        $pdf = new OverallPDF();
-        $pdf->generatePDF($finesheets);
+        //$pdf = new OverallPDF();
+        //$pdf->generatePDF($finesheets);
+        $overallPDF = new ConcreteAdapter1(new FPDF());//ConcreteAdapter1=OverallPDF
+        $overallPDF->setHeader();
+        $overallPDF->generatePDF($finesheets);
+        $overallPDF->setFooter();
     }
 
     public function branchPdfReport($offenceWithCounts){
-        $pdf = new BranchPDFtest();
-        //$pdf = new BranchPDF();
-        //$pdf=new BranchPDFTest2();
-        $pdf->generatePDF($offenceWithCounts);
+        //$pdf = new BranchPDFtest();
+        //$pdf->generatePDF($offenceWithCounts);
+        $branchPDF = new ConcreteAdapter2(new FPDF());//ConcreteAdapter2=branchPDF
+        $branchPDF->setHeader();
+        $branchPDF->generatePDF($offenceWithCounts);
+        $branchPDF->setFooter();
     }
 }
