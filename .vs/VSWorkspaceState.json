@@ -3,13 +3,8 @@
     "",
     "\\app",
     "\\app\\controllers",
-    "\\app\\models",
-    "\\app\\views",
-    "\\app\\views\\home",
-    "\\app\\views\\layouts",
-    "\\app\\views\\offender",
-    "\\autorun"
+    "\\app\\lib"
   ],
-  "SelectedNode": "\\app\\menu_acl.json",
+  "SelectedNode": "\\app\\controllers\\ReportController.php",
   "PreviewInSolutionExplorer": false
 }
