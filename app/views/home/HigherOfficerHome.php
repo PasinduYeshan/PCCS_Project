@@ -9,14 +9,14 @@
                 <div class="container serviceImgCover3">
                     <img src="<?=PROOT?>css/images/branchReport.svg" class="servicesSVG3"/>
                 </div>
-                <a href="report/branchreport" class="btn btn-primary btn-lg serviceButton3">Generate branch Report</a> 
+                <a href="report/branchreport" class="btn btn-primary btn-lg serviceButton3">Generate Branch Report</a> 
             </div>
 
             <div class="col-md-6">
                 <div class="container serviceImgCover3">
                     <img src="<?=PROOT?>css/images/overallReport.svg" class = "servicesSVG3"/>
                 </div>
-                <a href="report/overallreport" class="btn btn-primary btn-lg serviceButton3">Generate overall Report</a>
+                <a href="report/overallreport" class="btn btn-primary btn-lg serviceButton3">Generate Overall Report</a>
             </div>
 
         </div>

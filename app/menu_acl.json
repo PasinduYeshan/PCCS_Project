@@ -11,6 +11,11 @@
   "Payment": {
     "Pay over the counter": "paymentofficer/details"
   },
+  "Details" : {
+    "Officer details" : "BranchOIC/findOfficer",
+    "Offender details" : "BranchOIC/findOffender"
+  },
+  "Monthly Report" : "BranchOIC/generateBranchReport",
   "Reports": {
     "Generate Branch report": "HigherOfficer/generateBranchReport",
     "Generate Overall report": "HigherOfficer/generateOverallReport"
