@@ -9,8 +9,8 @@
         <?= inputBlock('date','Enter end date','end_date','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
         <?php
         if (currentUser()->acl=='["HigherOfficer"]') {
-           echo inputBlock('number', 'Enter branch id', 'branch_id', '', ['class' => 'form-control'], ['class' => 'form-group col-md-2']);
-           echo '<small id="branch_id" class="text-muted">Enter branch id in the range 1-15</small>';
+           echo inputBlock('number', 'Enter Branch ID', 'branch_id', '', ['class' => 'form-control','min'=>1,'step'=>1,'oninput'=>"validity.valid||(value='');"], ['class' => 'form-group col-md-2']);
+           echo '<small id="branch_id" class="text-muted">Enter Branch ID in the range 1-15</small>';
         }
         ?>
 
