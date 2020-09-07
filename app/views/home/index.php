@@ -6,7 +6,7 @@
 <?php if (!currentUser()):?>
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome To Our Guest Page!</div>
+            <!-- <div class="masthead-subheading">Welcome to Our Guest Page!</div> -->
             <div class="masthead-heading text-uppercase">Sri Lanka Police</div>
             <!-- <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a> -->
         </div>
@@ -15,7 +15,7 @@
 <?php elseif  (currentUser()->acl=='["TrafficOfficer"]'): ?>
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome Traffic Officer Home Page!</div>
+            <!-- <div class="masthead-subheading">Welcome to Traffic Officer Home Page!</div> -->
             <div class="masthead-heading text-uppercase">Sri Lanka Police</div>
             
         </div>
@@ -24,7 +24,7 @@
 <?php elseif  (currentUser()->acl=='["Offender"]'): ?>
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome To Offender Home Page!</div>
+            <!-- <div class="masthead-subheading">Welcome to Offender Home Page!</div> -->
             <div class="masthead-heading text-uppercase">Sri Lanka Police</div>
         </div>
     </header>
@@ -32,7 +32,7 @@
 <?php elseif  (currentUser()->acl=='["PaymentOfficer"]'): ?>
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome To Payment Officer Home Page!</div>
+            <!-- <div class="masthead-subheading">Welcome to Payment Officer Home Page!</div> -->
             <div class="masthead-heading text-uppercase">Sri Lanka Police</div>
         </div>
     </header>
@@ -40,7 +40,7 @@
 <?php elseif  (currentUser()->acl=='["BranchOIC"]'): ?>
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome To Branch OIC Home Page!</div>
+            <!-- <div class="masthead-subheading">Welcome to Branch OIC Home Page!</div> -->
             <div class="masthead-heading text-uppercase">Sri Lanka Police</div>
         </div>
     </header>
@@ -48,7 +48,7 @@
 <?php elseif  (currentUser()->acl=='["HigherOfficer"]'): ?>
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome To Higher Officer Home Page!</div>
+            <!-- <div class="masthead-subheading">Welcome to Higher Officer Home Page!</div> -->
             <div class="masthead-heading text-uppercase">Sri Lanka Police</div>
         </div>
     </header>
@@ -56,7 +56,7 @@
 <?php else : ?>
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Welcome To Sri Lanka Police!</div>
+            <!-- <div class="masthead-subheading">Welcome to Sri Lanka Police!</div> -->
             <div class="masthead-heading text-uppercase">Sri Lanka Police</div>
             
         </div>
