@@ -9,7 +9,7 @@
     "denied": {
       "Register": [ "login", "register" ]
     },
-    "Register": [ "logout" ],
+    "Register": [ "logout" , "accountDetails" ],
     "Contacts": [ "*" ]
 
   },

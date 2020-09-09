@@ -45,7 +45,7 @@ $currentPage = currentPage();
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php if (currentUser()):?>
-                 <li><a href="#">Hello <?=currentUser()->fname?></a></li>
+                 <li><a href="<?=PROOT?>register/accountDetails">Hello <?=currentUser()->fname?></a></li>
                 <?php endif; ?>
             </ul>
         </div><!-- /.navbar-collapse -->

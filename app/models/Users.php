@@ -84,6 +84,12 @@ class Users extends Model {
         $this->justSave();
     }
 
+    public function changePassword($params){
+        $password = password_hash($params['password'],PASSWORD_DEFAULT);
+        $this->updateByField('id', $params['id'], ['password'=>$password]);
+
+    }
+
     public function acls(){
         if (empty($this->acl))return [];
         return json_decode($this->acl,true);

@@ -108,4 +108,40 @@ class RegisterController extends Controller{
         $this->view->displayErrors = $validation->displayErrors();
         $this->view->render('register/register');
     }
+
+    public function accountDetailsAction(){
+        $this->view->user = currentUser();
+        // dnd($this->view->user->fname);
+        $validation = new Validate();
+        $posted_values = ['password'=>'','confirm'=>''];
+        if ($_POST){
+            $posted_values = posted_values($_POST); //Sanitize them
+            $validation->check($_POST,[
+                'password' => [
+                    'display' => 'Password',
+                    'required' => true,
+                    'min' => 6
+                ],
+                'confirm' => [
+                    'display' => 'Confirm Password',
+                    'required' => true,
+                    'matches' => 'password'
+                ]
+            ]);
+
+            if ($validation->passed()){
+                $newUser = new Users();
+                $details = [
+                    'id' => currentUser()->id,
+                    'password' => $posted_values['password']
+                ];
+                $newUser->changePassword($details);
+                Router::redirect('home');
+            }
+        }
+        
+        $this->view->post = $posted_values;
+        $this->view->displayErrors = $validation->displayErrors();
+        $this->view->render('register/account');
+    }
 }
