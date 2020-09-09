@@ -1,5 +1,6 @@
 <?php $this->setSiteTitle('Offender Details'); ?>
 <?php $this->start('body'); ?>
+    <div class="row">
     <div class="col-md-8 col-md-offset-2 well formUnderNav">
         <h2 class="text-center">Offender Details</h2>
         <hr>
@@ -23,8 +24,10 @@
 
         </form>
     </div>
+    </div>
 
-    <div>
+    <div class="row">
+        <div class="container well">
         <table class="table table-striped table-condensed table-bordered table-hover">
             <thead>
             <th>Finesheet No </th>
@@ -52,6 +55,6 @@
             </tbody>
 
         </table>
-
+        </div>
     </div>
 <?php $this->end(); ?>
