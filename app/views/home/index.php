@@ -61,6 +61,7 @@
             
         </div>
     </header>
+    <?php include('GuestHome.php') ?>
 <?php endif; ?>
 <?php include('footer.php') ?>
 
