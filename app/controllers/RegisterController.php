@@ -99,6 +99,7 @@ class RegisterController extends Controller{
 
             if ($validation->passed()){
                 $newUser = new Users();
+                $newUser->acl='["Offender"]';
                 $newUser->registerNewUser($_POST);
                 $newUser->login();
                 Router::redirect('home');
