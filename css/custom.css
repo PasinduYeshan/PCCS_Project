@@ -22,8 +22,10 @@ p{
     color: white !important;
 }
 .navbar a:hover{
-    background-color: #494646 !important;
-    color: rgb(255, 255, 255) !important;  
+    background-color: #494646 !important; 
+}
+.navbar a:focus{
+    background-color: #302c2c !important;
 }
 .navbar ul{
     background-color: #302c2c !important;

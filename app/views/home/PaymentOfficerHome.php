@@ -17,7 +17,7 @@
                 <div class="container serviceImgCover">
                     <img src="<?=PROOT?>css/images/markPayment.svg" class = "servicesSVG"/>
                 </div>
-                <a href="trafficofficer/details" class="btn btn-primary btn-lg serviceButton">Mark Payment</a>
+                <a href="paymentofficer/details" class="btn btn-primary btn-lg serviceButton">Mark Payment</a>
             </div>
 
         </div>

@@ -1,6 +1,7 @@
 <?php $this->setSiteTitle('Checkout'); ?>
 <?php $this->start('body'); ?>
 
+<div class="well formUnderNav">
 <div class="row">
     <div class="col-md-8">
         <h3>Payment Details</h3>
@@ -27,6 +28,7 @@
     <div class="col-md-4">
         <?php $this->partial('payment','finesheet_preview')?>
     </div>
+</div>
 </div>
 <script src="https://js.stripe.com/v3/"></script>
 <script>

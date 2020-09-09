@@ -1,12 +1,13 @@
 {
   "Home": "home",
-
-  "My Fines": "offender/myfines",
+  
   "My Licence": "offender/mylicence",
 
   "Finesheet": {
     "Add": "trafficofficer/add",
-    "Details": "trafficofficer/details"
+    "Details": "trafficofficer/details",
+    "My Finesheets": "offender/myfines",
+    "Due Finesheets": "offender/duefines"
   },
   "Payment": {
     "Pay over the counter": "paymentofficer/details"

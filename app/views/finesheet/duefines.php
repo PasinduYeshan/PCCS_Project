@@ -1,7 +1,7 @@
 <?php $this->setSiteTitle('Due Fines'); ?>
 <?php $this->start('body'); ?>
-<h2 class="text-center">Due Fines</h2>
-<div class="container">
+<div class="container well formUnderNav">
+<h2 class="text-center">Due Finesheets</h2>
 	<table class="table table-striped table-condensed table-bordered table-hover">
     <thead>
     <th>Finesheet No</th>

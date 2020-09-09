@@ -1,5 +1,6 @@
 <?php $this->setSiteTitle('Fine Sheet Search'); ?>
 <?php $this->start('body'); ?>
+    <div class="row">
     <div class="col-md-8 col-md-offset-2 well formUnderNav">
         <h2 class="text-center">Search for Due Fine Sheets</h2>
         <hr>
@@ -12,8 +13,10 @@
 
         </form>
     </div>
+    </div>
 
-    <div>
+    <div class="row">
+    <div class="well">
         <table class="table table-striped table-condensed table-bordered table-hover">
             <thead>
             <th>Finesheet No </th>
@@ -39,5 +42,6 @@
 
         </table>
 
+    </div>
     </div>
 <?php $this->end(); ?>

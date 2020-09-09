@@ -10,21 +10,21 @@
                 <div class="container serviceImgCover3">
                     <img src="<?=PROOT?>css/images/myLicense.svg" class="servicesSVG3"/>
                 </div>
-                <a href="trafficofficer/add" class="btn btn-primary btn-lg serviceButton3">My License</a> 
+                <a href="offender/mylicence" class="btn btn-primary btn-lg serviceButton3">My License</a> 
             </div>
 
             <div class="col-md-4">
                 <div class="container serviceImgCover3">
                     <img src="<?=PROOT?>css/images/dueFines.svg" class = "servicesSVG3"/>
                 </div>
-                <a href="trafficofficer/details" class="btn btn-primary btn-lg serviceButton3">My Finesheets</a>
+                <a href="offender/myfines" class="btn btn-primary btn-lg serviceButton3">My Finesheets</a>
             </div>
 
             <div class="col-md-4">
                 <div class="container serviceImgCover3">
                     <img src="<?=PROOT?>css/images/payFine.svg" class="servicesSVG3"/>
                 </div>
-                <a href="trafficofficer/add" class="btn btn-primary btn-lg serviceButton3">Pay fine</a> 
+                <a href="offender/checkout" class="btn btn-primary btn-lg serviceButton3">Pay fine</a> 
             </div>
         </div>
     </div>
