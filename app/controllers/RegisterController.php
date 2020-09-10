@@ -113,8 +113,13 @@ class RegisterController extends Controller{
     public function accountDetailsAction(){
         $this->view->user = currentUser();
         // dnd($this->view->user->fname);
+        
+        $this->view->render('register/account');
+    }
+
+    public function changePasswordAction(){
         $validation = new Validate();
-        $posted_values = ['password'=>'','confirm'=>''];
+        $posted_values = ['password'=>'','confirm'=>'' , "newpassword" => ''];
         if ($_POST){
             $posted_values = posted_values($_POST); //Sanitize them
             $validation->check($_POST,[
@@ -123,26 +128,32 @@ class RegisterController extends Controller{
                     'required' => true,
                     'min' => 6
                 ],
+                'newpassword' => [
+                    'display' => 'New Password',
+                    'required' => true,
+                    'min' => 6
+                ],
                 'confirm' => [
                     'display' => 'Confirm Password',
                     'required' => true,
-                    'matches' => 'password'
+                    'matches' => 'newpassword'
                 ]
             ]);
-
             if ($validation->passed()){
-                $newUser = new Users();
-                $details = [
-                    'id' => currentUser()->id,
-                    'password' => $posted_values['password']
-                ];
-                $newUser->changePassword($details);
+                $user=$this->UsersModel->findByUsername(currentUser()->username);
+                if ($user && password_verify(Input::get('password'),$user->password)){
+                    $details = [
+                        'id' => currentUser()->id,
+                        'password' => $posted_values['newpassword']
+                    ];
+                    $this->UsersModel->changePassword($details);
+                    Router::redirect('home');
+                }
                 Router::redirect('home');
             }
         }
-        
         $this->view->post = $posted_values;
         $this->view->displayErrors = $validation->displayErrors();
-        $this->view->render('register/account');
+        $this->view->render('register/password');
     }
 }

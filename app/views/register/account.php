@@ -4,7 +4,6 @@
 <div class="col-md-6 col-md-offset-3 well formUnderNav">
     <h3 class="text-center">Account Details</h3><hr>
     <form class="form" action="" method="post">
-        <div class="bg-danger form-errors"><?= $this->displayErrors ?></div>
         <div class="form-group">
             <label for="fname">First Name</label>
             <input readonly type="text" id="fname" name="fname" class="form-control" value="<?=$this->user->fname?>">
@@ -25,16 +24,10 @@
             <label for="username">Username</label>
             <input readonly type="text" id="username" name="username" class="form-control" value="<?=$this->user->username?>">
         </div>
-        <div class="form-group">
-            <label for="password">Change Password</label>
-            <input type="password" id="password" name="password" class="form-control" value="<?=$this->post['password']?>">
-        </div>
-        <div class="form-group">
-            <label for="confirm">Confirm Password</label>
-            <input type="password" id="confirm" name="confirm" class="form-control" value="<?=$this->post['confirm']?>">
-        </div>
-        <div class="pull-right">
-            <input type="submit" class="btn btn-primary btn-large" value="Change Password">
+        <div class="pull-left">
+            <a href = "<?=PROOT?>register/changePassword">
+            <input type="button" class="btn btn-primary btn-large" value="Change Password">
+            </a>
         </div>
     </form>
 </div>
