@@ -26,9 +26,10 @@
         </div>
         <div class="pull-left">
             <a href = "<?=PROOT?>register/changePassword">
-            <input type="button" class="btn btn-primary btn-large" value="Change Password">
+            <input type="button" class="btn btn-primary btn-large" value="Change Password" id = "changePasswordBtn">
             </a>
         </div>
     </form>
 </div>
+<!-- <script src = "<?=PROOT?>js/custom.js"></script> -->
 <?php $this->end(); ?>

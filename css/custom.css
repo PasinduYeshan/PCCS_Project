@@ -51,6 +51,14 @@ p{
     margin-bottom: 0;
 }
 
+.passwordSection{
+    display: none;
+}
+.passwordSectionActive{
+    display: unset;
+}
+
+
 /*------------------------------------------------*/
 .form-errors{
     border-radius: 8px;
