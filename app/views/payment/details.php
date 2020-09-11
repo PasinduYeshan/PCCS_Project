@@ -32,7 +32,7 @@
                     <td>
                         <a href="<?=PROOT?><?=$this->controller?>/counterpayment/<?=$finesheet->sheet_no?>" id="pay" class="btn btn-info btn-sm" onclick="if(!confirm('Are you sure you want to mark this payment?')){return false;}">
 
-                            <i class="glyphicon glyphicon-usd"></i>Mark Payment
+                            <i class="glyphicon glyphicon-usd"></i> Mark Payment
                         </a>
 
                     </td>

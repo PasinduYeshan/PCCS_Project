@@ -35,7 +35,7 @@
                     <td><?= ($finesheet->status == 0)? 'Unpaid': 'Paid'; ?></td>
                     <td>
                         <a href="<?=PROOT?><?=$this->controller?>/view/<?=$finesheet->sheet_no?>" class="btn btn-info btn-sm">
-                            <i class="glyphicon glyphicon-eye-open"></i>View
+                            <i class="glyphicon glyphicon-eye-open"></i> View
                         </a>
 
                     </td>
