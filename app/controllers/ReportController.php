@@ -86,8 +86,9 @@ class ReportController extends Controller{
              $oic = new OIC();
              $branch = new BranchDomain($oic->findById(currentUser()->id)[0]->branch);
              if ($_POST){
-                 $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
-                   $reportArray = $branchReport->getReportArray();
+                $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
+                $branch->accept($branchReport);
+                $reportArray = $branchReport->getReportArray();
              $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
              $heading="BRANCH REPORT----->".$branch->getBranchName();
              $this->branchPdfReport($offenceWithCounts,$heading);
@@ -99,6 +100,7 @@ class ReportController extends Controller{
                  $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
                  if($_POST['branch_id']<=15 && $_POST['branch_id']>=1){
                      $branch = new BranchDomain($_POST['branch_id']); //BranchGroup
+                     $branch->accept($branchReport);
                       $reportArray = $branchReport->getReportArray();
              $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
              $heading="BRANCH REPORT-".$branch->getBranchName();
@@ -142,28 +144,7 @@ class ReportController extends Controller{
 }
 
 /*
-include_once(ROOT."/app/lib/OverallPDF.php");
 
-class ReportController extends Controller{
-
-    public function __construct($controller, $action)
-    {
-        parent::__construct($controller, $action);
-        $this->view->setLayout('default');
-        $this->load_model('Finesheet');
-    }
-
-
-    public function overallreportAction(){
-
-        if ($_POST){
-            $finesheets = $this->FinesheetModel->findBetweenDates($_POST['start_date'],$_POST['end_date'],['order'=>'sheet_no']);
-            $this->overallPdfReport($finesheets);
-        }
-
-        $this->view->render('report/overallreport');
-
-    }
 
      public function branchreportAction(){
          if(currentUser()->acl=='["BranchOIC"]'){
