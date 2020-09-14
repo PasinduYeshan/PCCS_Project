@@ -48,6 +48,12 @@
     "HigherOfficer": [ "*" ],
     "Report": [ "*" ]
 
+  },
+  "Admin": {
+    "denied": {
+
+    },
+    "Admin": ["*"]
   }
 
 

@@ -78,6 +78,9 @@ class Users extends Model {
     public function registerNewUser($params){
         $this->assign($params);
         $this->id = $params['id'];
+        if ($params['acl']){
+            $this->acl = htmlspecialchars_decode($params['acl'],ENT_QUOTES);
+        }
         $this->deleted = 0;
         $this->password = password_hash($this->password,PASSWORD_DEFAULT);
         

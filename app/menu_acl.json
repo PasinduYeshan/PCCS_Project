@@ -22,6 +22,7 @@
     "Generate Branch report": "HigherOfficer/generateBranchReport",
     "Generate Overall report": "HigherOfficer/generateOverallReport"
   },
+  "Register User": "admin/registerUser",
   "Login": "register/login",
   "Logout": "register/logout"
 

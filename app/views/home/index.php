@@ -53,6 +53,14 @@
         </div>
     </header>
     <?php include('HigherOfficerHome.php') ?>
+<?php elseif  (currentUser()->acl=='["Admin"]'): ?>
+    <header class="masthead">
+        <div class="container">
+            <!-- <div class="masthead-subheading">Welcome to Higher Officer Home Page!</div> -->
+            <div class="masthead-heading text-uppercase">Sri Lanka Police</div>
+        </div>
+    </header>
+    <?php include('AdminHome.php') ?>
 <?php else : ?>
     <header class="masthead">
         <div class="container">
