@@ -58,7 +58,7 @@ class ReportController extends Controller{
             $branch->accept($branchReport);
             $reportArray = $branchReport->getReportArray();
             $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
-            $heading="BRANCH REPORT----->".$branch->getBranchName();
+            $heading="BRANCH REPORT - ".$branch->getBranchName();
             $this->branchPdfReport($offenceWithCounts,$heading);
             
             }
@@ -71,7 +71,7 @@ class ReportController extends Controller{
                     $branch->accept($branchReport);
                     $reportArray = $branchReport->getReportArray();
             $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
-            $heading="BRANCH REPORT-".$branch->getBranchName();
+            $heading="BRANCH REPORT - ".$branch->getBranchName();
             $this->branchPdfReport($offenceWithCounts,$heading);
                 }
             }
