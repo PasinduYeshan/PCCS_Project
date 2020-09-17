@@ -64,10 +64,12 @@ class ReportController extends Controller{
             }
         }
         else if (currentUser()->acl=='["HigherOfficer"]'){
+            $branchModel = new Branch();
+            $this->view->branchlist = $branchModel->findAll();
             if ($_POST){
                 $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
-                if($_POST['branch_id']<=15 && $_POST['branch_id']>=1){
-                    $branch = new BranchDomain($_POST['branch_id']); //BranchGroup
+                if($_POST['branch']){
+                    $branch = new BranchDomain($_POST['branch']); //BranchGroup
                     $branch->accept($branchReport);
                     $reportArray = $branchReport->getReportArray();
             $offenceWithCounts=$this->FinalArrayGenerate($reportArray);

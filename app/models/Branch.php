@@ -37,4 +37,11 @@ class Branch extends Model{
         return $branchIDs;
     }
 
+    public function findAll($params = []){
+        $conditions = [];
+        $conditions = array_merge($conditions,$params);
+        return $this->find($conditions);
+
+    }
+
 }
