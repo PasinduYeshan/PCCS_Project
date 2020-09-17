@@ -11,6 +11,25 @@ p{
     font-family: Arial;
     font-size: large;
 }
+/*------------------Login related--------------------*/
+#loginDIV{
+    background-image: url("../css/images/login.jpg");
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 630px;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    
+  position: relative;
+}
+
+.tranp{
+    /* background-color: #242628	 !important; */
+    opacity: 0.87 !important;
+}
+
+
+
 /*------------------NavBar related--------------------*/
 .navbar{
     background-color: #302c2c !important;
