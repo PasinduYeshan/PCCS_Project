@@ -49,11 +49,18 @@ class FinesheetController extends Controller {
 
     public function detailsAction() {
         if ($_POST){
-            $finesheets = $this->FinesheetModel->findById($_POST['id_no'],['order'=>'sheet_no']);
+            if (!empty(trim($_POST['id_no'])) && empty(trim($_POST['sheet_no']))){
+                $finesheets = $this->FinesheetModel->findById(trim($_POST['id_no']),['order'=>'sheet_no']);
+            }
+            elseif (!empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no']))){
+                $finesheets = $this->FinesheetModel->findByIDandFinesheet(trim($_POST['id_no']),trim($_POST['sheet_no']),['order'=>'sheet_no']);
+            }
+            elseif (empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no']))){
+                $finesheets = $this->FinesheetModel->findByFinesheet(trim($_POST['sheet_no']),['order'=>'sheet_no']);
+            }
             $this->view->finesheets = $finesheets;
-            $this->view->controller = lcfirst($this->_controller);
         }
-
+        $this->view->controller = lcfirst($this->_controller);
         $this->view->render('finesheet/details');
     }
 

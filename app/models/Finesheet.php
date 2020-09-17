@@ -89,6 +89,15 @@ class Finesheet extends Model{
         return $this->find($conditions);
     }
 
+    public function findByIDandFinesheet($id_no,$sheet_no,$params=[]){
+        $conditions = [
+            'conditions' => 'id_no = ? AND sheet_no = ?',
+            'bind' => [$id_no,$sheet_no]
+        ];
+        $conditions = array_merge($conditions,$params);
+        return $this->find($conditions);
+    }
+
     public function findUnpaidById($id_no,$params = []){
         $conditions = [
             'conditions' => 'id_no = ? AND status = ?',
