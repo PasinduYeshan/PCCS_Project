@@ -188,7 +188,7 @@ class DB{
     }
 
     public function lastID(){
-        return $this->_lastInsertID;
+        return $this->_pdo->lastInsertId();
     }
 
     public function get_columns($table){

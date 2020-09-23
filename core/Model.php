@@ -5,8 +5,9 @@ class Model{
     protected $_db,
               $_table,
               $_modelName,
+              $_validates=true,
               $_softDelete = false;
-    private $id;
+    protected $id;
 
 
     public function __construct($table)
@@ -147,6 +148,43 @@ class Model{
 
     protected function isNew(){
         return (property_exists($this,'id') && !empty($this->id))? false : true;
+    }
+
+    public function complex_save() {
+        //$this->validator();
+        $save = false;
+        if($this->_validates){
+            $this->beforeSave();
+            $fields = $this->getColumnsForSave();
+            // determine whether to update or insert
+            if($this->isNew()) {
+                $save = $this->insert($fields);
+                // populate object with the id
+                if($save){
+                    $this->id = $this->_db->lastID();
+                }
+            } else {
+                $save = $this->update($this->id,$fields);
+            }
+            // run after save
+            if($save){
+                $this->afterSave();
+            }
+        }
+        return $save;
+    }
+
+    public function beforeSave(){}
+    public function afterSave(){}
+
+    public function getColumnsForSave(){
+        $columns = $this->get_columns();
+        $fields = [];
+        foreach($columns as $column){
+            $key = $column->Field;
+            $fields[$key] = $this->{$key};
+        }
+        return $fields;
     }
 
 }

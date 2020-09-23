@@ -4,7 +4,7 @@
     <div class="row">
         <div class="text-center">
             <h2 class="text-info">Thank You!</h2>
-            <p>Your payment of Rs. <?=number_format($this->finesheet->fine,2)?> was successful.</p>
+            <p>Your payment of Rs. <?=number_format($this->tx->amount,2)?> was successful.</p>
 
 
             <a href="<?=PROOT?>" class="btn btn-lg btn-primary">Continue</a>

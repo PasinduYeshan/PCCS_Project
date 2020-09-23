@@ -1,13 +1,12 @@
 <?php $this->setSiteTitle('Checkout'); ?>
 <?php $this->start('body'); ?>
 
-<div class="well formUnderNav">
 <div class="row">
     <div class="col-md-8">
         <h3>Payment Details</h3>
 
 
-        <form action="<?=PROOT?><?=$this->controller?>/checkout/<?=$this->sheet_no?>" method="post" id="payment-form">
+        <form action="<?=PROOT?>finecart/checkout/<?=$this->cart_id?>" method="post" id="payment-form">
             <div class="form-group col-md-12">
                 <label for="card-element" class="control-label">
                     Credit or debit card
@@ -19,16 +18,15 @@
                 <!-- Used to display form errors. -->
                 <div id="card-errors" role="alert" class="text-danger col-md-12 mb-3"></div>
             </div>
-                <div class="col-md-12">
-                    <button class="btn btn-lg btn-primary" >Submit Payment</button>
-                </div>
+            <div class="col-md-12">
+                <button class="btn btn-lg btn-primary" >Submit Payment</button>
+            </div>
 
         </form>
     </div>
     <div class="col-md-4">
-        <?php $this->partial('payment','finesheet_preview')?>
+        <?php $this->partial('finecart','finesheet_preview')?>
     </div>
-</div>
 </div>
 <script src="https://js.stripe.com/v3/"></script>
 <script>

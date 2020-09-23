@@ -26,3 +26,7 @@ define('ACCESS_RESTRICTED', 'Restricted');                                   //c
 define('GATEWAY','stripe'); // could use stripe, paypal
 define('STRIPE_PUBLIC','pk_test_51HGTJjKNSpTiEuPG6mHJxsnU1Z74f8sAoonpib96lWVuZ7DZk9jHCHSFjH3AldflMWImlRyPr3sasvsPL6Od9F2n00k3vOMHCw');
 define('STRIPE_PRIVATE','sk_test_51HGTJjKNSpTiEuPGbMuiUlskjK4X1RF8iiKH6VST4ymSLZcc72Pp6w4K2gnFGmJEdk1Q0s0QZ8BYQMZJGt67ZC9600uULJAHTx');
+
+################# Cart #######################################
+define('CART_COOKIE_NAME','zpe8Nox8P9I3dxnJ5bFC');
+define('CART_COOKIE_EXPIRY',172800); //2 days

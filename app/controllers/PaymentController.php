@@ -36,7 +36,7 @@ class PaymentController extends Controller{
 
     }
 
-    public function checkoutAction($sheet_no){
+   /** public function checkoutAction($sheet_no){
         $gw = Gateway::build($sheet_no);
         if (strtoupper($_SERVER['REQUEST_METHOD'])==='POST'){
             $resp = $gw->processForm(Input::get());
@@ -68,5 +68,5 @@ class PaymentController extends Controller{
     }
 
 
-
+**/
 }

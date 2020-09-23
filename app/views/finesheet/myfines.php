@@ -24,8 +24,8 @@
                     <i class="glyphicon glyphicon-eye-open"></i> View
                 </a>
                 <?php if ($finesheet->status==0){?>
-                    <a href="<?=PROOT?><?=$this->controller?>/checkout/<?=$finesheet->sheet_no?>" class="btn btn-warning btn-sm">
-                        <i class="fa fa-credit-card-alt" aria-hidden="true"></i> Pay Fine
+                    <a href="<?=PROOT?>finecart/addToFineCart/<?=$finesheet->sheet_no?>" class="btn btn-warning btn-sm">
+                        <i class="fa fa-credit-card-alt" aria-hidden="true"></i> Add to Finecart
                     </a>
                 <?php }?>
             </td>

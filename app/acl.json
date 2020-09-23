@@ -24,8 +24,8 @@
     "denied": {
 
     },
-    "Offender": [ "myfines", "view", "mylicence", "checkout", "duefines" ],
-    "Payment": [ "thankYou" ]
+    "Offender": [ "myfines", "view", "mylicence", "duefines" ],
+    "Finecart" : ["*"]
 
   },
   "PaymentOfficer": {

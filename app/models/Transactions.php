@@ -3,7 +3,7 @@
 
 class Transactions extends Model{
 
-    public $id,$created_at, $updated_at, $sheet_no, $gateway, $type, $fine, $success = 0;
+    public $id,$created_at, $updated_at, $cart_id, $gateway, $type, $amount, $success = 0;
     public $charge_id, $reason, $card_brand, $last4,$deleted = 0;
 
     public function __construct()

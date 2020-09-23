@@ -24,7 +24,7 @@
                 <div class="container serviceImgCover3">
                     <img src="<?=PROOT?>css/images/payFine.svg" class="servicesSVG3"/>
                 </div>
-                <a href="offender/checkout" class="btn btn-primary btn-lg serviceButton3">Pay fine</a> 
+                <a href="finecart/index" class="btn btn-primary btn-lg serviceButton3">Pay fine</a>
             </div>
         </div>
     </div>

@@ -10,14 +10,18 @@ class StripeGateway extends AbstractGateway
     }
     public function processForm($post){
         $data = [
-          'amount' => $this->fine * 100,
-          'currency' => 'inr',
-          'description' => 'PCCS fine Finesheet No: '.$this->sheet_no,
-          'source' => $post['stripeToken']
+            'amount' => $this->grandTotal * 100,
+            'currency' => 'inr',
+            'description' => 'PCCS fine payment: '.$this->itemCount.' finesheets. Cart ID: '.$this->cart_id,
+            'source' => $post['stripeToken']
         ];
         $ch = $this->charge($data);
         $this->handleChargeResp($ch);
         $tx = $this->createTransaction($ch);
+        if ($this->chargeSuccess){
+            $fc = new Finecart();
+            $fc->payCart($this->cart_id);
+        }
         return ['success'=>$this->chargeSuccess,'msg'=>$this->msgToUser,'tx'=>$tx,'charge_id'=>$ch->id];
 
 
@@ -35,16 +39,16 @@ class StripeGateway extends AbstractGateway
 
     public function createTransaction($ch){
         $tx = new Transactions();
-        $tx->sheet_no = $this->sheet_no;
+        $tx->cart_id = $this->cart_id;
         $tx->gateway = static::$gateway;
         $tx->type = $ch->payment_method_details->type;
-        $tx->fine = $this->fine;
+        $tx->amount = $this->grandTotal;
         $tx->success = ($this->chargeSuccess)? 1 : 0;
         $tx->charge_id = $ch->id;
         $tx->reason = $ch->outcome->reason;
         $tx->card_brand = $ch->payment_method_details->card->brand;
         $tx->last4 = $ch->payment_method_details->card->last4;
-        $tx->save();
+        $tx->complex_save();
         return $tx;
     }
 

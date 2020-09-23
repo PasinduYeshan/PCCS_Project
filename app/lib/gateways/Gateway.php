@@ -1,9 +1,9 @@
 <?php
 class Gateway{
 
-    public static function build($sheet_no){
+    public static function build($cart_id){
         if(GATEWAY == 'stripe'){
-            return new StripeGateway($sheet_no);
+            return new StripeGateway($cart_id);
         }
     }
 
