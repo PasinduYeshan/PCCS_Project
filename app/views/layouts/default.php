@@ -15,7 +15,8 @@
 </head>
     <body>
         <?php include 'main_menu.php' ?>
-        <div class="container-fluid pb-5" style="min-height: calc(100vh - 72px);">
+        <!-- class="container-fluid pb-5" -->
+        <div style="min-height: calc(100vh - 72px);">
             <?= Session::displayMsg() ?>
             <?= $this->content('body'); ?>
         </div>

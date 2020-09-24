@@ -138,6 +138,8 @@ background-color: transparent;
 }
 /********************Header***************************/
 header.masthead {
+    margin-left: 0;
+    margin-right: 0;
     padding-top: 10.5rem;
     padding-bottom: 6rem;
     text-align: center;

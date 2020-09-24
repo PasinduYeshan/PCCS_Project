@@ -1,6 +1,6 @@
 <?php $this->setSiteTitle("Finesheet Cart"); ?>
 <?php $this->start('body'); ?>
-
+<div class="container-fluid pb-5">
 <h2>Finesheet Cart (<?=$this->itemCount?> item<?=($this->itemCount == 1)?"" : "s"?>)</h2>
 <hr />
 <div class="row">
@@ -46,7 +46,7 @@
     </aside>
     <?php endif;?>
 </div>
-
+</div>
 
 <script>
     function confirmRemoveItem(href){
