@@ -25,7 +25,8 @@
   "Fines Cart" : "finecart/index",
   "Register User": "admin/registerUser",
   "Login": "register/login",
-  "Logout": "register/logout"
+  "Logout": "register/logout",
+  "Register" : "register/register"
 
 
 
