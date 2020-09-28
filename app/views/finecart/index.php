@@ -29,6 +29,7 @@
 
             </div>
         <?php endforeach; ?>
+        <a href="<?=PROOT?>offender/myfines" class="btn btn-lg btn-info">Continue Adding</a>
     </div>
     <aside class="col col-md-4">
         <div class="finecart_summary">
