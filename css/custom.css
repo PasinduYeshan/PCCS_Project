@@ -684,6 +684,7 @@ section{
         max-height: 90% !important;
     }
 }
+/*-------------FineCart section------------*/
 
 .finecart-item{
     display: flex;
@@ -691,15 +692,17 @@ section{
     border-radius: 6px;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     margin: 18px 0px;
+    background-color: white;
 }
 
 .finecart-item-img{
-
+    
 }
 
 .finecart-item-img img{
-    height: 150px;
+    max-height: 120px;
     width: 150px;
+    padding: 5px;
     object-fit: contain;
 }
 
@@ -732,6 +735,10 @@ section{
     align-items: center;
     flex-wrap: wrap;
     align-content: center;
+    display: block;
+    padding-top: 40px;
+    padding-right: 25px;
+    justify-content: center;
 }
 
 .finecart-summary {
@@ -755,17 +762,23 @@ section{
 }
 
 .remove-item {
-    font-size: 12px;
+    font-size: 13px;
     color: crimson;
     cursor: pointer;
-    margin-top: 12px;
+    padding: 5px;
+    padding-left: 10px;
+    position: bottom;
 }
 
 .remove-item:hover {
     color: #ff0000;
 }
 
-/*-------------FineCart section------------*/
+
 .continueAddingbtn{
     margin-bottom : 10px;
+}
+
+.sendBottom{
+    align-items: baseline;
 }

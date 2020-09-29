@@ -16,16 +16,21 @@
                 <div class="finecart-item-img">
                     <img src="<?=PROOT?>css/images/logo.png">
                 </div>
-                <div class="finecart-">
+                <div class="finecart-item-name">
                     <a href="<?=PROOT?>offender/view/<?=$item->sheet_no?>" title="<?=$item->sheet_no?>"><?=$item->sheet_no?></a>
                     <p>Due date : <?=$item->due_date?></p>
                 </div>
                 <div class="finecart-item-price">
                     <div>Rs. <?=$item->fine?></div>
-                        <div class="remove-item" onclick="confirmRemoveItem('<?=PROOT?>finecart/removeItem/<?=$item->sheet_no?>')">
+                    <div class="remove-item" onclick="confirmRemoveItem('<?=PROOT?>finecart/removeItem/<?=$item->sheet_no?>')">
                             <i class="fa fa-trash"></i> Remove
-                        </div>
                 </div>
+                <!-- <div class="sendBottom">
+                    
+                </div> -->
+                
+                </div>
+                
 
             </div>
         <?php endforeach; ?>
