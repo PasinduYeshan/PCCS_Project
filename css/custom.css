@@ -764,3 +764,8 @@ section{
 .remove-item:hover {
     color: #ff0000;
 }
+
+/*-------------FineCart section------------*/
+.continueAddingbtn{
+    margin-bottom : 10px;
+}

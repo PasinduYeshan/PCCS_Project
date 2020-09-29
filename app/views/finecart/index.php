@@ -29,11 +29,11 @@
 
             </div>
         <?php endforeach; ?>
-        <a href="<?=PROOT?>offender/myfines" class="btn btn-lg btn-info">Continue Adding</a>
+        <a href="<?=PROOT?>offender/duefines" class="btn btn-lg btn-info continueAddingbtn">Continue Adding <span class="glyphicon glyphicon-plus"></span> </a>
     </div>
     <aside class="col col-md-4">
         <div class="finecart_summary">
-            <a href="<?=PROOT?>finecart/checkout/<?=$this->cart_id?>" class="btn btn-lg btn-primary btn-block">Proceed With Checkout</a>
+            <a href="<?=PROOT?>finecart/checkout/<?=$this->cart_id?>" class="btn btn-lg btn-primary btn-block btn-success">Checkout <span class="glyphicon glyphicon-play"></span></a>
             <div class="cart-line-item">
                 <div>Item<?=($this->itemCount == 1)?"" : "s"?> (<?=$this->itemCount?>)</div>
                 <div>Rs. <?=$this->grandTotal?></div>
