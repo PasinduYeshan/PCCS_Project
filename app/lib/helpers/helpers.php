@@ -53,10 +53,10 @@ function sendEmail($email,$params = []){ //Change the details accordingly
     $mail->setFrom("emailclienttest69@gmail.com",'policeLK');
     $mail->addReplyTo('emailclienttest69@gmail.com');
     $mail->Subject = "Arrest this {$params['id_no']} ";
-    $mail->Body = "Arrest this guy";
+    $mail->Body = "{$params['full_name']} person with {$params['id_no']} ID has not paid the finesheet.";
     $mail->isHTML(true);
     $mail->addAddress($email);
-
+    dnd($mail);
     if (!$mail->send()){
         return false;
     }

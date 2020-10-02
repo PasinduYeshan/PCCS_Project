@@ -37,7 +37,8 @@ class BranchOICDomain extends PoliceOfficerDomain implements Observer{
         $params = [
             'id_no' => $fineSheet->getOffenderID(),
             'full_name' => $fineSheet->getOffenderName(),
-            'address' => $fineSheet->getOffenderAddress() 
+            'address' => $fineSheet->getOffenderAddress(),
+            'finesheet_number' => $fineSheet->getSheetNo()
         ];
         if(sendEmail($this->oic_email, $params)){
             $fineSheet->emailSent();
