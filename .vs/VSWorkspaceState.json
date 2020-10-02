@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\controllers",
-    "\\app\\lib"
+    "\\app\\views",
+    "\\app\\views\\licence",
+    "\\app\\views\\offender",
+    "\\css",
+    "\\css\\images"
   ],
-  "SelectedNode": "\\app\\lib\\ConcreteAdapter3.php",
+  "SelectedNode": "\\css\\images\\sri-lanka-flag.svg",
   "PreviewInSolutionExplorer": false
 }

@@ -788,3 +788,16 @@ section{
 .sendBottom{
     align-items: baseline;
 }
+/*...............mylicense.............*/
+#licenseBody {
+    background-image: url("../css/images/licenceBackground.jpg");
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 630px;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    position: relative;
+}
+
+
+    
