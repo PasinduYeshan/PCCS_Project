@@ -21,7 +21,7 @@
         <hr>
         <div class="container">
             <div class="col-md-4">
-                <img src="<?=PROOT?>css/images/license/<?=$this->licence[0]->licence_no?>.jpg" class="rounded float-right license-thumbnail"  alt="default dp" >
+                <img src="<?=PROOT?>css/images/license/<?=$this->licence[0]->licence_no?>.jpg" class="rounded float-right dp-thumbnail"  alt="default dp" >
             </div>
             <div class="col-md-8" >
                 <p><strong>NIC: </strong><?=$this->licence[0]->id_no?></p>
@@ -33,11 +33,12 @@
                 <p><strong>Expiry Date: </strong><?=$this->licence[0]->expiry_date?></p>
                 <p><strong>Competent to Drive: </strong><?=$this->licence[0]->competent_to_drive?></p>
                 <p><strong>Blood Group: </strong><?=$this->licence[0]->blood_group?></p>
-                
+            
+            
             </div>
-            <a href="<?=PROOT?>" class="btn btn-s inline btn-success pull-right">Back</a>
+            
         </div>
-    
+        <a href="<?=PROOT?>" class="btn btn-s inline btn-success pull-right">Back</a>
     </div>
     
     
