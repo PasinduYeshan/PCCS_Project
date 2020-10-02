@@ -43,11 +43,12 @@
             </ul>
         </div>
         <div class="col-md-2 col-sm-6 footer-col">
-            <ul class="footer-ul">
+            <!-- <ul class="footer-ul">
                 <li><a href="#"> Frequently Asked Questions</a></li>
 
 
-            </ul>
+            </ul> -->
+            <img src="<?=PROOT?>/css/images/sri-lanka-government.svg" class="footerImg">
             <!--<div class="post">
                 <p><a href="#"> Case Studies</a></p>
                 <p><a href="#"> Frequently Ask Questions</a></p>

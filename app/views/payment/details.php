@@ -16,21 +16,24 @@
     </div>
 
     <div class="row">
-    <div class="well">
+    <div class="container well px-5">
         <table class="table table-striped table-condensed table-bordered table-hover">
             <thead>
             <th>Finesheet No </th>
+            <th>Full Name</th>
             <th>Fine Amount</th>
             <th></th>
             </thead>
             <tbody>
             <?php if ($_POST){ foreach ($this->finesheets as $finesheet):?>
+                
                 <tr>
 
                     <td><?= $finesheet->sheet_no; ?></td>
+                    <td><?= $finesheet->full_name; ?></td>
                     <td><?=  'Rs. '.$finesheet->fine; ?></td>
-                    <td>
-                        <a href="<?=PROOT?><?=$this->controller?>/counterpayment/<?=$finesheet->sheet_no?>" id="pay" class="btn btn-info btn-sm" onclick="if(!confirm('Are you sure you want to mark this payment?')){return false;}">
+                    <td class="text-center">
+                        <a href="<?=PROOT?><?=$this->controller?>/counterpayment/<?=$finesheet->sheet_no?>" id="pay" class="btn btn-success btn-sm" onclick="if(!confirm('Are you sure you want to mark this payment?')){return false;}">
 
                             <i class="glyphicon glyphicon-usd"></i> Mark Payment
                         </a>

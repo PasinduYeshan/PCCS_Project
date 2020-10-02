@@ -65,6 +65,7 @@ p{
 #policeLogo{
     display: inline;
     height: 50px;
+    padding: 5px;
     background-color: transparent;
     margin-top:0;
     margin-bottom: 0;
@@ -174,6 +175,11 @@ footer {
         padding: 10px 0;
         margin-bottom: 0;
     }
+
+.footerImg{
+    height: 150px;
+    
+}
 
 .heading7 {
     font-size: 21px;

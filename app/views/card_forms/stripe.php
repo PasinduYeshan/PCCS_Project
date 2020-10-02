@@ -1,7 +1,7 @@
 <?php $this->setSiteTitle('Checkout'); ?>
 <?php $this->start('body'); ?>
 
-<div class="row">
+<div class="container row">
     <div class="col-md-8">
         <h3>Payment Details</h3>
 

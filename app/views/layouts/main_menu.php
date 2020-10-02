@@ -14,7 +14,7 @@ $currentPage = currentPage();
                 <span class="icon-bar"></span>
             </button>
             <!-- <a class="navbar-brand" href="<?=PROOT?>home"><?=MENU_BRAND?></a> -->
-            <img src="<?=PROOT?>/css/images/policeLogo.svg" id="policeLogo">
+            <img src="<?=PROOT?>/css/images/sri-lanka-government.svg" id="policeLogo">
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

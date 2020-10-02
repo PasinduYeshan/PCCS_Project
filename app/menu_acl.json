@@ -9,9 +9,7 @@
     "My Finesheets": "offender/myfines",
     "Due Finesheets": "offender/duefines"
   },
-  "Payment": {
-    "Pay over the counter": "paymentofficer/details"
-  },
+    "Mark Payment": "paymentofficer/details",
   "Details" : {
     "Officer details" : "BranchOIC/findOfficer",
     "Offender details" : "BranchOIC/findOffender"
