@@ -2,28 +2,28 @@
 <?php $this->start('body');?>
     
     <div class="col-md-8 col-md-offset-2 well formUnderNav" id="licenseBody">
-    
-        <div class="col-md-2">
+        <div class="row">
+        <div class="col-xs-2">
             <img  src="<?=PROOT?>css/images/sri-lanka-flag.svg" class="float-left license-thumbnail"  alt="Sri Lankan flag" >
         </div>
     
-        <div class="col-md-8" >
+        <div class="col-xs-8" >
         
             <h1 class="text-center"><?="DRIVING LICENCE"?></h1>
             <h4 class="text-center"><?="DEMOCRATIC SOCIALIST REPUBLIC OF SRI LANKA"?></h4>
         </div>  
 
-        <div class="col-md-2">
+        <div class="col-xs-2">
             <img  src="<?=PROOT?>css/images/sri-lanka-government.svg" class=" float-right license-thumbnail"  alt="SL government" >
         </div>
-    
+        </div>
 
-        <hr>
-        <div class="container">
-            <div class="col-md-4">
-                <img src="<?=PROOT?>css/images/license/<?=$this->licence[0]->licence_no?>.jpg" class="rounded float-right dp-thumbnail"  alt="default dp" >
+        <div class="container-fluid">
+            
+            <div class="col-xs-4">
+                <img src="<?=PROOT?>css/images/license/<?=$this->licence[0]->licence_no?>.jpg" class="rounded float-left dp-thumbnail"  alt="default dp" >
             </div>
-            <div class="col-md-8" >
+            <div class="col-xs-8" >
                 <p><strong>NIC: </strong><?=$this->licence[0]->id_no?></p>
                 <p><strong>Licence No: </strong><?=$this->licence[0]->licence_no?></p>
                 <p><strong>Full Name: </strong><?=$this->licence[0]->full_name?></p>
@@ -35,8 +35,8 @@
                 <p><strong>Blood Group: </strong><?=$this->licence[0]->blood_group?></p>
             
             
-            </div>
             
+            </div>
         </div>
         <a href="<?=PROOT?>" class="btn btn-s inline btn-success pull-right">Back</a>
     </div>
