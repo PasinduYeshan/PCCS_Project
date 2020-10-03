@@ -9,7 +9,7 @@
     </div>
 <?php endforeach; ?>
 
-<div class="d-flex justify-content-between">
-    <div class="text-bold">Total Fine:</div>
+<div class="d-flex justify-content-between well">
+    <p class="text-bold">Total Fine:</p>
     <div class="text-bold">Rs. <?=number_format($this->grandTotal,2)?></div>
 </div>
