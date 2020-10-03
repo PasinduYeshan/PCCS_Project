@@ -11,14 +11,20 @@
                 <?= submitTag('Search',['class'=>'btn btn-primary', 'name'=>'search']) ;?>
             </div>
             <?php if ($_POST):?>
-            <div class="col-xs-12 col-sm-8">
-                <h2><?=$this->offender->getOffenderName()?></h2>
-                <p><strong>License number: </strong> <?=$this->offender->getLicenceNo()?> </p>
-                <p><strong>NIC number: </strong> <?=$this->offender->getOffenderId()?> </p>
-                <p><strong>Telephone number: </strong> <?=$this->offender->getTpNo()?> </p>
-                <p><strong>Address: </strong><?=$this->offender->getAddress()?> </p>
-                
-            </div>
+                <?php if ($this->offender->getOffenderId() != NULL):?>
+                    <div class="col-xs-12 col-sm-8">
+                        <h2><?=$this->offender->getOffenderName()?></h2>
+                        <p><strong>License number: </strong> <?=$this->offender->getLicenceNo()?> </p>
+                        <p><strong>NIC number: </strong> <?=$this->offender->getOffenderId()?> </p>
+                        <p><strong>Telephone number: </strong> <?=$this->offender->getTpNo()?> </p>
+                        <p><strong>Address: </strong><?=$this->offender->getAddress()?> </p>
+                        
+                    </div>
+                <?php else: ?>
+                    <div class="col-xs-12 col-sm-8">
+                        <p class="text-danger">Invalid ID</p>
+                    </div>
+                <?php endif; ?>
 
             <?php endif; ?>
 

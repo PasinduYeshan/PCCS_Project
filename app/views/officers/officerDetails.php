@@ -11,14 +11,20 @@
                 <?= submitTag('Search',['class'=>'btn btn-primary', 'name'=>'search']) ;?>
             </div>
             <?php if ($_POST):?>
-            <div class="col-xs-12 col-sm-8">
-                <h2><?=$this->officer->getOfficerName()?></h2>
-                <p><strong>Police ID number: </strong> <?=$this->officer->getPoliceId()?> </p>
-                <p><strong>NIC number: </strong> <?=$this->officer->getIdNo()?> </p>
-                <p><strong>Branch: </strong><?=$this->branchName?> </p>
-                
-            </div>
-
+                <?php if ($this->officer->getIdNo() != NULL):?>
+                    <div class="col-xs-12 col-sm-8">
+                        <h2><?=$this->officer->getOfficerName()?></h2>
+                        <h2><?=$this->officer->getOfficerName()?></h2>
+                        <p><strong>Police ID number: </strong> <?=$this->officer->getPoliceId()?> </p>
+                        <p><strong>NIC number: </strong> <?=$this->officer->getIdNo()?> </p>
+                        <p><strong>Branch: </strong><?=$this->branchName?> </p>
+                        
+                    </div>
+                <?php else: ?>
+                    <div class="col-xs-12 col-sm-8">
+                        <p class="text-danger">Invalid ID</p>
+                    </div>
+                <?php endif; ?>
             <?php endif; ?>
 
         </form>
