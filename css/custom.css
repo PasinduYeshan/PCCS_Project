@@ -97,18 +97,6 @@ p{
     font-size: 16px;
 }
 
-/* footer{
-    background-color: #3f3f3f;
-    color: #d5d5d5;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-    left:0;
-    right: 0;
-    
-} */
 footer {
     /*background-color: #0c1a1e;*/
     background-color: #302c2c !important;
@@ -180,6 +168,14 @@ footer {
     height: 150px;
     
 }
+
+@media (max-width: 768px) {
+    .footerImg{
+        display: none;
+        
+    } 
+}
+
 
 .heading7 {
     font-size: 21px;

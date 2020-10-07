@@ -12,7 +12,7 @@
 <footer class="footer-bs">
 <div class="container">
     <div class="row">
-        <div class="col-md-5 col-sm-6 footer-col">
+        <div class="col-md-5 col-sm-4 footer-col">
             <div class="logofooter">Contact Us</div>
             <p><i class="fa fa-phone"></i>Emergency: 119</p>
             <p>
@@ -32,17 +32,17 @@
 
 
         </div>
-        <div class="col-md-5 col-sm-6 footer-col">
+        <div class="col-md-5 col-sm-4 footer-col">
             <h6 class="heading7">USEFUL LINKS</h6>
             <ul class="footer-ul">
                 <li><a href="https://www.police.lk/"> Sri Lanka Police</a></li>
                 <li><a href="https://www.navy.lk/"> Sri Lanka Navy</a></li>
                 <li><a href="https://www.army.lk/">Sri Lanka Army</a></li>
                 <li><a href="http://www.airforce.lk/"> Sri Lanka Airforce</a></li>
-
             </ul>
         </div>
-        <div class="col-md-2 col-sm-6 footer-col">
+
+        <div class="col-md-2 col-sm-4 footer-col">
             <!-- <ul class="footer-ul">
                 <li><a href="#"> Frequently Asked Questions</a></li>
 
@@ -69,7 +69,6 @@
     </div>
 </div>
 </footer>
-<!--footer start from here-->
 
 <div class="copyright">
     <div class="container">
