@@ -56,6 +56,7 @@ function sendEmail($email,$params = []){ //Change the details accordingly
     $mail->Body = "{$params['full_name']} person with {$params['id_no']} ID has not paid the finesheet.";
     $mail->isHTML(true);
     $mail->addAddress($email);
+    //dnd($mail);
     if (!$mail->send()){
         return false;
     }
