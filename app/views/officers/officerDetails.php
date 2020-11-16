@@ -6,14 +6,14 @@
         <hr>
         <form class="form" action="" method="post">
             <?= inputBlock('text','Enter ID no','id_no','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
+            <?= inputBlock('text','Enter Officer ID no','officer_id_no','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
             <div class="col-md-12 text-right" style="float: right;">
                 <a href="<?=PROOT?>home" class="btn btn-default">Cancel</a>
                 <?= submitTag('Search',['class'=>'btn btn-primary', 'name'=>'search']) ;?>
             </div>
             <?php if ($_POST):?>
-                <?php if ($this->officer->getIdNo() != NULL):?>
+                <?php if ($this->officer != NULL):?>
                     <div class="col-xs-12 col-sm-8">
-                        <h2><?=$this->officer->getOfficerName()?></h2>
                         <h2><?=$this->officer->getOfficerName()?></h2>
                         <p><strong>Police ID number: </strong> <?=$this->officer->getPoliceId()?> </p>
                         <p><strong>NIC number: </strong> <?=$this->officer->getIdNo()?> </p>
@@ -42,7 +42,7 @@
             <th></th>
             </thead>
             <tbody>
-            <?php if ($_POST){ foreach ($this->finesheets as $finesheet):?>
+            <?php if ($_POST && $this->finesheets != null){ foreach ($this->finesheets as $finesheet):?>
                 <tr>
 
                     <td><?= $finesheet->getSheetNo(); ?></td>

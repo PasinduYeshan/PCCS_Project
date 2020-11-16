@@ -20,6 +20,15 @@ class TrafficOfficer extends Model{
         return $this->find($conditions);
     }
 
+    public function findByOfficerId($officer_id_no,$params = []){
+        $conditions = [
+            'conditions' => 'police_id = ?',
+            'bind' => [$officer_id_no]
+        ];
+        $conditions = array_merge($conditions,$params);
+        return $this->find($conditions);
+    }
+
     public function getBranchOfficer($branch,$params = []){
         $conditions = [
             'conditions' => 'branch = ?',
