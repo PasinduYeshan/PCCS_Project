@@ -9,8 +9,8 @@
 
 <!-- <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet"> -->
 <!--footer start from here-->
-<footer class="footer-bs">
-<div class="container">
+<footer class="footer-bs ">
+<div class="container mb-2">
     <div class="row">
         <div class="col-md-5 col-sm-4 footer-col">
             <div class="logofooter">Contact Us</div>
@@ -32,7 +32,7 @@
 
 
         </div>
-        <div class="col-md-5 col-sm-4 footer-col">
+        <div class="col-md-5 col-sm-4 mb-2 footer-col">
             <h6 class="heading7">USEFUL LINKS</h6>
             <ul class="footer-ul">
                 <li><a href="https://www.police.lk/"> Sri Lanka Police</a></li>
@@ -43,40 +43,19 @@
         </div>
 
         <div class="col-md-2 col-sm-4 footer-col">
-            <!-- <ul class="footer-ul">
-                <li><a href="#"> Frequently Asked Questions</a></li>
-
-
-            </ul> -->
             <img src="<?=PROOT?>/css/images/sri-lanka-government.svg" class="footerImg">
-            <!--<div class="post">
-                <p><a href="#"> Case Studies</a></p>
-                <p><a href="#"> Frequently Ask Questions</a></p>
-            </div>-->
-
         </div>
-        <!--
-          <div class="col-md-3 col-sm-6 footer-col">
-          <h6 class="heading7">Social Media</h6>
-          <ul class="footer-social">
-            <li><i class="fa fa-linkedin social-icon linked-in" aria-hidden="true"></i></li>
-            <li><i class="fa fa-facebook social-icon facebook" aria-hidden="true"></i></li>
-            <li><i class="fa fa-twitter social-icon twitter" aria-hidden="true"></i></li>
-            <li><i class="fa fa-google-plus social-icon google" aria-hidden="true"></i></li>
-          </ul>
-        </div>
-            -->
     </div>
 </div>
 </footer>
 
-<div class="copyright">
+<div class="copyright mt-2">
     <div class="container">
-        <div class="col-md-7">
+        <div class="col-md-10 col-sm-12">
             <p>© 2020 - All Rights with Sri Lanka Police</p>
         </div>
-        <div class="col-md-5">
-            <ul class="bottom_ul">
+        <div class="col-md-2 col-sm-12 float-md-right">
+            <ul class="footer-ul">
                 <li><a href="#">Maintained by PCCS</li>
                 <li><a href="#">07111111111</a></li>
 
