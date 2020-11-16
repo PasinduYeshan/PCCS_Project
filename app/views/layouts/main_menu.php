@@ -9,9 +9,9 @@ $currentPage = currentPage();
         <div class="navbar-header" >
             <button type="button" id = "tog" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_menu" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar togNav"></span>
+                <span class="icon-bar togNav"></span>
+                <span class="icon-bar togNav"></span>
             </button>
             <!-- <a class="navbar-brand" href="<?=PROOT?>home"><?=MENU_BRAND?></a> -->
             <img src="<?=PROOT?>/css/images/sri-lanka-government.svg" id="policeLogo">
