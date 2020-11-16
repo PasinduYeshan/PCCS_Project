@@ -59,7 +59,10 @@ p{
 }
 
 #tog{
-    color: white;
+    color:white;
+}
+.togNav{
+    background-color: rgb(255, 255, 255);
 }
 
 #policeLogo{

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2020 at 07:31 PM
+-- Generation Time: Nov 16, 2020 at 02:32 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -75,40 +75,11 @@ CREATE TABLE `cart_items` (
 INSERT INTO `cart_items` (`id`, `created_at`, `updated_at`, `cart_id`, `sheet_no`, `deleted`) VALUES
 (1, '2020-09-29 00:32:58', '2020-09-29 00:32:58', 2, '100003', 0),
 (2, '2020-10-02 15:07:25', '2020-10-02 15:07:25', 3, '100003', 0),
-(3, '2020-10-02 15:07:35', '2020-10-02 15:07:35', 3, '100006', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `contacts`
---
-
-CREATE TABLE `contacts` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `fname` varchar(155) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `lname` varchar(155) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(155) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `city` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `state` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `zip` varchar(65) COLLATE utf8_unicode_ci NOT NULL,
-  `home_phone` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `cell_phone` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `work_phone` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
-  `deleted` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `contacts`
---
-
-INSERT INTO `contacts` (`id`, `user_id`, `fname`, `lname`, `email`, `address`, `address2`, `city`, `state`, `zip`, `home_phone`, `cell_phone`, `work_phone`, `deleted`) VALUES
-(1, 1, 'Curtis', 'Parham', 'curtis@mailinator.com', '123 Main St.', 'Apt. 111', 'Washington ', 'MO', '63090', '555 444 1234', '555 444 3212', '555 444 9876', 0),
-(2, 1, 'John', 'Doe', 'johndoe@gmail.com', '123 Elm St.', NULL, 'New York', 'NY', '12345', '555 444 9999', '555 444 9998', '555 444 9997', 0),
-(3, 1, 'Magnus', 'Carlsen', 'magnuscarlsen@gmail.com', '123 Main St.', 'Apt 112', 'Washington', 'MO', '630909', '555 666 3213', '555 111 2222', '555 111 2213', 0),
-(4, 1, 'Jane', 'Doe', '', '', '', '', '', '', '', '', '', 0);
+(3, '2020-10-02 15:07:35', '2020-10-02 15:07:35', 3, '100006', 0),
+(4, '2020-10-03 19:09:02', '2020-10-03 19:09:02', 4, '100003', 0),
+(5, '2020-10-03 19:09:07', '2020-10-03 19:09:07', 4, '100006', 0),
+(6, '2020-10-04 09:07:56', '2020-10-04 09:07:56', 5, '100010', 0),
+(7, '2020-11-16 01:31:11', '2020-11-16 01:31:11', 6, '100007', 0);
 
 -- --------------------------------------------------------
 
@@ -154,7 +125,10 @@ CREATE TABLE `finecart` (
 INSERT INTO `finecart` (`id`, `user_id`, `created_at`, `updated_at`, `paid`, `deleted`) VALUES
 (1, 983000000, '2020-09-29 00:25:16', '2020-09-29 00:25:16', 1, 0),
 (2, 983000000, '2020-09-29 00:29:07', '2020-09-29 00:29:07', 0, 0),
-(3, 983000000, '2020-10-02 15:07:25', '2020-10-02 15:07:25', 0, 0);
+(3, 983000000, '2020-10-02 15:07:25', '2020-10-02 15:07:25', 0, 0),
+(4, 983000000, '2020-10-03 19:09:02', '2020-10-03 19:09:02', 0, 0),
+(5, 981000000, '2020-10-04 09:07:56', '2020-10-04 09:08:17', 1, 0),
+(6, 982000000, '2020-11-16 01:31:11', '2020-11-16 01:31:11', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -186,14 +160,15 @@ CREATE TABLE `finesheet` (
 --
 
 INSERT INTO `finesheet` (`sheet_no`, `vehicle_no`, `full_name`, `address`, `vehicletype`, `fine_date`, `fine_time`, `place`, `offence`, `licence_no`, `id_no`, `fine`, `officer_id`, `status`, `notify`) VALUES
-('100001', 'KA-5056', 'Chamod Gihantha', '123 main str', 'Car', '2020-09-24', '12:45:00', 'kandy', '2,4', 'B0000001', '981000000', '2000.00', '80001', 0, 0),
-('100002', 'KA-5045', 'Psindu Yeshan', '123 main str', 'Car', '2020-09-24', '12:45:00', 'kandy', '2,4', 'B0000002', '982000000', '2000.00', '80002', 0, 0),
+('100001', 'KA-5056', 'Chamod Gihantha', '123 main str', 'Car', '2020-09-24', '12:45:00', 'kandy', '2,4', 'B0000001', '981000000', '2000.00', '80001', 2, 1),
+('100002', 'KA-5045', 'Psindu Yeshan', '123 main str', 'Car', '2020-09-24', '12:45:00', 'kandy', '2,4', 'B0000002', '982000000', '2000.00', '80002', 2, 1),
 ('100003', 'CAR-5555', 'Chathulanaka Gamage', '22/B, Hogwarts', 'Container', '2020-12-04', '15:45:00', 'Horana', '5', 'B0000003', '983000000', '3500.00', '80003', 0, 0),
 ('100004', 'CAA-7845', 'Shashini Wimalarathne', '123 main str', 'Car', '2020-07-22', '11:11:00', 'kandy', '4', 'B0000004', '984000000', '150.00', '80004', 1, 0),
 ('100005', 'KA-5056', 'Chamod Gihantha', '123 main str', 'Car', '2020-09-14', '12:45:00', 'kandy', '2,4', 'B0000001', '981000000', '2000.00', '80001', 1, 0),
 ('100006', 'CAR-5555', 'Chathulanaka Gamage', '22/B, Hogwarts', 'Container', '2020-09-14', '15:45:00', 'Horana', '1,2', 'B0000003', '983000000', '3500.00', '80002', 0, 0),
 ('100007', 'KA-5045', 'Psindu Yeshan', '123 main str', 'Car', '2020-09-14', '12:45:00', 'kandy', '2,4', 'B0000002', '982000000', '2000.00', '80003', 0, 0),
 ('100008', 'CAA-7845', 'Shashini Wimalarathne', '123 main str', 'Car', '2020-09-14', '11:11:00', 'kandy', '2,3', 'B0000004', '984000000', '150.00', '80004', 0, 0),
+('100010', 'BA-253', 'Chamod Gihantha', '123 main strt', 'Light Lorry', '2020-10-03', '13:04:00', 'Horana', '6,8', 'B0000001', '981000000', '2000.00', '80001', 1, 0),
 ('2967', 'abc123', 'abc xyz', '123 main str', 'Car', '2020-07-24', '05:16:00', 'gampaha', '4,6,12,13,30,32', 'B3863578', '1111', '5500.00', '1', 1, 0),
 ('4089', 'abc123', 'abc xyz', '123 main str', 'Car', '2020-07-22', '23:31:00', 'matara', '2,7,29', 'B3863578', '1111', '2500.00', '1', 1, 0),
 ('4556', 'RC 125', 'asa', 'gotham cty', 'Car', '2020-05-15', '11:11:00', 'galle', '2', 'asd123', '1111', '160.00', '1', 1, 0),
@@ -330,11 +305,11 @@ CREATE TABLE `oic` (
 --
 
 INSERT INTO `oic` (`id_no`, `police_id`, `name`, `branch`, `oic_email`) VALUES
-('701000000', '70001', 'Dale Steyn', 1, 'pasinduyeshann@gmail.coma'),
-('702000000', '70002', 'Lungi Ngidi', 2, 'pasinduyeshann@gmail.coma'),
-('703000000', '70003', 'Makhaya Ntini', 3, 'pasinduyeshann@gmail.coma'),
-('704000000', '70004', 'Kagiso Rabada', 4, 'pasinduyeshann@gmail.coma'),
-('705000000', '70005', 'Shaun Pollock', 5, 'pasinduyeshann@gmail.coma');
+('701000000', '70001', 'Dale Steyn', 1, 'pasinduyeshann@gmail.com'),
+('702000000', '70002', 'Lungi Ngidi', 2, 'pasinduyeshann@gmail.com'),
+('703000000', '70003', 'Makhaya Ntini', 3, 'pasinduyeshann@gmail.com'),
+('704000000', '70004', 'Kagiso Rabada', 4, 'pasinduyeshann@gmail.com'),
+('705000000', '70005', 'Shaun Pollock', 5, 'pasinduyeshann@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -422,7 +397,8 @@ INSERT INTO `transactions` (`id`, `created_at`, `updated_at`, `cart_id`, `gatewa
 (11, NULL, NULL, 2345, 'stripe', 'card', '150.00', 'ch_1H9cPFIvCNmmqVHerD72TQUm', 1, NULL, 'visa', '4242', 0),
 (12, NULL, NULL, 2345, 'stripe', 'card', '150.00', 'ch_1H9pUiIvCNmmqVHeoh81TA9y', 1, NULL, 'visa', '4242', 0),
 (13, NULL, NULL, 8985, 'stripe', 'card', '250.00', 'ch_1HGTPVKNSpTiEuPGOGxMa8hO', 1, NULL, 'visa', '4242', 0),
-(14, NULL, NULL, 5671, 'stripe', 'card', '2000.00', 'ch_1HGzYNKNSpTiEuPGFSWJBLT1', 1, NULL, 'visa', '4242', 0);
+(14, NULL, NULL, 5671, 'stripe', 'card', '2000.00', 'ch_1HGzYNKNSpTiEuPGFSWJBLT1', 1, NULL, 'visa', '4242', 0),
+(15, '2020-10-04 09:08:16', '2020-10-04 09:08:16', 5, 'stripe', 'card', '2000.00', 'ch_1HYTCWKNSpTiEuPGPL2Wqwmh', 1, NULL, 'visa', '4242', 0);
 
 -- --------------------------------------------------------
 
@@ -505,14 +481,6 @@ ALTER TABLE `cart_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cart_id` (`cart_id`),
   ADD KEY `sheet_no` (`sheet_no`),
-  ADD KEY `deleted` (`deleted`);
-
---
--- Indexes for table `contacts`
---
-ALTER TABLE `contacts`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
   ADD KEY `deleted` (`deleted`);
 
 --
@@ -618,19 +586,13 @@ ALTER TABLE `branch`
 -- AUTO_INCREMENT for table `cart_items`
 --
 ALTER TABLE `cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `contacts`
---
-ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `finecart`
 --
 ALTER TABLE `finecart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `offence`
@@ -642,7 +604,7 @@ ALTER TABLE `offence`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -654,7 +616,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_sessions`
 --
 ALTER TABLE `user_sessions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
