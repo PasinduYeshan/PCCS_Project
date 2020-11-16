@@ -1,15 +1,43 @@
 <?php $this->setSiteTitle("Finesheet Cart"); ?>
 <?php $this->start('body'); ?>
 <div class="container-fluid pb-5">
-<h2>Finesheet Cart (<?=$this->itemCount?> item<?=($this->itemCount == 1)?"" : "s"?>)</h2>
+
 <hr />
 <div class="row">
     <?php if (sizeof($this->items)==0): ?>
-        <div class="col col-md-8 offset-md-2 text-center">
-            <h3>Your Finesheet Cart is empty!</h3>
-            <a href="<?=PROOT?>offender/myfines" class="btn btn-lg btn-info">Continue finesheet adding</a>
+    <div class="container text-center">
+        <div class="grid">
+            <!--
+            <div class="alert alert-info " role="alert">
+                Your Finesheet Cart is empty!
+            </div>
+            -->
+                <div class="col col-md-4">
+                    <img  src="<?=PROOT?>css/images/finecarthome.svg" class="rounded"  alt="finecart" id="finecartlogo">
+                </div>
+            
+                <div class="col col-md-8">
+                    <div class="row">
+                        <h3 class="display-4 text-center">Your Finesheet Cart is empty!</h3>
+                    </div>
+                    <div class="row">
+                        <h5 class="display-4 text-center">
+                            Add fine sheets to your cart to pay at once
+                        </h5>
+                    </div>
+   
+                    <a href="<?=PROOT?>offender/myfines" class="btn btn-md btn-info text-center">Continue finesheet adding</a>
+                </div>
+            </div>
         </div>
+    </div>
+    
+       
+    
+        
+        
     <?php else:?>
+    <h2>Finesheet Cart (<?=$this->itemCount?> item<?=($this->itemCount == 1)?"" : "s"?>)</h2>
     <div class="col col-md-8">
         <?php foreach ($this->items as $item): ?>
             <div class="finecart-item">
