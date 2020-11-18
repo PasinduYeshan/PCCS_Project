@@ -32,7 +32,7 @@ class Router{
         $dispatch = new $controller($controller_name, $action);
 
         if(method_exists($controller,$action)) {
-            call_user_func_array([$dispatch,$action],$queryParams);                    // run the controller action function
+            call_user_func_array([$dispatch,$action],$queryParams);// run the controller action function
         }else {
             die('That method does not exist in the controller \"'. $controller_name . '\"');
         }

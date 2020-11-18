@@ -60,11 +60,6 @@ class FinecartController extends Controller{
             if($resp['success'] != true){
                 $tx->addErrorMessage('card-element',$resp['msg']);
             } else {
-                //$finesheet = new FineSheetDomain($sheet_no);
-                /** $finesheet = $this->FinesheetModel->findByFinesheet($sheet_no)[0];  //because array of 1 element is obtained [0] to get object
-                if ($finesheet){
-                $finesheet->updateByField('sheet_no', $sheet_no, ['status'=>1]);
-                }**/
                 foreach ($gw->items as $item):
                     $finesheet = new FineSheetDomain($item->sheet_no);
                     $finesheet->pay();

@@ -1,5 +1,4 @@
 <?php
-include_once(ROOT."/app/lib/OverallPDF.php");
 
 class ReportController extends Controller{
 
@@ -28,11 +27,14 @@ class ReportController extends Controller{
     }
      public function FinalArrayGenerate($reportArray){
         $offenceCountsAll=array();
-        $vehicleNames=array('SLTB','Private','Lorry','Container','Car','Dual','Motorcycle','Three-Wheeler','Light bus','Light Lorry','Tractor','Hand tractor','Bicycle','Pedestrian');
+        $vehicleTypes = file_get_contents(ROOT.DS.'app'.DS.'vehicle.json');
+        $vehicleTypes = json_decode($vehicleTypes, true);
+
+        // $vehicleNames=array('SLTB','Private','Lorry','Container','Car','Dual','Motorcycle','Three-Wheeler','Light bus','Light Lorry','Tractor','Hand tractor','Bicycle','Pedestrian');
         for ($x = 1; $x <= 33; $x++) {
             $offenceCountEach=array();
-            foreach ($vehicleNames as $vehicleType) {
-                $offenceCountEach[$vehicleType]=$reportArray[$vehicleType][$x];
+            foreach ($vehicleTypes as $vehicleType) {
+                $offenceCountEach[$vehicleType["vehicle_type"]]=$reportArray[$vehicleType["vehicle_type"]][$x];
             }
             $offenceCountsAll[$x]=$offenceCountEach;
         }
@@ -82,9 +84,7 @@ class ReportController extends Controller{
     }
 
     public function overallPdfReport($offenceWithCounts,$heading){
-        //$pdf = new OverallPDF();
-        //$pdf->generatePDF($finesheets);
-        $overallPDF = new ConcreteAdapter3(new FPDF());//ConcreteAdapter1=OverallPDF
+        $overallPDF = new PDFAdapter(new FPDF());//ConcreteAdapter1=OverallPDF
         $overallPDF->setHeader($heading);
         $overallPDF->generatePDF($offenceWithCounts);
         $overallPDF->setFooter();
@@ -93,46 +93,9 @@ class ReportController extends Controller{
     public function branchPdfReport($offenceWithCounts,$heading){
         //$pdf = new BranchPDFtest();
         //$pdf->generatePDF($offenceWithCounts);
-        $branchPDF = new ConcreteAdapter3(new FPDF());//ConcreteAdapter2=branchPDF
+        $branchPDF = new PDFAdapter(new FPDF());//ConcreteAdapter2=branchPDF
         $branchPDF->setHeader($heading);
         $branchPDF->generatePDF($offenceWithCounts);
         $branchPDF->setFooter();
     }
 }
-
-/*
-    public function branchPdfReport($offenceWithCounts,$branch){
-       // $pdf = new BranchPDFtest();
-        //$pdf->generatePDF($offenceWithCounts,$branch);
-        $branchPDF = new ConcreteAdapter2(new FPDF());//ConcreteAdapter2=branchPDF
-        $branchPDF->setHeader($branch);
-        $branchPDF->generatePDF($offenceWithCounts);
-        $branchPDF->setFooter();
-    }
-
-    public function getReportArray(BranchReport $branchReport,BranchDomain $branch){
-        $branch->accept($branchReport);
-        $reportArray = $branchReport->getReportArray();
-        $offenceCountsAll=array();
-        $vehicleNames=array('SLTB','Private','Lorry','Container','Car','Dual','Motorcycle','Three-Wheeler','Light bus','Light Lorry','Tractor','Hand tractor','Bicycle','Pedestrian');
-        for ($x = 1; $x <= 33; $x++) {
-            $offenceCountEach=array();
-            foreach ($vehicleNames as $vehicleType) {
-                $offenceCountEach[$vehicleType]=$reportArray[$vehicleType][$x];
-            }
-            $offenceCountsAll[$x]=$offenceCountEach;
-        }
-        $offence=new Offence();
-        $offenceNames=array();
-        $offenceWithCounts=array();
-        for($i=1;$i<34;$i++){
-            $offences=$offence->findById($i);
-            foreach($offences as $of){
-                array_push($offenceNames,"$of->offence_name");
-            }
-            array_push($offenceWithCounts,"$of->offence_name",$offenceCountsAll[$i]);//edited
-        }
-        $this->branchPdfReport($offenceWithCounts,$branch);
-    }
-}
-*/
