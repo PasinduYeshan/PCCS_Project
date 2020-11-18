@@ -14,10 +14,10 @@ class ReportController extends Controller{
     public function overallreportAction(){
 
            if ($_POST){
-                $branchReport = new OverallReport($_POST['start_date'],$_POST['end_date']);
+                $overallReport = new OverallReport($_POST['start_date'],$_POST['end_date']);
                 $branchGroup = new BranchGroup(); //BranchGroup
-                $branchGroup->accept($branchReport);
-                $reportArray = $branchReport->getReportArray();
+                $branchGroup->accept($overallReport);
+                $reportArray = $overallReport->getReportArray();
                 $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
                 $heading="OVERALL REPORT";
                 $this->overallPdfReport($offenceWithCounts,$heading);

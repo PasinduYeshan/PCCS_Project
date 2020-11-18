@@ -18,7 +18,16 @@
             <td><?= $finesheet->vehicle_no; ?></td>
             <td><?= $finesheet->fine_date; ?></td>
             <td><?= $finesheet->fine; ?></td>
-            <td><?= ($finesheet->status==0)?"Unpaid":"Paid"; ?></td>
+            <td><?php if($finesheet->status==0){
+                echo "Unpaid";
+            }else if($finesheet->status==1){
+                echo "Paid";
+            }else{
+                echo "Overdue";
+            }
+            
+                ?></td>
+            <!-- <td><?= ($finesheet->status==0)?"Unpaid":"Paid"; ?></td> -->
             <td>
                 <a href="<?=PROOT?><?=$this->controller?>/view/<?=$finesheet->sheet_no?>" class="btn btn-primary btn-sm">
                     <i class="glyphicon glyphicon-eye-open"></i> View
