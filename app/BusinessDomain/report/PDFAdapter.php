@@ -1,7 +1,7 @@
 <?php
 require_once (ROOT.'/app/lib/fpdf/fpdf.php');
 /*-------------------------------------branchPDFReport-------------------------------------------*/
-class ConcreteAdapter3 implements Target{
+class PDFAdapter implements Target{
     private $fpdf;
  
     public function __construct(FPDF $fpdf) {

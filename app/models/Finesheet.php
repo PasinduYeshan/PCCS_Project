@@ -135,7 +135,7 @@ class Finesheet extends Model{
     public function findFineSheetToMail($startDate,$endDate,$params = []){ //To send email
         $fineSheetNumbers = [];
         $conditions = [
-            'conditions' => 'due_date >= ? AND due_date <= ? AND notify = 0',
+            'conditions' => 'due_date >= ? AND due_date <= ? AND notify = 0 AND status != 1',
             'bind' => [$startDate,$endDate]
         ];
         $conditions = array_merge($conditions,$params);

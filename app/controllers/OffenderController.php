@@ -35,22 +35,4 @@ class OffenderController extends UserController{
         $this->myLicence->mylicenceAction();
     }
 
-    public function checkoutAction($sheet_no){
-        $this->paymentC->checkoutAction($sheet_no);
-    }
-
-    public function thankYouAction($sheet_no){
-        $this->paymentC->thankYouAction($sheet_no);
-    }
-
-    // public function findOffenderAction(){
-    //     if ($_POST){
-    //         $offender = $this->OffenderModel->findById($_POST['id_no']);
-    //         $this->view->offender = $offender;
-    //         $this->view->controller = lcfirst($this->_controller);
-    //     }
-
-    //     $this->view->render('offender/offenderDetails');
-    // }
-
 }

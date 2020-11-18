@@ -97,4 +97,5 @@ class Users extends Model {
         if (empty($this->acl))return [];
         return json_decode($this->acl,true);
     }
+    
 }
