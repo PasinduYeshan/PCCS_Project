@@ -13,10 +13,18 @@ class Finecart extends Model{
         
     }
 
+    /**
+     *populate the created at and update at fields whenever saving, implemented with the complex_save() method only
+     */
     public function beforeSave(){
         $this->timeStamps();
     }
 
+    /**
+     * if a cart is already created a cookie exists with name CART_COOKIE_NAME and value cart_id from that can retrieve current cart data
+     * else create a new cart and set a cookie with value of newly created cart id
+     * @return array|bool|Finecart
+     */
     public function findCurrentCartOrCreateNew()
     {
         if(Cookie::exists(CART_COOKIE_NAME)){
@@ -40,15 +48,6 @@ class Finecart extends Model{
             $cart->user_id = currentUser()->id;
             $cart->complex_save();
         }
-        // if (!Cookie::exists(CART_COOKIE_NAME)) {
-        //     $this->user_id = currentUser()->id;
-        //     $cart = new Finecart();
-        //     $cart->complex_save();
-        // } else {
-        //     $cart_id = Cookie::get(CART_COOKIE_NAME);
-        //    // dnd($cart_id);
-        //     $cart = $this->findByID((int)$cart_id);
-        // }
         Cookie::set(CART_COOKIE_NAME, $cart->id, CART_COOKIE_EXPIRY);
         return $cart;
     }
@@ -60,6 +59,11 @@ class Finecart extends Model{
 
     }
 
+    /**
+     * mark the cart as paid in the database and delete the cookie associated with the paid cart
+     * @param $cart_id
+     * @return array|bool
+     */
     public function payCart($cart_id){
         $cart = $this->findByID((int)$cart_id);
         $cart->paid = 1;
