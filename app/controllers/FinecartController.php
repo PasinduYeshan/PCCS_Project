@@ -38,7 +38,6 @@ class FinecartController extends Controller{
         $cartItemsModel = new CartItems();
         $cart = $this->FinecartModel->findCurrentCartOrCreateNew();
         $item = $cartItemsModel->addFinesheetToCart($cart->id,(int)$sheet_no);
-        // $this->view->render('finecart/index');
         Router::redirect('finecart');
     }
 
