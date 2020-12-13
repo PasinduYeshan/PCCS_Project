@@ -35,7 +35,7 @@ class FinesheetController extends Controller {
                 $finesheet->due_date = date('Y-m-d',strtotime($finesheet->fine_date. ' + 7 days'));
                 $finesheet->offence = implode(",",$_POST['offence']);
                 $finesheet->save();
-                Session::addMsg('info',"Succefully Updated");
+                Session::addMsg('info',"Finesheet Added Successfully");
                 Router::redirect('trafficofficer/add');
             }
 
