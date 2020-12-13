@@ -52,8 +52,15 @@ function sendEmail($email,$params = []){ //Change the details accordingly
     $mail->Password = 'client@69';
     $mail->setFrom("emailclienttest69@gmail.com",'policeLK');
     $mail->addReplyTo('emailclienttest69@gmail.com');
-    $mail->Subject = "Arrest this {$params['id_no']} ";
-    $mail->Body = "{$params['full_name']} person with {$params['id_no']} ID has not paid the finesheet.";
+    //$mail->Subject = "Arrest this {$params['id_no']} ";
+    //$mail->Body = "{$params['full_name']} person with {$params['id_no']} ID has not paid the finesheet.";
+    $mail->Subject = "Information regarding Person to be Arrested-{$params['id_no']} ";
+    $mail->Body = "Dear sir, 
+                    The license holder {$params['full_name']} with ID number - {$params['id_no']} has not
+                    settled the fines in the finesheet number- {$params['finesheet_number']} within the due date
+                    {$params['due_date']}.Fine was assigned to the license holder on {$params['fine_date']}  
+                    Please make sure to take relevant actions regarding this license holder.
+                    Thank you";
     $mail->isHTML(true);
     $mail->addAddress($email);
     //dnd($mail);
