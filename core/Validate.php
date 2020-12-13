@@ -79,6 +79,15 @@ class Validate{
                                 $this->addError(["{$display} can not be a future date.",$item]);
                             }
                             break;
+                        case 'exist':
+                            $t = explode(',',$rule_value);
+                            $table = $t[0];
+                            $field = $t[1];
+                            $query = $this->_db->query("SELECT {$field} FROM {$table} WHERE {$field} =?",[$value]);
+                            if (!$query->count()){
+                                $this->addError(["The {$display} you entered doesn't exist.",$item]);
+                            }
+                            break;
                     }
                 }
             }
