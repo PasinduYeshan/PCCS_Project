@@ -1,0 +1,31 @@
+{
+  "Home": "home",
+  
+  "My Licence": "offender/mylicence",
+
+  "Finesheet": {
+    "Add": "trafficofficer/add",
+    "Details": "trafficofficer/details",
+    "My Finesheets": "offender/myfines",
+    "Due Finesheets": "offender/duefines"
+  },
+    "Mark Payment": "paymentofficer/details",
+  "Details" : {
+    "Officer details" : "BranchOIC/findOfficer",
+    "Offender details" : "BranchOIC/findOffender"
+  },
+  "Branch Report" : "BranchOIC/generateBranchReport",
+
+  "Reports": {
+    "Generate Branch report": "HigherOfficer/generateBranchReport",
+    "Generate Overall report": "HigherOfficer/generateOverallReport"
+  },
+  "Fines Cart" : "finecart/index",
+  "Register User": "admin/registerUser",
+  "Login": "register/login",
+  "Logout": "register/logout",
+  "Register" : "register/register"
+
+
+
+}

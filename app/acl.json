@@ -1,0 +1,60 @@
+{
+  "Guest": {
+    "denied": {},
+    "Home": [ "*" ],
+    "Register": [ "login", "register" ],
+    "Restricted": [ "*" ]
+  },
+  "LoggedIn": {
+    "denied": {
+      "Register": [ "login", "register" ]
+    },
+    "Register": [ "logout" , "accountDetails" , "changePassword" ],
+    "Contacts": [ "*" ]
+
+  },
+  "TrafficOfficer": {
+    "denied": {
+
+    },
+    "Trafficofficer": [ "*" ]
+
+  },
+  "Offender": {
+    "denied": {
+
+    },
+    "Offender": [ "myfines", "view", "mylicence", "duefines" ],
+    "Finecart" : ["*"]
+
+  },
+  "PaymentOfficer": {
+    "denied": {
+
+    },
+    "Paymentofficer": [ "details", "counterpayment" ]
+  },
+  "BranchOIC": {
+    "denied": {
+
+    },
+    "BranchOIC": [ "*" ]
+
+  },
+  "HigherOfficer": {
+    "denied": {
+
+    },
+    "HigherOfficer": [ "*" ],
+    "Report": [ "*" ]
+
+  },
+  "Admin": {
+    "denied": {
+
+    },
+    "Admin": ["*"]
+  }
+
+
+}
