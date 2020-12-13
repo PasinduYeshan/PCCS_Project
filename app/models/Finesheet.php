@@ -16,7 +16,8 @@ class Finesheet extends Model{
         'sheet_no' => [
             'display' => 'Sheet No',
             'required' => true,
-            'max' => 10
+            'max' => 10,
+            'unique' => 'finesheet'
         ],
         'vehicle_no' => [
             'display' => 'Vehicle No',

@@ -11,7 +11,7 @@ class FinesheetController extends Controller {
 
 
     public function addAction(){
-        $finesheet = new Finesheet();
+        $finesheet = new Finesheet(); //Model
         $validation = new Validate();
         $trafficOfficer = new TrafficOfficer();  //to get the police id from the user id
         // $fineValidation = new Validate(); //
@@ -35,7 +35,8 @@ class FinesheetController extends Controller {
                 $finesheet->due_date = date('Y-m-d',strtotime($finesheet->fine_date. ' + 7 days'));
                 $finesheet->offence = implode(",",$_POST['offence']);
                 $finesheet->save();
-                Router::redirect('home');
+                Session::addMsg('info',"Succefully Updated");
+                Router::redirect('trafficofficer/add');
             }
 
         }
