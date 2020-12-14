@@ -8,7 +8,7 @@ class PaymentOfficerDomain extends UserDomain{
         if(!count($param)){
             $payment_officer_model = new PaymentOfficer(); // Create the Model
             $paymentOfficer = $payment_officer_model->findById($id_no);
-            ($paymentOfficer) $this->populateObjData($paymentOfficer[0]) : null;
+            ($paymentOfficer)? $this->populateObjData($paymentOfficer[0]) : null;
         }else{ //If want to create new Payment Officer not in database
             $this->id_no = $id_no;
             $this->company = $param['company'];
