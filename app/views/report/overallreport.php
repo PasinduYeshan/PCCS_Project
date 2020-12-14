@@ -4,7 +4,7 @@
 <div class="col-md-8 col-md-offset-2 well formUnderNav">
     <h2 class="text-center">Enter Time Period</h2>
     <hr>
-    <form class="form" action="" method="post" target="_blank">
+    <form class="form" action="" method="post" target="_self">
         <?= inputBlock('date','Select start date','start_date','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
         <?= inputBlock('date','Select end date','end_date','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
         <div class="col-md-12 text-right">
