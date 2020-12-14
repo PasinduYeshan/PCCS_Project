@@ -12,7 +12,7 @@ class ReportController extends Controller{
 
     public function overallreportAction(){
 
-           if ($_POST && $_POST['start_date'] != "" && $_POST['start_date'] != ""){
+           if ($_POST && $_POST['start_date'] != "" && $_POST['end_date'] != "" && $_POST['start_date']<$_POST['end_date']){
                 $overallReport = new OverallReport($_POST['start_date'],$_POST['end_date']);
                 $branchGroup = new BranchGroup(); //BranchGroup
                 $branchGroup->accept($overallReport);
@@ -55,7 +55,7 @@ class ReportController extends Controller{
     if(currentUser()->acl=='["BranchOIC"]'){
             $oic = new OIC();
             $branch = new BranchDomain($oic->findById(currentUser()->id)[0]->branch);
-            if ($_POST && $_POST['start_date'] != "" && $_POST['start_date'] != ""){
+            if ($_POST && $_POST['start_date'] != "" && $_POST['end_date'] != "" && $_POST['start_date']<$_POST['end_date']){
             $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
             $branch->accept($branchReport);
             $reportArray = $branchReport->getReportArray();
@@ -68,7 +68,7 @@ class ReportController extends Controller{
         else if (currentUser()->acl=='["HigherOfficer"]'){
             $branchModel = new Branch();
             $this->view->branchlist = $branchModel->findAll();
-            if ($_POST){
+            if ($_POST && $_POST['start_date'] != "" && $_POST['end_date'] != "" && $_POST['start_date']<$_POST['end_date']){
                 $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
                 if($_POST['branch']){
                     $branch = new BranchDomain($_POST['branch']); //BranchGroup
