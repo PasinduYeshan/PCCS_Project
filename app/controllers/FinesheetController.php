@@ -28,6 +28,12 @@ class FinesheetController extends Controller {
             $finesheet->assign($_POST);
             //Finesheet::$addValidation['fine']['max_value'] = (int)$offence->findById($_POST['offence'])[0]->fine;
             $validation->check($_POST, Finesheet::$addValidation);
+            if (!isset($_POST['offence'])){
+                $validation->addError(["Please select an offence",'offence']);
+            }
+            if (!isset($_POST['vehicletype'])){
+                $validation->addError(["Please select a vehicle type",'vehicletype']);
+            }
             // $validation->check($_POST['offence'],$offence->getValidation());        //
             if ($validation->passed()){                 //
                 $finesheet->officer_id = $trafficOfficer->findById(currentUser()->id)[0]->police_id;

@@ -21,8 +21,7 @@ class RegisterController extends Controller{
                 ],
                 'password' => [
                     'display' => "Password",
-                    'required' => true,
-                    'min' => 6
+                    'required' => true
                 ]
             ]);
             if ($validation->passed()){
@@ -69,7 +68,8 @@ class RegisterController extends Controller{
                     'display' => 'ID',
                     'required' => true,
                     'unique' => 'users',
-                    'is_numeric'=>true
+                    'is_numeric'=>true,
+                    'exist'=> 'offender,offender_id'
                 ],
                 'username' => [
                     'display' => 'Username',
