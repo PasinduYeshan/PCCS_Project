@@ -38,5 +38,14 @@ class TrafficOfficer extends Model{
         return $this->find($conditions);
     }
 
+    public function findByIDandOfficerID($id_no,$officer_id,$params=[]){
+        $conditions = [
+            'conditions' => 'id_no = ? AND police_id = ?',
+            'bind' => [$id_no,$officer_id]
+        ];
+        $conditions = array_merge($conditions,$params);
+        return $this->find($conditions);
+    }
+
 
 }
