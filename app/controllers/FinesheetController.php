@@ -55,6 +55,7 @@ class FinesheetController extends Controller {
     }
 
     public function detailsAction() {
+        $finesheets = null;
         if ($_POST){
             if (!empty(trim($_POST['id_no'])) && empty(trim($_POST['sheet_no']))){
                 $finesheets = $this->FinesheetModel->findById(trim($_POST['id_no']),['order'=>'sheet_no']);
@@ -64,9 +65,12 @@ class FinesheetController extends Controller {
             }
             elseif (empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no']))){
                 $finesheets = $this->FinesheetModel->findByFinesheet(trim($_POST['sheet_no']),['order'=>'sheet_no']);
+            }else{
+                $finesheets = null;
             }
             $this->view->finesheets = $finesheets;
         }
+        $this->view->finesheets = $finesheets;
         $this->view->controller = lcfirst($this->_controller);
         $this->view->render('finesheet/details');
     }

@@ -29,7 +29,7 @@
             <th></th>
             </thead>
             <tbody>
-            <?php if ($_POST){ foreach ($this->finesheets as $finesheet):?>
+        <?php if ($_POST && $this->finesheets != null){ foreach ($this->finesheets as $finesheet):?>
                 <tr>
 
                     <td><?= $finesheet->sheet_no; ?></td>
