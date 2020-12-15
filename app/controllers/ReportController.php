@@ -11,17 +11,35 @@ class ReportController extends Controller{
 
 
     public function overallreportAction(){
-
-           if ($_POST && $_POST['start_date'] != "" && $_POST['end_date'] != "" && $_POST['start_date']<$_POST['end_date']){
-                $overallReport = new OverallReport($_POST['start_date'],$_POST['end_date']);
-                $branchGroup = new BranchGroup(); //BranchGroup
-                $branchGroup->accept($overallReport);
-                $reportArray = $overallReport->getReportArray();
-                $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
-                $heading="OVERALL REPORT";
-                $this->overallPdfReport($offenceWithCounts,$heading);
+           $validation = new Validate();
+           if ($_POST){
+                $validation->check($_POST,[
+                    'start_date'=>[
+                        'display'=>'Start Date',
+                        'required'=> true,
+                        'future_date_check'=> '*'
+                    ],
+                    'end_date' =>[
+                        'display' => 'End Date',
+                        'required'=> true,
+                        'future_date_check' => '*'
+                    ]
+                ]);
+                if (($_POST['start_date'])>$_POST['end_date'] && $_POST['end_date']!=""){ //last condition because otherwise even if we only select start_date error msg displayed
+                   $validation->addError("Start date cannot be ahead of the end date");
+                }
+                if ($validation->passed()){
+                    $overallReport = new OverallReport($_POST['start_date'],$_POST['end_date']);
+                    $branchGroup = new BranchGroup(); //BranchGroup
+                    $branchGroup->accept($overallReport);
+                    $reportArray = $overallReport->getReportArray();
+                    $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
+                    $heading="OVERALL REPORT";
+                    $this->overallPdfReport($offenceWithCounts,$heading);
+                }
 		        
          	}
+        $this->view->displayErrors = $validation->displayErrors();
         $this->view->render('report/overallreport');
 
     }
@@ -52,34 +70,72 @@ class ReportController extends Controller{
 	 }
      
     public function branchreportAction(){
-    if(currentUser()->acl=='["BranchOIC"]'){
+        $validation = new Validate();
+        if(currentUser()->acl=='["BranchOIC"]'){
             $oic = new OIC();
             $branch = new BranchDomain($oic->findById(currentUser()->id)[0]->branch);
-            if ($_POST && $_POST['start_date'] != "" && $_POST['end_date'] != "" && $_POST['start_date']<$_POST['end_date']){
-            $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
-            $branch->accept($branchReport);
-            $reportArray = $branchReport->getReportArray();
-            $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
-            $heading="BRANCH REPORT - ".$branch->getBranchName();
-            $this->branchPdfReport($offenceWithCounts,$heading);
+            if ($_POST){
+                $validation->check($_POST,[
+                    'start_date'=>[
+                        'display'=>'Start Date',
+                        'required'=> true,
+                        'future_date_check'=> '*'
+                    ],
+                    'end_date' =>[
+                        'display' => 'End Date',
+                        'required'=> true,
+                        'future_date_check' => '*'
+                    ]
+                ]);
+                if (($_POST['start_date'])>$_POST['end_date'] && $_POST['end_date']!=""){
+                    $validation->addError("Start date cannot be ahead of the end date");
+                }
+                if ($validation->passed()){
+                    $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
+                    $branch->accept($branchReport);
+                    $reportArray = $branchReport->getReportArray();
+                    $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
+                    $heading="BRANCH REPORT - ".$branch->getBranchName();
+                    $this->branchPdfReport($offenceWithCounts,$heading);
+                }
+
             
             }
         }
         else if (currentUser()->acl=='["HigherOfficer"]'){
             $branchModel = new Branch();
             $this->view->branchlist = $branchModel->findAll();
-            if ($_POST && $_POST['start_date'] != "" && $_POST['end_date'] != "" && $_POST['start_date']<$_POST['end_date']){
-                $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
-                if($_POST['branch']){
+            if ($_POST){
+                $validation->check($_POST,[
+                    'start_date'=>[
+                        'display'=>'Start Date',
+                        'required'=> true,
+                        'future_date_check'=> '*'
+                    ],
+                    'end_date' =>[
+                        'display' => 'End Date',
+                        'required'=> true,
+                        'future_date_check' => '*'
+                    ]
+                ]);
+                if (($_POST['start_date'])>$_POST['end_date'] && $_POST['end_date']!=""){
+                    $validation->addError("Start date cannot be ahead of the end date");
+                }
+                if (!isset($_POST['branch'])){
+                    $validation->addError(["Please select a branch",'branch']);
+                }
+                if ($validation->passed()){
+                    $branchReport = new BranchReport($_POST['start_date'],$_POST['end_date']);
                     $branch = new BranchDomain($_POST['branch']); //BranchGroup
                     $branch->accept($branchReport);
                     $reportArray = $branchReport->getReportArray();
-            $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
-            $heading="BRANCH REPORT - ".$branch->getBranchName();
-            $this->branchPdfReport($offenceWithCounts,$heading);
+                    $offenceWithCounts=$this->FinalArrayGenerate($reportArray);
+                    $heading="BRANCH REPORT - ".$branch->getBranchName();
+                    $this->branchPdfReport($offenceWithCounts,$heading);
                 }
             }
         }
+        $this->view->displayErrors = $validation->displayErrors();
         $this->view->render('report/branchreport');
     }
 
