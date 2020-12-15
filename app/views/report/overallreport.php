@@ -4,7 +4,7 @@
 <div class="col-md-8 col-md-offset-2 well formUnderNav">
     <h2 class="text-center">Enter Time Period</h2>
     <hr>
-    <form class="form" action="" method="post" target="_self">
+    <form class="form" action="" method="post" target="_top">
         <div class="bg-danger form-errors"><?=$this->displayErrors?></div>
         <?= inputBlock('date','Select start date','start_date','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
         <?= inputBlock('date','Select end date','end_date','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>

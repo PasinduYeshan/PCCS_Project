@@ -29,6 +29,8 @@ class BranchOICController extends UserController{
             }
             elseif (empty(trim($_POST['id_no'])) && !empty(trim($_POST['officer_id_no']))){
                 $officerM = $trafficOfficerModel->findByOfficerId(trim($_POST['officer_id_no']));
+            }else{
+                $officerM = null;
             }
             if($officerM != null){
                 $id_number = $officerM[0]->id_no;
@@ -44,6 +46,7 @@ class BranchOICController extends UserController{
                 $officer = null;
                 $this->view->finesheets = null;
                 $this->view->branchName = null;
+
             }
             
             
