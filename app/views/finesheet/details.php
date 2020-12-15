@@ -5,6 +5,7 @@
         <h2 class="text-center">Fine Sheet Details</h2>
         <hr>
         <form class="form" action="" method="post">
+            <div class="bg-danger form-errors"><?=$this->displayErrors?></div>
             <?= inputBlock('text','Enter ID no','id_no','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
             <?= inputBlock('text','Enter Finesheet no','sheet_no','',['class'=>'form-control'],['class'=>'form-group col-md-6']); ?>
             <div class="col-md-12 text-right">

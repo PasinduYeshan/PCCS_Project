@@ -55,21 +55,33 @@ class FinesheetController extends Controller {
     }
 
     public function detailsAction() {
+        $validation = new Validate();
         $finesheets = null;
         if ($_POST){
-            if (!empty(trim($_POST['id_no'])) && empty(trim($_POST['sheet_no']))){
+            $validation->check($_POST,[
+                'id_no'=>[
+                    'display'=>'ID No',
+                    'exist'=> 'offender,offender_id'
+                ],
+                'sheet_no' =>[
+                    'display' => 'Finesheet',
+                    'exist' => 'finesheet,sheet_no'
+                ]
+            ]);
+            if (!empty(trim($_POST['id_no'])) && empty(trim($_POST['sheet_no'])) && $validation->passed()){
                 $finesheets = $this->FinesheetModel->findById(trim($_POST['id_no']),['order'=>'sheet_no']);
             }
-            elseif (!empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no']))){
+            elseif (!empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no'])) && $validation->passed()){
                 $finesheets = $this->FinesheetModel->findByIDandFinesheet(trim($_POST['id_no']),trim($_POST['sheet_no']),['order'=>'sheet_no']);
             }
-            elseif (empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no']))){
+            elseif (empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no'])) && $validation->passed()){
                 $finesheets = $this->FinesheetModel->findByFinesheet(trim($_POST['sheet_no']),['order'=>'sheet_no']);
             }else{
                 $finesheets = null;
             }
             $this->view->finesheets = $finesheets;
         }
+        $this->view->displayErrors = $validation->displayErrors();
         $this->view->finesheets = $finesheets;
         $this->view->controller = lcfirst($this->_controller);
         $this->view->render('finesheet/details');
