@@ -23,7 +23,7 @@ class RegisterController extends Controller{
                     'display' => "Password",
                     'required' => true
                 ]
-            ]);
+            ],true);
             if ($validation->passed()){
                 $user=$this->UsersModel->findByUsername($_POST['username']);
                 //dnd($user);
@@ -95,7 +95,7 @@ class RegisterController extends Controller{
                     'required' => true,
                     'matches' => 'password'
                 ]
-            ]);
+            ],true);
 
             if ($validation->passed()){
                 $newUser = new Users();
@@ -138,7 +138,7 @@ class RegisterController extends Controller{
                     'required' => true,
                     'matches' => 'newpassword'
                 ]
-            ]);
+            ],true);
             if ($validation->passed()){
                 $user=$this->UsersModel->findByUsername(currentUser()->username);
                 if ($user && password_verify(Input::get('password'),$user->password)){
