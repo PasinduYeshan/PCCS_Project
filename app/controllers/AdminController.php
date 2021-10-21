@@ -10,6 +10,12 @@ class AdminController extends Controller{
 
     public function registerUserAction(){
         $validation = new Validate();
+        $userTypes = ['["Offender"]'=>['table'=>'offender','field'=>'offender_id'],
+                    '["TrafficOfficer"]'=>['table'=>'traffic_officer','field'=>'id_no'],
+                    '["HigherOfficer"]'=>['table'=>'dig','field'=>'id_no'],
+                    '["BranchOIC"]'=>['table'=>'oic','field'=>'id_no'],
+                    '["PaymentOfficer"]'=>['table'=>'payment_officer','field'=>'id_no']
+        ];
         $posted_values = ['fname'=>'','lname'=>'','username'=>'','email'=>'','password'=>'','confirm'=>'' , 'id' => ''];
         if ($_POST){
             $posted_values = posted_values($_POST);
@@ -26,7 +32,8 @@ class AdminController extends Controller{
                     'display' => 'ID',
                     'required' => true,
                     'unique' => 'users',
-                    'is_numeric'=>true
+                    'is_numeric'=>true,
+                    'exist'=>(isset($_POST['acl']))?$userTypes[$_POST['acl']]['table'].','.$userTypes[$_POST['acl']]['field']:''
                 ],
                 'username' => [
                     'display' => 'Username',
@@ -53,6 +60,9 @@ class AdminController extends Controller{
                     'matches' => 'password'
                 ]
             ]);
+            if (!isset($_POST['acl'])){
+                $validation->addError(["Please select a user type",'acl']);
+            }
 
             if ($validation->passed()){
                 $newUser = new Users();

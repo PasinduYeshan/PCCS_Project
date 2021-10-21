@@ -21,10 +21,9 @@ class RegisterController extends Controller{
                 ],
                 'password' => [
                     'display' => "Password",
-                    'required' => true,
-                    'min' => 6
+                    'required' => true
                 ]
-            ]);
+            ],true);
             if ($validation->passed()){
                 $user=$this->UsersModel->findByUsername($_POST['username']);
                 //dnd($user);
@@ -69,7 +68,8 @@ class RegisterController extends Controller{
                     'display' => 'ID',
                     'required' => true,
                     'unique' => 'users',
-                    'is_numeric'=>true
+                    'is_numeric'=>true,
+                    'exist'=> 'offender,offender_id'
                 ],
                 'username' => [
                     'display' => 'Username',
@@ -95,7 +95,7 @@ class RegisterController extends Controller{
                     'required' => true,
                     'matches' => 'password'
                 ]
-            ]);
+            ],true);
 
             if ($validation->passed()){
                 $newUser = new Users();
@@ -138,7 +138,7 @@ class RegisterController extends Controller{
                     'required' => true,
                     'matches' => 'newpassword'
                 ]
-            ]);
+            ],true);
             if ($validation->passed()){
                 $user=$this->UsersModel->findByUsername(currentUser()->username);
                 if ($user && password_verify(Input::get('password'),$user->password)){

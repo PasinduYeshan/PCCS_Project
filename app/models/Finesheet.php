@@ -52,12 +52,14 @@ class Finesheet extends Model{
         'licence_no' => [
             'display' => 'Licence No',
             'required' => true,
-            'max' => 15
+            'max' => 15,
+            'exist' => 'licence,licence_no'
         ],
         'id_no' => [
             'display' => 'ID No',
             'required' => true,
-            'max' => 15
+            'max' => 15,
+            'exist'=>'offender,offender_id'
         ]
     ];
 

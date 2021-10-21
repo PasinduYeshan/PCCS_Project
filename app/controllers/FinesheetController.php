@@ -28,6 +28,12 @@ class FinesheetController extends Controller {
             $finesheet->assign($_POST);
             //Finesheet::$addValidation['fine']['max_value'] = (int)$offence->findById($_POST['offence'])[0]->fine;
             $validation->check($_POST, Finesheet::$addValidation);
+            if (!isset($_POST['offence'])){
+                $validation->addError(["Please select an offence",'offence']);
+            }
+            if (!isset($_POST['vehicletype'])){
+                $validation->addError(["Please select a vehicle type",'vehicletype']);
+            }
             // $validation->check($_POST['offence'],$offence->getValidation());        //
             if ($validation->passed()){                 //
                 $finesheet->officer_id = $trafficOfficer->findById(currentUser()->id)[0]->police_id;
@@ -35,7 +41,7 @@ class FinesheetController extends Controller {
                 $finesheet->due_date = date('Y-m-d',strtotime($finesheet->fine_date. ' + 7 days'));
                 $finesheet->offence = implode(",",$_POST['offence']);
                 $finesheet->save();
-                Session::addMsg('info',"Succefully Updated");
+                Session::addMsg('info',"Finesheet Added Successfully");
                 Router::redirect('trafficofficer/add');
             }
 
@@ -49,18 +55,34 @@ class FinesheetController extends Controller {
     }
 
     public function detailsAction() {
+        $validation = new Validate();
+        $finesheets = null;
         if ($_POST){
-            if (!empty(trim($_POST['id_no'])) && empty(trim($_POST['sheet_no']))){
+            $validation->check($_POST,[
+                'id_no'=>[
+                    'display'=>'ID No',
+                    'exist'=> 'offender,offender_id'
+                ],
+                'sheet_no' =>[
+                    'display' => 'Finesheet',
+                    'exist' => 'finesheet,sheet_no'
+                ]
+            ]);
+            if (!empty(trim($_POST['id_no'])) && empty(trim($_POST['sheet_no'])) && $validation->passed()){
                 $finesheets = $this->FinesheetModel->findById(trim($_POST['id_no']),['order'=>'sheet_no']);
             }
-            elseif (!empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no']))){
+            elseif (!empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no'])) && $validation->passed()){
                 $finesheets = $this->FinesheetModel->findByIDandFinesheet(trim($_POST['id_no']),trim($_POST['sheet_no']),['order'=>'sheet_no']);
             }
-            elseif (empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no']))){
+            elseif (empty(trim($_POST['id_no'])) && !empty(trim($_POST['sheet_no'])) && $validation->passed()){
                 $finesheets = $this->FinesheetModel->findByFinesheet(trim($_POST['sheet_no']),['order'=>'sheet_no']);
+            }else{
+                $finesheets = null;
             }
             $this->view->finesheets = $finesheets;
         }
+        $this->view->displayErrors = $validation->displayErrors();
+        $this->view->finesheets = $finesheets;
         $this->view->controller = lcfirst($this->_controller);
         $this->view->render('finesheet/details');
     }

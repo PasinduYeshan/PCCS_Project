@@ -13,6 +13,7 @@
             <div class="card-body">
                 <h2 class="card-title text-center">Log In</h2>
                 <form class="form form-signin" action="<?=PROOT?>register/login" method="post">
+                     <?= csrfInput() ?>
                     <div class="bg-light text-danger form-errors"><?=$this->displayErrors?></div>
                     <div class="form-label-group">
                         <!-- <label for="username">Username</label> -->
